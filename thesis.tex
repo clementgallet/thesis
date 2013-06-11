@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{article}
+\documentclass[a4paper,11pt]{report}
 
 \usepackage[french]{babel}
 \usepackage[latin1]{inputenc}
@@ -89,6 +89,70 @@
 
 
 \section{Introduction}
+
+\chapter{Physiopathologie de la FA}
+
+\chapter{Détection automatique de la FA}
+
+\section{Chez l'homme}
+
+Chez l'homme, de nombreuses méthodes de détection automatique de la fibrillation atriale ont été developpées. Ces méthodes se sont surtout concentrées à la détection sur un enregistrement de Holter. Ces méthodes peuvent être classées en deux catégories :
+
+\begin{itemize}
+\item les méthodes basées sur l'analyse de l'intervalle RR
+\item les méthodes basées sur la forme des ondes
+\end{itemize}
+
+La grande majorité des méthodes se basent sur une même structure qui comprend cinq étapes :
+\begin{enumerate}
+\item prétraitement du signal ECG
+\item détection des ondes R
+\item extraction de paramètres
+\item réduction des paramètres
+\item classification
+\end{enumerate}
+
+\subsection{Structure}
+
+\subsubsection{Prétraitement}
+
+Les signaux d'ECG enregistrés contiennent plusieurs sources de bruits qui nuisent à l'identification des arythmies. La première étape consiste généralement à réduire au maximum ces bruits. Une méthode consiste à filtrer le signal en ne gardant qu'une certaine bande de fréquence. Cette méthode ne permet pas de séparer les différentes sources, car le signal et les différentes sources de bruit partagent des composantes fréquentielles communes (Fig).
+
+\subsubsection{Détection des ondes R}
+
+La deuxième étape consiste à détecter les ondes R présentes dans le signal ECG. De nombreuses méthodes existent pour effectuer cette détection [ref]. Une des méthodes les plus utilisés est la méthode de Pan et Tompkins [ref]. Cette méthode consiste à transformer le signal brut en un signal qui met en avant les complexes QRS. La transformation du signal est constituée de 4 étapes :
+\begin{enumerate}
+\item filtrage passe-bas
+\item dérivée
+\item mise au carré
+\item filtrage passe-bas
+\end{enumerate}
+
+A partir du signal transformé, les pics sont detectés, ce qui donne la localisation des complexes QRS. La dernière étape consiste à detecter les ondes R sur le signal original comme les maxima à l'intérieur des complexes QRS. 
+
+\subsubsection{Extraction de paramètres}
+
+Pour distinguer la fibrillation atriale du rythme sinusal, un certain nombre de paramètres sont extraits du signal ECG.
+
+La première catégorie de paramètres sont dérivés de l'intervalle RR. Le signal temporel constitué des intervalles RR successifs est caractérisé entre autres par une irrégularité, qui peut être estimé à l'aide de différents index. En plus des index communs de variabilité sinusale comme le SDNN ou le RMSSD, on trouve des index plus spécifique à la détection de l'irrégularité comme l'entropie [ref] [Fig avec ecg AF et calcul de l'entropie].
+
+La deuxième catégorie de paramètres quantifie la forme du tracé ECG. Une des analyses de forme la plus utilisée est la transformée en ondelettes discrète. Celle-ci permet d'exprimer la forme du tracé par un ensemble restreint d'indices, donnant les caracteristiques du signal à différentes echelles.
+
+\subsubsection{Réduction de paramètres}
+
+Certaines méthodes calculent un grand nombre de paramètres. Parmi ces paramètres, tous n'ont pas une égale importance. En effet, certains paramètres peuvent être redondants, ou certains paramètres peuvent avoir de très petites variations, ce qui les rends inefficaces pour distriminer l'arythmie du rhythme sinusal. Il existe ainsi une méthode commune pour réduire le nombre de paramètres, sans réduire la capacité de discrimination de l'ensemble de ces paramètres : l'analyse en composantes principales.
+
+Cette méthode fait appel à des outils d'analyse vectorielle. L'ensemble des n paramètres est représenté par un point dans un espace à n dimensions. L'ensemble des echantillons donne donc un nuage de points dans cet espace.
+
+La direction principale de cette espace est la direction qui explique le mieux variabilité que prennent les valeurs des paramètres, en maximisant la variance. La composante principale
+
+Ensuite, la direction principale de cet espace est déterminée algébriquement, celle qui explique le mieux la variance.
+
+\subsubsection{Classification}
+
+- clusters
+- reseaux de neurones
+- machine à vecteurs de support
 
 \addcontentsline{toc}{section}{Références}
 % \bibliographystyle{mystyle}
