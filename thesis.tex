@@ -5,7 +5,8 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsfonts}
 \usepackage{amsmath}
-\usepackage{cite}
+% \usepackage{cite}
+\usepackage{natbib}
 \usepackage{enumerate}
 \usepackage{mathrsfs}
 \usepackage[pdftex]{graphicx}
@@ -119,41 +120,70 @@ La grande majorité des méthodes se basent sur une même structure qui comprend qu
 
 Avant la détection proprement dite des arythmies, le signal ECG subit une série de traitements qui vise à rendre possible ou à améliorer l'identification des arythmies.
 
-Une première catégorie de traitements, qui n'est pas exclusive à la détection d'arythmies, consiste à réduire les différentes sources de bruit. Un signal ECG peut présenter une flucturation de la ligne de base, une interférence avec l'électromyogramme ou des artefacts de mouvement. La méthode la plus simple de réduction de ces bruits consistent en un filtrage dans une certaine bande de fréquence \citep{aytemir99, yaghouby10, asl08}. Toutefois, cette méthode n'élimine que partiellement les différentes sources de bruit, car les composantes fréquentielles sont communes avec le signal ECG \citep{tompkins93}. D'autres méthodes plus complexes \citep{blanco08, afonso96, thakor91, kara07, kim09} permettent d'améliorer la réduction des bruits.
+Une première catégorie de traitements, qui n'est pas exclusive à la détection d'arythmies, consiste à réduire les différentes sources de bruit. Un signal ECG peut présenter une flucturation de la ligne de base, une interférence avec l'électromyogramme ou des artefacts de mouvement. La méthode la plus simple de réduction de ces bruits consistent en un filtrage dans une certaine bande de fréquence \citep{aytemir99, yaghouby10, asl08}. Toutefois, cette méthode n'élimine que partiellement les différentes sources de bruit, car les composantes fréquentielles sont communes avec le signal ECG (Figure \ref{AS_ECG}, \citep{tompkins93}). D'autres méthodes plus complexes \citep{blanco08, afonso96, thakor91, kara07, kim09} permettent d'améliorer la réduction des bruits.
 
-[Figure tompkins93]
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/AS_ECG.png}
+	\caption{Densité spectrale de puissance des complexes QRS, des ondes P et T et de plusieurs sources de bruit, après moyennage sur 150 battements (D'après \citet{tompkins93}.}
+	\label{AS_ECG}
+\end{figure}
 
 Pour les méthodes se basant sur l'intervalle RR, il est nécessaire dans un deuxième temps de détecter les ondes R. De nombreuses méthodes existent pour effectuer cette détection \citep{kohler02}. Une des méthodes les plus utilisées est la méthode de \citet{pan85}. Cette méthode consiste à transformer le signal brut en un signal qui met en avant les complexes QRS. La transformation du signal est constituée de 4 étapes :
 \begin{enumerate}
-\item filtrage passe-bas
+\item filtrage passe-bande
 \item dérivée
 \item mise au carré
-\item filtrage passe-bas
+\item intégrateur
 \end{enumerate}
 
-A partir du signal transformé, les pics sont detectés, ce qui donne la localisation des complexes QRS. La dernière étape consiste à detecter les ondes R sur le signal original comme les maxima à l'intérieur des complexes QRS. 
+A partir du signal transformé, les pics sont detectés, ce qui donne la localisation des complexes QRS. La dernière étape consiste à detecter les ondes R sur le signal original comme les maxima à l'intérieur des complexes QRS (Figure \ref{QRSDetection}.
 
-[Figure Pan85]
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/QRSDetection.png}
+	\caption{Différentes étapes de l'algorithme de détection des QRS. (a) Signal original. (b) Résultat du filtre passe-bande. (c) Résultat de la dérivée. (d) Résultat de la mise au carré. (e) Résultat de l'intégration fenétrée. (f) Signal original décalé pour compenser le décalage de l'ensemble des transformations. (g) Emplacement des complexes detectés. (D'après \citet{pan85}.}
+	\label{QRSDetection}
+\end{figure}
+
 
 \subsubsection{Extraction de paramètres}
 
 Après traitement du signal, plusieurs paramètres sont calculés, étant susceptibles de prendre des valeurs différentes en fonction de la présence ou l'absence d'arythmies.
 
-Une première famille de paramètres sont dérivés de l'intervalle RR. Le signal temporel constitué des intervalles RR successifs est caractérisé lors d'un épisode de fibrillation atriale par une irrégularité, qui peut être estimée à l'aide de différents indices. On retrouve les indices communs de variabilité sinusale comme le SDNN, RMSSD, la puissance spectrale dans certaines bandes de fréquence, ainsi que les index non linéaires (entropie, tracé de Poincaré, exposant de Lyapunov). on trouve des index plus spécifique à la détection de l'irrégularité comme l'entropie [ref] [Fig avec ecg AF et calcul de l'entropie].
-refs: yaghouby10, asl08
-[ref Jovic12 pour beaucoup de refs là dessus]
+Une première famille de paramètres sont dérivés de l'intervalle RR. Le signal temporel constitué des intervalles RR successifs est caractérisé lors d'un épisode de fibrillation atriale par une irrégularité, qui peut être estimée à l'aide de différents indices. On retrouve les indices communs de variabilité sinusale comme le SDNN, le RMSSD ou la puissance spectrale dans certaines bandes de fréquence \citep{asl08, yaghouby10}. D'autres indices, non linéaires, sont aussi utilisés comme l'entropie \citep{staniczenko09, lake11, langley12}, l'exposant de Lyapunov ou les indices dérivés du tracé de Poincaré \citep{asl08}.
 
-La deuxième catégorie de paramètres quantifie la forme du tracé ECG. Une des analyses de forme la plus utilisée est la transformée en ondelettes discrète. Celle-ci permet d'exprimer la forme du tracé par un ensemble restreint d'indices, donnant les caracteristiques du signal à différentes echelles.
+[Figure avec calcul du sample entropy à partir d'un enregistrement du MIT-BIH Atrial Fibrillation Database]
+
+La deuxième catégorie de paramètres quantifie la forme du tracé ECG. Une des analyses de forme la plus utilisée est la transformée en ondelettes. Celle-ci permet d'exprimer la forme du tracé par un ensemble restreint d'indices, donnant les caracteristiques du signal à différentes echelles. \citep{alfahoum99, ubeyli07}
+
+alfahoum99
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/Wavelets.png}
+	\caption{Un tracé ECG de fibrillation atriale, avec sa décomposition en ondelettes discrètes utilisant l'ondelette Daubechies 4. Les cinq premières composantes de la décomposition (d1-d5) sont illustrées, ainsi que le reste du signal (a5) (D'après \citet{alfahoum99}.}
+	\label{QRSDetection}
+\end{figure}
+
 
 \subsubsection{Réduction de paramètres}
 
-Certaines méthodes calculent un grand nombre de paramètres. Parmi ces paramètres, tous n'ont pas une égale importance. En effet, certains paramètres peuvent être redondants, ou avoir de très petites variations, ce qui les rends inefficaces pour discriminer l'arythmie du rhythme sinusal. Il existe ainsi une méthode commune pour réduire le nombre de paramètres, sans réduire la capacité de discrimination de l'ensemble de ces paramètres : l'analyse en composantes principales.
+Certaines méthodes calculent un grand nombre de paramètres. Parmi ces paramètres, tous n'ont pas une égale importance. En effet, certains paramètres peuvent être redondants, d'autres peuvent avoir une faible puissance discriminative. Le fait d'avoir un très grand nombre de paramètres est nefaste pour l'étape de classification, en augmentant la complexité du modèle et en diminuant son efficacité. C'est pourquoi il peut être important de diminuer le nombre de paramètres.
 
-Cette méthode fait appel à des outils d'analyse vectorielle. L'ensemble des n paramètres est représenté par un point dans un espace à n dimensions. L'ensemble des echantillons donne donc un nuage de points dans cet espace.
+Une méthode classique de réduction du nombre de paramètres est l'analyse en composantes principales. Cette méthode géométrique permet de transformer un grand nombre de paramètres initiaux en un faible nombre de nouveaux paramètres appelées les composantes principales. Ces composantes principales ont deux caractéristiques : elles sont à la fois décorrélés les unes des autres, et elles conservent la plus grande partie de la variabilité initiale.
 
-La direction principale de cette espace est la direction qui explique le mieux variabilité que prennent les valeurs des paramètres, en maximisant la variance. La composante principale
+La première composante principale est définie par la direction de dispersion maximale des valeurs, et chaque composante principale successive est définie par la direction de dispersion maximale restante (non expliquée par les composantes précédentes).
 
-Ensuite, la direction principale de cet espace est déterminée algébriquement, celle qui explique le mieux la variance.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/PCA.jpg}
+	\caption{Un tracé ECG de fibrillation atriale, avec sa décomposition en ondelettes discrètes utilisant l'ondelette Daubechies 4. Les cinq premières composantes de la décomposition (d1-d5) sont illustrées, ainsi que le reste du signal (a5) (D'après \citet{alfahoum99}.}
+	\label{QRSDetection}
+\end{figure}
+
+
+[Image PCA tirée de jehan05]
 
 
 generalized discriminant analysis (GDA) [Asl08]
@@ -161,17 +191,31 @@ Improved forward floating selection (IFFS) [Yaghouby10]
 
 \subsubsection{Classification}
 
-- clusters
-- reseaux de neurones
-- machine à vecteurs de support
+Les valeurs des paramètres sont ensuite utilisées pour classer le tracé ECG comme présentant une arythmie ou non. Les algorithmes de classification d'arythmies font généralement l'objet d'une phase d'apprentissage. L'algorithme est entrainé dans un premier temps sur des tracés dont la nature de l'arythmie est connue, pour en déterminer les caractéristiques. Ensuite, l'algorithme est appliqué sur des tracés ECG de nature inconnue pour les classer.
 
+Un exemple d'algorithme de classification est la machine à vecteur de support \citep{jovic12, ubeyli07, asl08}. Cette méthode est basée sur une représentation géometrique de l'ensemble des paramètres. Les valeurs des paramètres représentent les coordonnées d'un point dans un espace. Lors de la phase d'apprentissage, on obtient groupes de points, selon que le tracé ECG correspondant présente une arythmie ou non. Si le choix des paramètres est judicieux, les deux groupes de points sont séparés dans l'espace. Dans la version simple de l'algorithme, il est supposé que les groupes de points de chaque catégorie sont linéairement séparables (par une droite dans un espace à deux dimensions, par un plan dans un espace à trois dimensions, etc.). L'algorithme détermine alors la meilleure frontière entre les deux groupes de points, celle dont la marge est maximale. La marge est définie comme la zone autour de la frontière qui ne contient aucun point. Lors de la phase de classification, cette frontière est utilisée pour classer les points dans l'une ou l'autre des catégories.
+
+[Figure SVM1 winters07]
+
+En pratique, les groupes de points sont rarement linéairement séparables. Pour pouvoir séparer les groupes, les points sont projetés dans un nouvel espace de plus grande dimension, où les groupes de points sont plus susceptibles d'être linéairement séparables.
+
+[Figure SVM2 verplancke08]
+
+- reseaux de neurones [Kara07]
+- machine à vecteurs de support [Jovic12, ubeyli07, asl08]
+
+
+\subsection{DB}
+
+Article Staniczenko09 disagreements with annotations
 
 \section{A mettre}
 
 Figure1 Taneto01 pour illustration de la limitation de considérer un segment d'intervalle RR.
 
 \addcontentsline{toc}{section}{Références}
-% \bibliographystyle{mystyle}
+% \bibliographystyle{these}
+\bibliographystyle{plainnat}
 \bibliography{thesis}
 
 \end{document}
