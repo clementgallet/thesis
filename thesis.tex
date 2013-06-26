@@ -210,6 +210,8 @@ En pratique, les groupes de points sont rarement linéairement séparables. Pour p
 	\label{SVM2}
 \end{figure}
 
+- refs svm af: Detection of atrial fibrillation episodes using SVM; Support Vector Machine Classifier with Feature Extraction Stage as an Efficient Tool for Atrial Fibrillation Detection Improvement
+
 - reseaux de neurones [Kara07]
 
 \subsection{Validation et performance}
@@ -218,8 +220,22 @@ Après avoir mis au point un algorithme de détection d'arythmies, il est nécessai
 
 La solution majoritairement utilisée consiste à se servir de bases de données en libre accès, et en particulier la banque PhysioBank \citep{PhysioNet}. Cette banque contient des bases de données d'enregistrements de signaux physiologiques chez des patients sains ou atteints de diverses pathologies. La base de données MIT-BIH Atrial Fibrillation Database est utilisée en particulier, présentant 23 enregistrements Holter de 10 heures contenant des épisodes de fibrillation atriale paroxystique, et incluant les annotations des différentes arythmies. L'avantage d'utiliser une base de données centrale est que les résultats de différents algorithmes peuvent être comparés entre eux \citep{yaghouby10, jovic12}. Par contre, plusieurs études sont en désaccord avec certaines annotations présentes dans ces bases de données \citep{tateno00, staniczenko09}.
 
-La quantification de la performance d'un algorithme se fait dans un premier temps par le décompte des bonnes et mauvaises détections. Sont décomptés le nombre de cas arythmiques détectés comme arythmiques (VP, vrais positifs), le nombre de cas arythmiques détectés comme non arythmiques (FN, faux négatifs), le nombre de cas non arythmiques détectés comme arythmiques (FP, faux positifs) et le nombre de cas non arythmiques détectés comme non arythmiques (VN, vrais négatifs). A partir de ces quatre valeurs, les indices de sensibilité (VP/(VP/FN)), de spécificité (VN/(VN+FP)) ou de valeur prédictive positive (VP/(VP+FP)) sont généralement calculés pour apprécier la performance de l'algorithme. La sensibilité peut être interprétée comme la probabilité de détecter une arythmie lorsqu'elle est présente, la spécificité comme la probabilité de détecter un rythme sinusal lorsqu'il est présent. Ce deuxième indice est souvent remplacé par la valeur prédictive positive, qui correspond à la probabilité qu'une arythmie détectée soit correcte. Toutefois, au contraire des deux premiers indices, la valeur positive prédictive dépend de la prévalence de l'arythmie \citep{koeppel12}. Dans la plupart des études, les valeurs de ces indices sont supérieures à 0,90.
+La quantification de la performance d'un algorithme se fait dans un premier temps par le décompte des bonnes et mauvaises détections. Sont décomptés le nombre de cas arythmiques détectés comme arythmiques (VP, vrais positifs), le nombre de cas arythmiques détectés comme non arythmiques (FN, faux négatifs), le nombre de cas non arythmiques détectés comme arythmiques (FP, faux positifs) et le nombre de cas non arythmiques détectés comme non arythmiques (VN, vrais négatifs). A partir de ces quatre valeurs, les indices de sensibilité (VP/(VP/FN)), de spécificité (VN/(VN+FP)) ou de valeur prédictive positive (VP/(VP+FP)) sont généralement calculés pour apprécier la performance de l'algorithme. La sensibilité peut être interprétée comme la probabilité de détecter une arythmie lorsqu'elle est présente, et la spécificité comme la probabilité de détecter un rythme sinusal lorsqu'il est présent. Ce deuxième indice est souvent remplacé par la valeur prédictive positive, qui correspond à la probabilité qu'une arythmie détectée soit correcte. Toutefois, au contraire des deux premiers indices, la valeur positive prédictive dépend de la prévalence de l'arythmie \citep{koeppel12}. Dans la plupart des études, les valeurs de ces indices sont supérieures à 0,90.
 
+
+\section{Chez l'animal}
+
+- boixel03 : rat, AF, Chart v4.1.2' (PowerLab, AdInstruments, Colo-rado Springs, Colorado)
+- chui09 : comparaison entre 3 softs (pas d'arymthies).
+- lyon11 : rat, VF, ECG-Auto  2.4  software
+- Baltogiannis05 : rat, VF+VT, visual
+- Milliez05 : rat, ESA, ECG-Auto software (EMKA technologies, France)
+- London98 : souris, V, visual
+- Ouvrard05 : souris, ESV-VT, ECG-Auto program (EMKA Technologies)
+- Opitz95 : rat, VT-VF, custom (<300 ou >500 bpm).
+- Anselme07 : rat, ESV, EMKA ECG-Auto 1.5.12.0
+- Farraj09 : rat, many, ECGAuto software (EMKA Technologies) 
+- London03 : souris, many, visual + custom [tracé AF souris]
 
 \section{A mettre}
 
