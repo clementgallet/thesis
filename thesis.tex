@@ -10,6 +10,7 @@
 \usepackage{enumerate}
 \usepackage{mathrsfs}
 \usepackage[pdftex]{graphicx}
+\usepackage[strings]{underscore} % for underscores in urls in bibtex
 % \usepackage{appendix}
 % \usepackage{todonotes}
 % \usepackage[top=1in, bottom=1.5in, left=1.46in, right=1.46in]{geometry}
@@ -220,22 +221,78 @@ Après avoir mis au point un algorithme de détection d'arythmies, il est nécessai
 
 La solution majoritairement utilisée consiste à se servir de bases de données en libre accès, et en particulier la banque PhysioBank \citep{PhysioNet}. Cette banque contient des bases de données d'enregistrements de signaux physiologiques chez des patients sains ou atteints de diverses pathologies. La base de données MIT-BIH Atrial Fibrillation Database est utilisée en particulier, présentant 23 enregistrements Holter de 10 heures contenant des épisodes de fibrillation atriale paroxystique, et incluant les annotations des différentes arythmies. L'avantage d'utiliser une base de données centrale est que les résultats de différents algorithmes peuvent être comparés entre eux \citep{yaghouby10, jovic12}. Par contre, plusieurs études sont en désaccord avec certaines annotations présentes dans ces bases de données \citep{tateno00, staniczenko09}.
 
-La quantification de la performance d'un algorithme se fait dans un premier temps par le décompte des bonnes et mauvaises détections. Sont décomptés le nombre de cas arythmiques détectés comme arythmiques (VP, vrais positifs), le nombre de cas arythmiques détectés comme non arythmiques (FN, faux négatifs), le nombre de cas non arythmiques détectés comme arythmiques (FP, faux positifs) et le nombre de cas non arythmiques détectés comme non arythmiques (VN, vrais négatifs). A partir de ces quatre valeurs, les indices de sensibilité (VP/(VP/FN)), de spécificité (VN/(VN+FP)) ou de valeur prédictive positive (VP/(VP+FP)) sont généralement calculés pour apprécier la performance de l'algorithme. La sensibilité peut être interprétée comme la probabilité de détecter une arythmie lorsqu'elle est présente, et la spécificité comme la probabilité de détecter un rythme sinusal lorsqu'il est présent. Ce deuxième indice est souvent remplacé par la valeur prédictive positive, qui correspond à la probabilité qu'une arythmie détectée soit correcte. Toutefois, au contraire des deux premiers indices, la valeur positive prédictive dépend de la prévalence de l'arythmie \citep{koeppel12}. Dans la plupart des études, les valeurs de ces indices sont supérieures à 0,90.
+La quantification de la performance d'un algorithme se fait dans un premier temps par le décompte des bonnes et mauvaises détections. Sont décomptés le nombre de cas arythmiques détectés comme arythmiques (VP, vrais positifs), le nombre de cas arythmiques détectés comme non arythmiques (FN, faux négatifs), le nombre de cas non arythmiques détectés comme arythmiques (FP, faux positifs) et le nombre de cas non arythmiques détectés comme non arythmiques (VN, vrais négatifs). A partir de ces quatre valeurs, les indices de sensibilité (VP/(VP+FN)), de spécificité (VN/(VN+FP)) ou de valeur prédictive positive (VP/(VP+FP)) sont généralement calculés pour apprécier la performance de l'algorithme. La sensibilité peut être interprétée comme la probabilité de détecter une arythmie lorsqu'elle est présente, et la spécificité comme la probabilité de détecter un rythme sinusal lorsqu'il est présent. Ce deuxième indice est souvent remplacé par la valeur prédictive positive, qui correspond à la probabilité qu'une arythmie détectée soit correcte. Toutefois, au contraire des deux premiers indices, la valeur positive prédictive dépend de la prévalence de l'arythmie \citep{koeppel12}. Dans la plupart des études, les valeurs de ces indices sont supérieures à 0,90.
 
 
-\section{Chez l'animal}
+\section{Chez le rat}
+
+
+Dans une première catégorie d'études, les arythmies sont détectées visuellement. C'est le cas dans les études où la période d'analyse est courte, comme après un entrainement atrial \citep{haugan04} ou la ligature d'une artère coronaire \citep{baltogiannis05}. D'autres études, lorsque la période d'analyse est plus longue, segmentent les enregistrements et analysent uniquement certains segments \citep{nadziejko04, koeppel12}. La détection des ondes R et le calcul des intervalles RR peuvent aider à la détection, notamment en fixant des seuils. Par exemple, dans l'étude de \citet{opitz95}, les arythmies sont recherchées visuellement lorsque l'intervalle RR (converti en fréquence cardiaque) sort de l'intervalle 300-500 bpm. L'analyse visuelle montre ses limites dans l'étude de \citet{carre92}, où le trop grand nombre d'arythmies supraventriculaires empeche un comptage exhaustif (Figure \ref{esarat}).
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/ecgratcarre.png}
+	\caption{Tracé ECG chez un rat controle sénescent (22 mois), montrant un grand nombre d'extrasystoles supraventriculaires (D'après \citet{carre92}).}
+	\label{esarat}
+\end{figure}
+
+
+Dans le cas d'enregistrements télémétriques de longue durée, plusieurs études utilisent des logiciels commerciaux pour la détection d'arythmies \citep{boixel03, lyon11, milliez05, anselme07, farraj09}. Au moins trois logiciels proposent l'analyse de tracés ECG chez le rat : LabChart (ADInstruments) avec le module ECG Analysis \citep{labchart}, ecgAUTO (emka TECHNOLOGIES) \citep{ecgauto} et ARR30a (NOTOCORD) \citep{arr30a} (Figures \ref{ecgauto}-\ref{arr30a}. Le logiciel de NOTOCORD permis de réaliser une étude qui analyse des tracés ECG dans cinq espèces (primate, chien, cochon, cobaye et rat) \citep{koeppel12}. L'étude compare l'analyse visuelle avec la détection automatique fournie par le logiciel, qui permet de détecter cinq types d'arythmies. Cette étude rapporte une plus grande difficulté à traiter les tracés ECG de rat par rapport à ceux d'autres espèces, notamment du fait de la présence d'ondes P de faible amplitude. De même, la majorité des arythmies présentes sont des arythmies ventriculaires, seuls 40 battements ectopiques d'origine atriale sont présents. Pour ces trois logiciels du commerce, la méthode utilisée pour la détection des arythmies n'est pas décrite précisément. Il est juste indiqué que les logiciels utilisent à la fois la forme des ondes et la variation des intervalles RR pour classer les tracés. Une seule étude a comparé l'analyse ECG des logiciels de ces trois sociétés \citep{chui09}, chez le chien, mais cette étude n'inclut pas la détection d'arythmies.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/ecgAUTO.png}
+	\caption{Capture du logiciel ecgAUTO traitant une enregistrement ECG chez le chien.}
+	\label{ecgauto}
+\end{figure}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/ARR30a.png}
+	\caption{Capture du logiciel ARR30a.}
+	\label{arr30a}
+\end{figure}
+
+
+Les études développant un algorithme personnalisé entièrement automatisé de détection des arythmies sont très rares. L'équipe de \citet{sgoifo94, sgoifo97} a développé une méthode basée sur les intervalles RR chez le rat, mais sans décrire cette méthode. De même, l'équipe de \citet{london03} a developpé un algorithme de détection après avoir analysé des tracés ECG chez la souris, sans description de cette méthode.
+
+Chez le chien, une méthode de détection basée sur la forme des ondes est décrite \cite{sugiura98}, mais elle concerne uniquement les arythmies ventriculaires.
+
+Chez le rat, une étude montre une application de la dynamique symbolique à la détection des arythmies \citep{letellier04}. Les intervalles RR sont classés dans trois groupes, chaque groupe étant représenté par un symbole : RR court = 0, RR normal = 1, RR long = 2. La série des intervalles RR successifs est alors converti en une suite de symboles. L'occurence d'une extrasystole étant caractérisée par un intervalle RR court suivi d'un intervalle RR long, la séquence de symboles correspondante est $...11102111...$.
+
+En considérant les séquences de 5 symboles consécutifs, il existe 243 combinaisons possibles. En comptant le nombre d'occurences de chaque séquence, on obtient une répartition permettant de dresser un profil arythmique (Figure \ref{symbolic}).
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/symbolic.PNG}
+	\caption{Nombre d'occurences de chaque séquence de cinq symboles chez un rat controle et un rat atteint d'une insuffisance cardiaque}
+	\label{symbolic}
+\end{figure}
+
+Cette méthode permet de montrer le profil arythmique global d'un tracé ECG, mais ne permet pas de détecter individuellement chaque arythmie. De plus, le choix des bornes pour classer les intervalles RR n'est pas explicité.
+
+
+- Baltogiannis05 : rat, VF+VT, visual
+- Nadziejko04 : rat, many, visual
+- Haugan04 : rat, AF, visual
 
 - boixel03 : rat, AF, Chart v4.1.2' (PowerLab, AdInstruments, Colo-rado Springs, Colorado)
-- chui09 : comparaison entre 3 softs (pas d'arymthies).
-- lyon11 : rat, VF, ECG-Auto  2.4  software
-- Baltogiannis05 : rat, VF+VT, visual
+- Lyon11 : rat, VF, ECG-Auto  2.4  software
 - Milliez05 : rat, ESA, ECG-Auto software (EMKA technologies, France)
-- London98 : souris, V, visual
-- Ouvrard05 : souris, ESV-VT, ECG-Auto program (EMKA Technologies)
-- Opitz95 : rat, VT-VF, custom (<300 ou >500 bpm).
 - Anselme07 : rat, ESV, EMKA ECG-Auto 1.5.12.0
 - Farraj09 : rat, many, ECGAuto software (EMKA Technologies) 
+
+- Opitz95 : rat, VT-VF, custom (<300 ou >500 bpm).
+- Sgoifo97 : rat, many, custom
+sgoifo94
+
+- Chui09 : comparaison entre 3 softs (pas d'arymthies).
 - London03 : souris, many, visual + custom [tracé AF souris]
+- London98 : souris, V, visual
+- Ouvrard05 : souris, ESV-VT, ECG-Auto program (EMKA Technologies)
+
+
+Automatic discrimination of arrhythmia waveforms using fuzzy logic (chien)
 
 \section{A mettre}
 
