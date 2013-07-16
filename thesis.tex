@@ -118,7 +118,7 @@ Les parois du c\{oe}ur sont constituées principalement de cellules musculaires s
 \item [La diastole :] le c\{oe}ur entier est relaxé pour permettre un remplissage sanguin.
 \end{description}
 
-La contraction cardiaque est déclenchée par une impulsion éléctrique qui se propage le long de fibres musculaires. Cette impulsion est générée par le n\{oe}ud sinusal, situé dans la paroi de l'oreillette droite. Elle parcourt ensuite les voies de conduction intra-auriculaires jusqu'au n\{oe}ud auriculo-ventriculaire, provoquant la contraction des oreillettes. Ce n\{oe}ud bloque l'impulsion pendant un court instant, puis la transmet au faisceau de His, puis aux fibres de Purkinje provoquant la contraction des ventricules (Figure \ref{conduction}).
+La contraction cardiaque est déclenchée par une dépolarisation des cardiomyocytes, qui se propage de proche en proche ainsi que le long de fibres musculaires. Cette dépolarisation est générée par le n\{oe}ud sinusal, situé dans la paroi de l'oreillette droite. Elle parcourt ensuite les voies de conduction intra-auriculaires jusqu'au n\{oe}ud auriculo-ventriculaire, provoquant la contraction des oreillettes. Ce n\{oe}ud bloque l'impulsion pendant un court instant, puis la transmet au faisceau de His, puis aux fibres de Purkinje provoquant la contraction des ventricules (Figure \ref{conduction}).
 
 \begin{figure}[h]
 	\centering
@@ -127,7 +127,72 @@ La contraction cardiaque est déclenchée par une impulsion éléctrique qui se prop
 	\label{conduction}
 \end{figure}
 
-Le n\{oe}ud sinusal possède la propriété d'automaticité, elle se dépolarise à intervalles réguliers (définissant la période cardiaque) sans cause extérieure. Cependant, cette période cardiaque peut être modulée, principalement par l'action du système nerveux autonome.
+Le n\{oe}ud sinusal possède la propriété d'automaticité, elle se dépolarise à intervalles réguliers (définissant la période cardiaque) sans cause extérieure. Cependant, cette période cardiaque peut être modulée, principalement par l'action du système nerveux autonome (SNA). Les deux branches du SNA ont un effet antagoniste sur la fréquence cardiaque : le système parasympathique diminue la fréquence cardiaque et le système sympathique l'augmente. Le SNA agit aussi sur d'autres facteurs cardiaques : le système sympathique augmente la force de contraction, et les deux systèmes diminuent la période refractaire.
+
+
+\subsection{Enregistrement électrocardiographique}
+
+Comme le corps est électriquement conducteur, les différences de potentiel subies par chaque cellule se propagent dans toutes les directions et peuvent être enregistrées à distance à l'aide d'éléctrodes. L'ensemble de ces enregistrements forme l'électrocardiograme (ECG). Il existe deux modes d'utilisation des électrodes : bipolaire et unipolaire. Le mode bipolaire utilise deux électrodes placées à deux endroits et mesure la différence de potentiel entre ces deux zones. Au contraire, le mode unipolaire mesure la différence entre une électrode et un point de référence, qui peut être pris comme une mesure éloignée de la zone d'intérêt, ou une moyenne de plusieurs électrodes. Un enregistrement dans l'un de ces modes est appelé une dérivation de l'ECG.
+
+Chez l'homme, il existe deux principales méthodes d'enregistrement de l'ECG : l'ECG à douze dérivations et le Holter. L'ECG à douze dérivations est consitué de :
+
+\begin{enumerate}
+\item trois dérivations bipolaires (DI, DII et DIII), en plaçant des électrodes sur le bras gauche, le bras droit et la jambe gauche, et en mesurant la différence entre les trois couples d'électrodes ;
+\item trois dérivations unipolaires (aVR, aVL et aVF), qui utilisent les mêmes électrodes, mais en mesurant la différence entre une électrode et la moyenne des deux autres ;
+\item six dérivations unipolaires dites précordiales (V1-V6), placées sur le thorax (Figure \ref{ecg12}.
+\end{enumerate}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/ecg12.jpg}
+	\caption{Schéma de l'emplacement des 12 dérivations classiques d'un ECG.}
+	\label{ecg12}
+\end{figure}
+
+Au contraire de l'ECG douze dérivations, le Holter permet un enregistrement ambulatoire de longue durée sur au moins 24 heures. Il est constitué le plus souvent de 5 ou 7 électrodes, permettant d'enregistrer deux ou trois dérivations bipolaires (la dernière électrode servant de neutre). Les électrodes sont positionnées sur le thorax, avec un emplacement pouvant varier selon la pathologie suspectée chez le patient.
+
+TODO: Figure.
+
+TODO: Animaux
+
+\subsection{Interprétation de l'ECG}
+
+Lors d'un cycle cardiaque, la dépolarisation et repolarisation du c\{oe}ur se traduisent sur un enregistrement ECG par une serie d'ondes (Figure \ref{ecgondes} : 
+
+\begin{enumerate}
+\item L'onde P est une onde positive de faible amplitude et arrondie. Elle correspond à la dépolarisation des oreillettes.
+\item Le complexe QRS est un ensemble de trois ondes. Elle correspond à la dépolarisation des ventricules.
+\item L'onde T est une onde positive et alongée, correspondant à la repolarisation des ventricules.
+\end{enumerate}
+
+En dehors de ces ondes, le signal ECG est normalement plat, et est appelé la ligne isoélectrique.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/ecgondes.gif}
+	\caption{Schéma d'un tracé ECG lors d'un cycle cardiaque.}
+	\label{ecgondes}
+\end{figure}
+
+Plusieurs intervalles entre les ondes peuvent être mesurés, ce qui permet de caractériser le cycle cardiaque et de déceler des anomalies :
+
+\begin{enumeration}
+\item L'intervalle PR correspond au delai entre la dépolarisation auriculaire et ventriculaire. Il donne ainsi la mesure du temps de propagation de la dépolarisation entre les oreilletes et les ventricules.
+\item L'intervalle QT est mesuré depuis le début du complexe QRS jusqu'à la fin de l'onde R.
+\item Le segment ST est le segment reliant le complexe QRS à l'onde T. Il correspond à la période de dépolarisation ventriculaire et suit la ligne isoélectrique.
+\item L'intervalle RR mesure la période cardiaque.
+\end{enumeration}
+
+
+Lors d'un enregistrement, des artéfacts peuvent apparaître sur le tracé, qui n'ont pas comme origine l'activité électrique cardiaques. Ces artéfacts peuvent rendre plus difficile la lecture des tracés, et altérer l'efficacité des traitements automatiques.
+
+\begin{description}
+\item [Artefects de mouvement :] les oreillettes se contractent et ejectent le sang dans les ventricules.
+\item
+
+\end{description}
+
+
 
 
 
