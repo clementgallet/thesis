@@ -108,7 +108,7 @@ Le c\{oe}ur est un organe dont la contraction assure la circulation du sang dans
 	\label{anatomie}
 \end{figure}
 
-http://www.cardiologiedesenfants.be/bon-coeur-coeur-malade/coeur-normal/coeur-normal.html
+% http://www.cardiologiedesenfants.be/bon-coeur-coeur-malade/coeur-normal/coeur-normal.html
 
 Les parois du c\{oe}ur sont constituées principalement de cellules musculaires spécialisées appelées cardiomyocytes. La contraction organisée et périodique de ces cellules forme le battement cardiaque. Celui-ci est constitué de trois étapes :
 
@@ -127,7 +127,7 @@ La contraction cardiaque est déclenchée par une dépolarisation des cardiomyocyte
 	\label{conduction}
 \end{figure}
 
-Le n\{oe}ud sinusal possède la propriété d'automaticité, elle se dépolarise à intervalles réguliers (définissant la période cardiaque) sans cause extérieure. Cependant, cette période cardiaque peut être modulée, principalement par l'action du système nerveux autonome (SNA). Les deux branches du SNA ont un effet antagoniste sur la fréquence cardiaque : le système parasympathique diminue la fréquence cardiaque et le système sympathique l'augmente. Le SNA agit aussi sur d'autres facteurs cardiaques : le système sympathique augmente la force de contraction, et les deux systèmes diminuent la période refractaire.
+Le n\{oe}ud sinusal possède la propriété d'automatisme, elle se dépolarise à intervalles réguliers (définissant la période cardiaque) sans cause extérieure. Cependant, cette période cardiaque peut être modulée, principalement par l'action du système nerveux autonome (SNA). Les deux branches du SNA ont un effet antagoniste sur la fréquence cardiaque : le système parasympathique diminue la fréquence cardiaque et le système sympathique l'augmente. Le SNA agit aussi sur d'autres facteurs cardiaques : le système sympathique augmente la force de contraction, et les deux systèmes diminuent la période refractaire.
 
 
 \subsection{Enregistrement électrocardiographique}
@@ -150,10 +150,6 @@ Chez l'homme, il existe deux principales méthodes d'enregistrement de l'ECG : l'
 \end{figure}
 
 Au contraire de l'ECG douze dérivations, le Holter permet un enregistrement ambulatoire de longue durée sur au moins 24 heures. Il est constitué le plus souvent de 5 ou 7 électrodes, permettant d'enregistrer deux ou trois dérivations bipolaires (la dernière électrode servant de neutre). Les électrodes sont positionnées sur le thorax, avec un emplacement pouvant varier selon la pathologie suspectée chez le patient.
-
-TODO: Figure.
-
-TODO: Animaux
 
 \subsection{Interprétation de l'ECG}
 
@@ -183,13 +179,26 @@ Plusieurs intervalles entre les ondes peuvent être mesurés, ce qui permet de car
 \item L'intervalle RR mesure la période cardiaque.
 \end{enumeration}
 
+Ces intervalles varient selon l'espèce chez laquelle l'ECG est enregistré. Par exemple, l'intervalle QT chez le cochon est très grand, et le segment ST chez le rat est inexistant (Figure \ref{ecganimaux}.
 
-Lors d'un enregistrement, des artéfacts peuvent apparaître sur le tracé, qui n'ont pas comme origine l'activité électrique cardiaques. Ces artéfacts peuvent rendre plus difficile la lecture des tracés, et altérer l'efficacité des traitements automatiques.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/ecganimaux.gif}
+	\caption{Enregistrement ECG des voies I, II et III chez un chien, un cochon et un singe. Le chien a une arythmie respiratoire sinusale prononcée, le cochon a un intervalle QT long et le singe une fréquence cardiaque rapide (D'apreès \citet{hamlin05})}
+	\label{ecganimaux}
+\end{figure}
 
-\begin{description}
-\item [Artefects de mouvement :] 
-\item
-\end{description}
+Lors d'un enregistrement, des artéfacts peuvent apparaître sur le tracé, qui n'ont pas comme origine l'activité électrique cardiaque. Ces artéfacts peuvent rendre plus difficile la lecture des tracés, et altérer l'efficacité des traitements automatiques (Figure \ref{artefactchien}). On peut observer une fluctuation de la ligne de base, qui peut être due à un déplacement des électrodes. Cette fluctuation est généralement corrigée avant chaque traitement automatisé des enregistrements. De même, des artéfacts ponctuels peuvent présenter des variations très importantes et très rapides, occultant les ondes du cycle cardiaque. Ces artéfacts sont plus difficiles à séparer des ondes générées par l'activité cardiaque, car ils partagent les mêmes caractéristiques fréquentielles.
+
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/artefactchien.png}
+	\caption{ (D'apreès \citet{stern13})}
+	\label{artefectchien}
+\end{figure}
+
+
 
 \subsection{Physiopathologie de la fibrillation atriale}
 
@@ -207,14 +216,66 @@ Différentes formes cliniques de la FA sont observées, et ont été classées en plu
 
 La FA progresse généralement de courts et rares épisodes à des épisodes plus longs et fréquents. Il a été montré que près de 9 \% des patients progressent d'une FA paroxystique à une FA permanente dans l'année après le premier diagnostique, et près de 25 \% dans les cinq ans \citep{kerr05}.
 
-La FA est caractérisée sur un tracé ECG par les caractéristiques suivantes :
+Le diagnostique de FA se fait par l'enregistrement d'un ECG (Figure \ref{ecgfa}). La FA est caractérisée sur un tracé ECG par les caractéristiques suivantes :
+
 \begin{enumerate}
 \item Les intervalles RR sont irréguliers et ne suivent pas de motifs répétitifs ;
 \item Il n'y a pas d'ondes P distinctes ;
 \item L'intervalle entre deux activations atriales est variable et inférieur à 200 ms.
 \end{enumerate}
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/ecgfa.jpg}
+	\caption{Enregistrement ECG 12 dérivations présentant une fibrillation atriale.}
+	\label{ecgfa}
+\end{figure}
 
+Plusieurs mécanismes ont été proposés pour expliquer la survenue et la perpétuation de la FA, comme des foyers ectopiques, des rotors ou des ondelettes multiples \citep{eckstein08}. Plusieurs mécanismes peuvent coexister chez un même patient.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/mecanismesfa.jpg}
+	\caption{Schémas des oreillettes droite et gauche illustrant les différentes hypothèses du mécanisme de la fibrillation atriale (D'après \citet{eckstein08}.}
+	\label{ecgfa}
+\end{figure}
+
+La génèse d'une arythmie cardiaque dépend de trois facteurs qui composent le triangle de Coumel \citep{farre04} : un substrat arythmogène, un déclencheur et une modification du milieu. Ces trois facteurs sont associés au déclenchement et à la perpétuation de la fibrillation atriale : des anomalités structurelles qui permettent les circuits de réentrée, des foyers ectopiques principalement autour des veines pulmonaires, et un déséquilibre du système nerveux autonome.
+
+Le principal objectif dans le traitement de la fibrillation atriale est de prévenir les complications sévères, principalement les accidents thrombo-emboliques. Le score CHA2DS2VASc a été proposé pour aider à estimer le risque embolique d'un patient \citep{camm10}. Ce score associe un ou deux points à la présence d'un facteur de risque : insuffisance cardiaque, hypertension artérielle, âge, diabète, pathologie vasculaire. Si le score est supérieur à 2, il est recommendé de mettre en place un traitement chronique par un anticoagulant oral. Ensuite, le traitement de la FA fait l'objet de deux stratégies : un controle de la fréquence cardiaque ou un controle du rythme cardiaque. Il n'a pas été montré qu'une stratégie était supérieure à l'autre en termes d'espérence de vie \citep{kong10}. Le controle de la fréquence cardiaque est obtenu principalement par l'utilisation de beta-bloquants, d'antagonistes calciaques ou de la digoxine. Le controle du rythme cardiaque peut être obtenu par plusieurs approches. Certains médicaments bloquant les canaux sodiques, potassiques ou calciques ont un effet antiarythmique. Cependant, l'efficacité de ces produits reste modeste, et ils peuvent avoir des effets pro-arythmiques. Le controle du rythme peut aussi être obtenu par une ablation des veines pulmonaires, mais cette méthode souffre d'un taux élevé de réapparition (25 \% sur 5 ans \citep{shah08}).
+
+
+\subsection{Modèles animaux de fibrillation atriale}
+
+La première méthode pour obtenir une FA soutenue chez l'animal est l'entrainement électrique atrial. L'entrainement provoque un remodelage atrial en raccourcissant la période réfractaire, et de manière hétérogène. Ce remodelage augmente la vulnérabilité à l'induction de la FA et sa perpétuation \citep{wijffels95}.
+
+L'insuffisance cardiaque, une des causes cliniques principales de FA, a été étudié dans des modèles expérimentaux de chien et de mouton \citep{li99, tanaka07}. Dans ces modèles, l'insuffisance cardiaque est induite par un entrainement du ventricule droit pendant plusieurs semaines. La période réfractaire atriale est inchangée dans ces modèles, mais l'insuffisance cardiaque induit de la fibrose qui entraine des zones de conduction lente et stabilise les circuits de réentrée.
+
+\subsubsection{Modèles muridés de fibrillation atriale}
+
+Les arythmies possédant des circuits de réentrée sont généralement considérées comme restreintes aux grand animaux, car la perpétuation de ces arythmies nécessite une masse cardiaque minimale. En conséquence, la fibrillation atriale est considérée comme impossible chez le rat ou la souris. Cependant, des modèles de tachyarythmies atriales ont été développés chez ces espèces.
+
+Chez le rat, une plus grande susceptibilité aux arythmies atriales a été rapportée sur des c\{oe}urs isolés perfusés de rats agés spontanément hypertendus (de souche SHR) par rapport aux jeunes SHRs et aux controles normotendus \citep{choisy07}. Les SHRs agés ont développé un substrat arythmogène avec une fibrose de l'oreillette gauche et une augmentation de la période réfractaire.
+
+Chez le rat anesthésié, l'asphyxie augmente l'incidence d'arythmies atriales par entrainement électrique \citep{haugan04}, ce qui peut être dû à une augmentation du tonus sympathique et/ou parasympathique (Figure \ref{ratfa}).
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/ratfa.jpg}
+	\caption{Enregistrements d'ECG d'\{oe}sophage, d'ECG de surface et de pression artérielle chez un rat, après entrainement électrique atrial lors d'une asphyxie. (A) Complexe atrial ; (V) complexe ventriculaire (D'après \citet{haugan04}.}
+	\label{ratfa}
+\end{figure}
+
+De même, Ono et coll. \citep{ono07} ont rapporté des arythmies atriales après perfusion d'une solution de Tyrode sur des c\{oe}urs isolés. Cette solution altère la recapture des ions calciums par de réticulum sarcoplasmique, ce qui provoque des EAD autour des veines pulmonaires.
+
+Quelques études ont porté sur des modeles transgéniques de souris. Chez la souris knock-out pour le gène Cx40 d'une connexine, des arythmies atriales ont pu être provoquées sur 63 \% des animaux par entrainement trans\{oe}sophagien \citep{hagendorff99}. De même, des souris exprimant l'inhibiteur de l'enzyme de conversion uniquement au niveau cardiaque fait des arythmies atriales de manière spontanée \citep{xiao04}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{images/sourisfa.jpg}
+	\caption{Enregistrements ECG télémétriques chez (A) une souris controle et (B) une souris exprimant l'inhibiteur de l'enzyme de conversion uniquement au niveau cardiaque. Le deuxième enregistrement montre des complexes QRS de faible amplitude, aucune onde P visible et des intervalles RR irréguliers (D'après \citet{xiao04}.}
+	\label{sourisfa}
+\end{figure}
 
 \section{Détection automatique de la FA}
 
