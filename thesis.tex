@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{report}
+\documentclass[a4paper,12pt]{report}
 
 \usepackage[french]{babel}
 \usepackage[latin1]{inputenc}
@@ -72,7 +72,7 @@
 
 
 
-\section*{Résumé}
+\chapter*{Résumé}
 
 \newpage
 
@@ -91,59 +91,61 @@
 % Introduction
 % ==========================
 
-\chapter{Partie bibliographique}
+\part{Partie bibliographique}
 
-\subsection{Introduction}
+% \section{Introduction}
 
-\section{Physiopathologie de la fibrillation atriale}
+\chapter{Physiopathologie de la fibrillation atriale}
 
-\subsection{Anatomie fonctionnelle cardiaque}
+\section{Anatomie fonctionnelle cardiaque}
 
-Le c\{oe}ur est un organe dont la contraction assure la circulation du sang dans le système vasculaire. Il est constitué de deux parties séparées par une cloison musculaire appelée septum, et chaque partie est composée de deux cavités : une oreillette et un ventricule. Un valve présente entre les deux cavités assure un passage unidirectionnel du sang de l'oreillette vers le ventricule. Le c\{oe}ur est relié au reste de la cirulation par un ensemble d'artères et de veines (Figure \ref{anatomie}). D'autres valves sont présentes entre le ventricule droit et l'artère pulmonaire, ainsi qu'entre le ventricule gauche et l'artère aorte, pour éviter un reflux sanguin vers le c\{oe}ur. La c\{oe}ur droit amène le sang pauvre en oxygène vers les poumons. La c\{oe}ur gauche fournit le sang oxygène à l'ensemble des circulations régionales de l'organisme. 
+Le c{\oe}ur est un organe dont la contraction assure la circulation du sang dans le système vasculaire. Il est constitué de deux parties séparées par une cloison musculaire appelée septum, et chaque partie est composée de deux cavités : une oreillette et un ventricule. Un valve présente entre les deux cavités assure un passage unidirectionnel du sang de l'oreillette vers le ventricule. Le c{\oe}ur est relié au reste de la cirulation par un ensemble d'artères et de veines (Figure \ref{anatomie}). D'autres valves sont présentes entre le ventricule droit et l'artère pulmonaire, ainsi qu'entre le ventricule gauche et l'artère aorte, pour éviter un reflux sanguin vers le c{\oe}ur. La c{\oe}ur droit amène le sang pauvre en oxygène vers les poumons. La c{\oe}ur gauche fournit le sang oxygène à l'ensemble des circulations régionales de l'organisme. 
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/coeur.png}
-	\caption{Schéma anatomique du c\{oe}ur humain. (1) oreillette droite ; (2) oreillette gauche ; (3) veine cave supérieure ; (4) aorte ; (5) artère pulmonaire ; (6) veine pulmonaire ; (7) valve mitrale ; (8) valve aortique ; (9) ventricule gauche ; (10) ventricule droit ; (11) veine cave inférieure ; (12) valve tricuspide ; (13) valve sigmoïde.}
+	\caption{Schéma anatomique du c{\oe}ur humain. (1) oreillette droite ; (2) oreillette gauche ; (3) veine cave supérieure ; (4) aorte ; (5) artère pulmonaire ; (6) veine pulmonaire ; (7) valve mitrale ; (8) valve aortique ; (9) ventricule gauche ; (10) ventricule droit ; (11) veine cave inférieure ; (12) valve tricuspide ; (13) valve sigmoïde.}
 	\label{anatomie}
 \end{figure}
 
-Les parois du c\{oe}ur sont constituées principalement de cellules musculaires spécialisées appelées cardiomyocytes. La contraction synchronisée et périodique de ces cellules forme le battement cardiaque. Celui-ci est constitué de trois étapes :
+\subsection{Le cycle cardiaque}
+
+Les parois du c{\oe}ur sont constituées principalement de cellules musculaires spécialisées appelées cardiomyocytes. La contraction synchronisée et périodique de ces cellules forme le battement cardiaque. Celui-ci comporte trois étapes :
 
 \begin{description}
 \item [La systole auriculaire :] les oreillettes se contractent et ejectent le sang dans les ventricules.
 \item [La systole ventriculaire :] les ventricules se contractent et ejectent le sang vers les circulations pulmonaire et systémique.
-\item [La diastole :] le c\{oe}ur entier est relaxé pour permettre le remplissage sanguin.
+\item [La diastole :] le c{\oe}ur entier est relaxé pour permettre le remplissage sanguin.
 \end{description}
 
-La contraction cardiaque est déclenchée par une dépolarisation des cardiomyocytes, qui se propage de proche en proche. Cette dépolarisation est initiée par le n\{oe}ud sinusal, situé dans la paroi de l'oreillette droite (TODO image PA NS). Elle parcourt ensuite les voies de conduction intra-auriculaires (provoquant la contraction des oreillettes) jusqu'au n\{oe}ud auriculo-ventriculaire. Ce n\{oe}ud bloque l'impulsion pendant un court instant, puis la transmet, via le faisceau de His, aux fibres de Purkinje et enfin aux cardiomyocytes ventriculaires (Figure \ref{conduction}).
+La contraction cardiaque est déclenchée par une dépolarisation des cardiomyocytes, qui se propage de proche en proche. Cette dépolarisation est initiée par le n{\oe}ud sinusal, situé dans la paroi de l'oreillette droite (TODO image PA NS). Elle parcourt ensuite les voies de conduction intra-auriculaires (provoquant la contraction des oreillettes) jusqu'au n{\oe}ud auriculo-ventriculaire. Ce n{\oe}ud bloque l'impulsion pendant un court instant, puis la transmet, via le faisceau de His, aux fibres de Purkinje et enfin aux cardiomyocytes ventriculaires (Figure \ref{conduction}).
 
 
-
-
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/conduction.gif}
+	\includegraphics[width=\linewidth]{images/conduction.png}
 	\caption{Schema des voies de conduction cardiaque.}
 	\label{conduction}
 \end{figure}
 
-Le n\{oe}ud sinusal possède la propriété d'automatisme, c'est-à-dire qu'il se dépolarise spontanément à intervalle régulier (Figure \ref{pacemaker}), ce qui définit la période cardiaque. Cependant, cette période cardiaque peut être modulée, principalement sous l'effet d'influences nerveuses (système nerveux autonome, SNA) ou hormonales (hormones thyroïdiennes), ainsi que de variations de la température corporelle, de la kaliémie, etc. Les deux branches du SNA ont un effet opposé sur la fréquence cardiaque : l'activation parasympathique diminue la fréquence cardiaque alors que l'activation (ortho)sympathique l'augmente.
+\subsection{Le rôle du système nerveux autonome}
 
-Au niveau de l'oreillette, une stimulation vagale entraine un raccourcissement du potentiel d'action et de la période réfractaire (période pendant laquelle un nouveau potentiel d'action ne peut pas être provoqué) \citep{olshansky05}. De plus, cette diminution de la période réfractaire est hétérogène sur le tissue atrial, probablement à cause d'une distribution variable des terminaisons nerveuses vagales et des récepteurs à l'acétylcholine. Une stimulation sympathique réduit aussi la période réfractaire, mais dans une moindre mesure qu'une stimulation vagale. De plus, la réduction est plus homogène. Une activation simultanée des deux branches du SNA a un effet synergique sur la réduction du potentiel d'action et de la période réfractaire.
+Le n{\oe}ud sinusal possède la propriété d'automatisme, c'est-à-dire qu'il se dépolarise spontanément à intervalle régulier (Figure \ref{pacemaker}), ce qui définit la période cardiaque. Cependant, cette période cardiaque peut être modulée, principalement sous l'effet d'influences nerveuses (système nerveux autonome, SNA) ou hormonales (hormones thyroïdiennes), ainsi que de variations de la température corporelle, de la kaliémie, etc. Les deux branches du SNA ont un effet opposé sur la fréquence cardiaque : l'activation parasympathique diminue la fréquence cardiaque alors que l'activation (ortho)sympathique l'augmente.
 
-
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/pacemakercell.jpg}
-	\caption{Schéma de potentiels d'action d'une cellule du n\{oe}ud sinusal. Lorsque le potentiel passe au dessus d'un certain seuil, les canaux calciques et sodiques s'ouvrent, provoquant une entrée de ces cations dans la cellule et une dépolarisation rapide. Ensuite, les canaux potassiques s'ouvrent ce qui induit une repolarisation. Enfin, une dépolarisation lente, spécifique à ce type de cellule, augmente le potentiel jusqu'à atteindre à niveau le seuil de délanchement d'un potentiel d'action. Cette dépolarisation est responsable de l'activité automatique de la cellule.}
+	\includegraphics[width=\linewidth]{images/nodalpa.png}
+	\caption{Potentiel d'action d'une cellule nodale. Noter la dépolarisation diastolique lente dont la pente est augmentée au cours d'une activation sympathique (tracé en vert) et diminuée au cours d'une activation parasympathique (tracé en bleu).}
 	\label{pacemaker}
 \end{figure}
 
+Les oreillettes sont richement innervées par des fibres sympathiques et vagales, alors que les ventricules sont innervés surtout par des fibres sympathiques. Outre cette disparité anatomique, il existe également des différences importantes de la réponse physiologique, qui est beaucoup plus rapide pour les fibres cholinergiques (vagales) que pour les terminaisons adrénergiques (sympathiques). L'effet dynamique résultant est donc caractérisé par une hétérogénéité dans le temps et l'espace expliquant la complexité des interactions du système nerveux autonome sur le c{\oe}ur. Sur le plan électrophysiologique, la stimulation vagale raccourcit la période réfractaire (période pendant laquelle un nouveau potentiel d'action ne peut pas être provoqué ; \citep{olshansky05}) des oreillettes et la durée du PA, augmente la dispersion des périodes réfractaires et provoque une hyperpolarisation cellulaire ; de son côté, la stimulation sympathique, tout en raccourcissant la période réfractaire atriale et le PA, n'a pas d'effet sur l'hétérogénéité des périodes réfractaires. Lors d'une activation simultanée des deux systèmes, leurs effets sont synergiques. Or, dans la fibrillation atriale (FA), en particulier sur c{\oe}ur sain, il a été démontré que les principales anomalies du substrat arythmogène sont : des périodes réfractaires courtes ; une non-adaptation des périodes réfractaires à la fréquence cardiaque ; une dispersion géographique des périodes réfractaires, trois éléments fortement influencés par l'état du système nerveux autonome. Une notion fréquemment utilisée est la balance sympatho-vagale qui définit l'importance fonctionnelle relative des deux branches du SNA à un temps donnée. Elle peut être mesurée grâce à l'administration séquentielle d'antagonistes sélectifs des récepteurs cholinergiques et $\beta$-adrénergiques \citep{medigue01} ou à l'aide d'index tirés de l'analyse de la variabilité sinusale (voir Chapitre XXX).
 
-\subsection{Enregistrement électrocardiographique}
 
-Comme le corps est électriquement conducteur, les différences de potentiel présentes au niveau de chaque cellule sont susceptibles de se propager dans toutes les directions et peuvent être enregistrées à distance à l'aide d'éléctrodes. L'ensemble de ces enregistrements forme l'électrocardiograme (ECG) de surface. Il existe deux modes d'utilisation des électrodes : bipolaire et unipolaire. Le mode bipolaire utilise deux électrodes et mesure la différence de potentiel entre ces deux zones. Au contraire, le mode unipolaire mesure la différence entre une électrode et un point de référence, qui peut être pris comme une mesure éloignée de la zone d'intérêt, ou une moyenne de plusieurs électrodes. Un enregistrement dans l'un ou l'autre de ces modes est appelé une dérivation de l'ECG.
+
+\section{Enregistrement électrocardiographique}
+
+Comme le corps est électriquement conducteur, les différences de potentiel présentes au niveau de chaque cellule sont susceptibles de se propager dans toutes les directions et peuvent être enregistrées à distance à l'aide d'éléctrodes. L'ensemble de ces enregistrements forme l'électrocardiograme (ECG) de surface. Il existe deux modes d'utilisation des électrodes : bipolaire et unipolaire. Le mode bipolaire utilise deux électrodes et mesure la différence de potentiel entre ces deux électrodes. Au contraire, le mode unipolaire mesure la différence de potentiel entre une électrode et un point de référence, qui peut être pris comme une mesure éloignée de la zone d'intérêt, ou une moyenne de plusieurs électrodes. Une valeur mesurée dans l'un ou l'autre de ces modes est appelé une dérivation de l'ECG.
 
 Chez l'homme, il existe deux principales méthodes d'enregistrement de l'ECG : l'ECG à douze dérivations et le Holter. L'ECG à douze dérivations est consitué de :
 
@@ -153,18 +155,18 @@ Chez l'homme, il existe deux principales méthodes d'enregistrement de l'ECG : l'
 \item six dérivations unipolaires dites précordiales (V1-V6), placées sur le thorax (Figure \ref{ecg12}.
 \end{enumerate}
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/ecg12.jpg}
-	\caption{Schéma présentant les 12 dérivations classiques d'un ECG.}
+	\caption{Schéma présentant les 12 dérivations classiques d'un ECG humain.}
 	\label{ecg12}
 \end{figure}
 
 Au contraire de l'ECG à douze dérivations qui réclame l'immobilité du patient, le Holter permet un enregistrement ambulatoire de longue durée sur au moins 24 heures. Il est constitué le plus souvent de 5 ou 7 électrodes, permettant d'enregistrer deux ou trois dérivations bipolaires (la dernière électrode servant de point neutre). Les électrodes sont positionnées sur le thorax, avec un emplacement pouvant varier selon la pathologie suspectée chez le patient.
 
-\subsection{Interprétation de l'ECG}
+\section{Interprétation de l'ECG}
 
-Lors d'un cycle cardiaque, la dépolarisation et la repolarisation du c\{oe}ur se traduisent sur un enregistrement ECG par une serie d'ondes (Figure \ref{ecgondes} : 
+Lors d'un cycle cardiaque, la dépolarisation et la repolarisation du c{\oe}ur se traduisent sur un enregistrement ECG par une serie d'ondes (Figure \ref{ecgondes} : 
 
 \begin{enumerate}
 \item L'onde P est une onde positive de faible amplitude et arrondie. Elle correspond à la dépolarisation des oreillettes. Il existe un léger retard entre l'OD, qui se contracte en premier, et l'OG. Ce retard n'est normalement pas visible dans l'onde P.
@@ -174,47 +176,47 @@ Lors d'un cycle cardiaque, la dépolarisation et la repolarisation du c\{oe}ur se
 
 En dehors de ces ondes, le signal ECG est normalement plat, et constitue la ligne isoélectrique.
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/ecgondes.gif}
-	\caption{Schéma d'un tracé ECG lors d'un cycle cardiaque.}
+	\includegraphics[width=\linewidth]{images/ecgondes.png}
+	\caption{Schéma d'un tracé ECG lors d'un cycle cardiaque en DII.}
 	\label{ecgondes}
 \end{figure}
 
 Plusieurs intervalles entre les ondes peuvent être mesurés, ce qui permet de caractériser le cycle cardiaque et de déceler des anomalies :
 
-\begin{enumeration}
+\begin{enumerate}
 \item L'intervalle PR correspond au delai entre la dépolarisation auriculaire et ventriculaire. Il donne ainsi la mesure du temps de propagation de la dépolarisation entre les oreillettes et les ventricules.
 \item L'intervalle QT est mesuré depuis le début du complexe QRS jusqu'à la fin de l'onde T. Il renseigne sur la cinétique de repolarisation ventriculaire.
 \item L'intervalle RR mesure la période cardiaque.
-\end{enumeration}
+\end{enumerate}
 
-Ces intervalles varient selon l'espèce animale dans laquelle l'ECG est enregistré. Par exemple, l'intervalle QT chez le cochon est très long, et le segment ST chez le rat est inexistant (Figure \ref{ecganimaux}.
+Ces intervalles varient selon l'espèce animale dans laquelle l'ECG est enregistré. Par exemple, l'intervalle QT chez le porc est très long (Figure \ref{ecganimaux}), et le segment ST chez le rat est inexistant.
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/ecganimaux.gif}
-	\caption{Enregistrement ECG en DI, DII et DIII chez un chien, un cochon et un singe. Le chien a une arythmie respiratoire sinusale prononcée (allongement de l'intervalle RR pendant l'expiration), le cochon a un intervalle QT long et le singe une fréquence cardiaque rapide (D'après \citet{hamlin05}).}
+	\includegraphics[width=\linewidth]{images/ecganimaux.png}
+	\caption{Enregistrement ECG en DI, DII et DIII chez un chien, un porc et un singe. Le chien a une arythmie respiratoire sinusale prononcée (allongement de l'intervalle RR pendant l'expiration), le porc a un intervalle QT long et le singe un intervalle RR court, c'est-à-dire une fréquence cardiaque rapide (D'après \citet{hamlin05}).}
 	\label{ecganimaux}
 \end{figure}
 
 Lors d'un enregistrement, des artéfacts qui n'ont pas comme origine l'activité électrique cardiaque peuvent apparaître sur le tracé ECG. Ces artéfacts peuvent rendre plus difficile la lecture des tracés, et altérer l'efficacité des traitements automatiques. Dans la Figure \ref{artefactchien}, on peut observer une fluctuation de la ligne de base, qui peut être due à un déplacement des électrodes. Cette fluctuation est généralement corrigée avant chaque traitement automatisé des enregistrements. De même, des artéfacts ponctuels peuvent induire des variations du signal très importantes et rapides, occultant les ondes du cycle cardiaque. Ces artéfacts sont plus difficiles à séparer des ondes générées par l'activité cardiaque, car ils partagent les mêmes caractéristiques fréquentielles.
 
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/artefactchien.png}
-	\caption{Exemples de tracés ECG en DII chez le chien, classés manuellement en quatre niveaux de bruits, en fonction de l’amplitude et de la occurrence du bruit (D'apreès \citet{stern13}).}
+	\caption{Exemples de tracés ECG en DII chez le chien, classés visuellement en quatre niveaux de bruits, en fonction de la présence et de l'amplitude du bruit (D'apreès \citet{stern13}).}
 	\label{artefectchien}
 \end{figure}
 
 
 
-\subsection{Physiopathologie de la fibrillation atriale}
+\section{Physiopathologie de la fibrillation atriale}
 
-La fibrillation atriale (FA) est une anomalie du rythme cardiaque qui est caracterisée par des dépolarisations atriales irrégulières et rapides, avec pour conséquence une perte de la systole atriale \citep{falk01}. Par conséquent, la contraction des ventricules est elle aussi irrégulière et généralement rapide, tant que le n\{oe}ud AV conduit l'impulsion électrique.
+La FA est une anomalie du rythme cardiaque qui est caracterisée par des dépolarisations atriales irrégulières et rapides, avec pour conséquence une perte de la systole atriale \citep{falk01}. Par conséquent, la contraction des ventricules est elle aussi irrégulière et généralement rapide, tant que le n{\oe}ud AV conduit l'impulsion électrique.
 
-La FA est l'arythmie cardiaque la plus fréquente, touchant autour de 1 \% de la population générale et 10 \% des personnes de plus de 80 ans \citep{charlemagne11}. Sa complication la plus grave est l'accident vasculaire cérébral dont elle augmente le risque d'un facteur cinq environ \citep{wolf91}. Elle est associée à une augmentation du risque de mortalité de 1,5 à 1,9 fois, indépendamment des autres facteurs de risque \citep{benjamin98}.
+La FA est l'arythmie cardiaque la plus fréquente, touchant environ 1 \% de la population générale et 10 \% des personnes de plus de 80 ans \citep{charlemagne11}. Parmi ses principaux facteurs de risque sont le sexe masculin, l'âge et l'hypertension artérielle \citep{benjamin94}. Sa complication la plus grave est l'accident vasculaire cérébral dont elle augmente le risque d'un facteur cinq environ \citep{wolf91}. Elle est associée à une augmentation du risque de mortalité de 1,5 à 1,9 fois, indépendamment des autres facteurs de risque \citep{benjamin98}.
 
 Différentes formes cliniques de FA sont observées, et sont classées en plusieurs catégories \citep{camm10} :
 
@@ -234,66 +236,73 @@ Le diagnostique de FA se fait à partir de l'enregistrement ECG (Figure \ref{ecgf
 % \item L'intervalle entre deux activations atriales est variable et inférieur à 200 ms.
 \end{enumerate}
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/ecgfa.jpg}
 	\caption{Enregistrement ECG 12 dérivations chez un patient présentant une fibrillation atriale.}
 	\label{ecgfa}
 \end{figure}
 
-Plusieurs mécanismes ont été proposés pour expliquer la survenue et la perpétuation de la FA, comme des foyers ectopiques, des rotors ou des ondelettes multiples \citep{eckstein08}. Plusieurs mécanismes peuvent coexister chez un même patient.
+Plusieurs mécanismes ont été proposés pour expliquer la survenue et la perpétuation de la FA, par exemple des foyers ectopiques, des rotors ou des ondelettes multiples \citep{eckstein08}. Plusieurs mécanismes peuvent coexister chez un même patient.
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/mecanismesfa.jpg}
-	\caption{Schémas des oreillettes illustrant les différentes hypothèses du mécanisme de la fibrillation atriale (D'après \citet{eckstein08}.}
+	\caption{Schémas des oreillettes illustrant les différentes mécanismes électriques pouvant conduire à la fibrillation atriale (D'après \citet{eckstein08}.}
 	\label{ecgfa}
 \end{figure}
 
-La génèse d'une arythmie cardiaque dépend de trois facteurs qui composent le triangle de Coumel \citep{farre04} : un substrat arythmogène, un déclencheur et une modification du milieu. Ces trois facteurs sont associés au déclenchement et à la perpétuation de la fibrillation atriale : des anomalités structurales qui permettent les circuits de réentrée, des foyers ectopiques principalement autour des veines pulmonaires, et un déséquilibre du système nerveux autonome.
+La génèse d'une arythmie cardiaque dépend de trois facteurs qui composent le triangle de Coumel \citep{farre04} : un substrat arythmogène, un déclencheur et une modification du milieu. Ces trois facteurs sont associés au déclenchement et à la perpétuation de la FA : des anomalités structurales qui permettent les circuits de réentrée, des foyers ectopiques principalement autour des veines pulmonaires, et un déséquilibre du système nerveux autonome.
 
-Le principal objectif dans le traitement actuel de la fibrillation atriale est de prévenir les complications sévères, principalement les accidents thromboemboliques. Le score CHA2DS2-VASc a été proposé pour aider à estimer le risque embolique d'un patient et orienter la décision thérapeutique \citep{camm10}. Ce score associe un ou deux points à la présence d'un facteur de risque : insuffisance cardiaque, hypertension artérielle, âge, diabète, pathologie vasculaire. Si le score est supérieur à 2, il est recommendé de mettre en place un traitement chronique par un anticoagulant oral. Ensuite, le traitement de la FA fait l'objet de deux stratégies : un controle de la fréquence cardiaque ou un controle du rythme cardiaque. Il n'a pas été montré qu'une stratégie était supérieure à l'autre en termes d'espérence de vie \citep{kong10}. Le controle de la fréquence cardiaque est obtenu principalement par l'utilisation de beta-bloquants, d'antagonistes calciaques ou de digoxine. Le controle du rythme cardiaque peut être obtenu par plusieurs approches. Certains médicaments bloquant les canaux sodiques, potassiques ou calciques ont un effet antiarythmique. Cependant, l'efficacité de ces produits reste modeste, et ils peuvent paradoxalement avoir des effets pro-arythmiques. Le controle du rythme peut enfin être obtenu par l'ablation par radio-fréquence des foyers de dépolarisation ectopiques des veines pulmonaires, mais cette méthode souffre d'un taux élevé de réapparition (25 \% sur 5 ans dans l'étude de \citet{shah08}).
+Le principal objectif dans le traitement actuel de la FA est de prévenir les complications sévères, principalement les accidents thromboemboliques. Le score CHA2DS2-VASc a été proposé pour aider à estimer le risque embolique d'un patient et orienter la décision thérapeutique \citep{camm10}. Ce score associe un ou deux points à la présence d'un facteur de risque : insuffisance cardiaque, hypertension artérielle, âge, diabète, pathologie vasculaire. Si le score est supérieur à 2, il est recommendé de mettre en place un traitement chronique par un anticoagulant oral. Ensuite, le traitement de la FA fait l'objet de deux stratégies : un controle de la fréquence cardiaque ou un controle du rythme cardiaque. Il n'a pas été montré qu'une stratégie était supérieure à l'autre en termes d'espérence de vie \citep{kong10}. Le controle de la fréquence cardiaque est obtenu principalement par l'utilisation de beta-bloquants, d'antagonistes calciaques ou de digoxine. Le controle du rythme cardiaque peut être obtenu par plusieurs approches. Certains médicaments bloquant les canaux sodiques, potassiques ou calciques ont un effet antiarythmique. Cependant, l'efficacité de ces produits reste modeste, et ils peuvent paradoxalement avoir des effets pro-arythmiques. Le controle du rythme peut enfin être obtenu par l'ablation par radio-fréquence des foyers de dépolarisation ectopiques des veines pulmonaires, mais cette méthode souffre d'un taux élevé de réapparition (25 \% sur 5 ans dans l'étude de \citet{shah08}).
 
 
-\subsection{Modèles animaux de fibrillation atriale}
+\section{Modèles animaux de fibrillation atriale}
 
-\subsubsection{Modèles chez les gros animaux}
+\subsection{Modèles chez les gros animaux}
 
-La première méthode pour obtenir une FA soutenue chez l'animal est l'entrainement électrique atrial chronique. L'entrainement provoque un remodelage électrique de l'oreillette qui se traduit en particulier par un raccourcissant la période réfractaire, et ce, de manière hétérogène. Ce remodelage augmente la vulnérabilité à l'induction de la FA et sa perpétuation \citep{wijffels95}. Chez le chien, cet entrainement provoque l'apparition d'épisodes de fibrillation atriale paroxystique spontanés. Dans l'étude de \citet{choi10}, l'ECG et les activités nerveuses cardiaques intrinsèques et extrinsèques ont été mesurés chez 6 chiens ayant subi un entrainement atrial 6 jours par semaine. Lors du septième jour, les épisodes spontanés de fibrillation atriale sont précédés dans 89 \% des cas par une activation nerveuse cardiaque intrinsèque seule ou associée à une activation extrinsèque.
+La première méthode pour obtenir une FA soutenue chez le chien est le pacing (stimulation électrique brève) atrial chronique. Le pacing provoque un remodelage électrique de l'oreillette qui se traduit en particulier par un raccourcissant la période réfractaire, et ce, de manière hétérogène. Ce remodelage augmente la vulnérabilité à l'induction de la FA et sa perpétuation \citep{wijffels95}. Ce pacing provoque l'apparition d'épisodes de FA paroxystique spontanés. Dans l'étude de \citet{choi10}, l'ECG et les activités nerveuses cardiaques intrinsèques et extrinsèques (ortho et parasympathiques) ont été mesurés chez 6 chiens ayant subi un pacing atrial 6 jours par semaine. Lors du septième jour, les épisodes spontanés de FA paroxystique étaient précédés dans 89 \% des cas par une activation nerveuse cardiaque intrinsèque seule ou associée à une co-activation du SNA. Cette co-activation sympatho-vagale paraît être impliquée dans la perpétuation de la FA, c'est-à-dire dans la FA persistante \citep{shen12}.
 
-L'insuffisance cardiaque, une des causes cliniques de FA, a été étudiée chez le chien et le mouton \citep{li99, tanaka07}. Dans ces modèles, l'insuffisance cardiaque est induite par un entrainement du ventricule droit pendant plusieurs semaines. La période réfractaire atriale est inchangée dans ces modèles, mais l'insuffisance cardiaque induit de la fibrose qui crée des zones de conduction lente et stabilise les circuits de réentrée arythmogènes.
+L'insuffisance cardiaque, une des causes cliniques de FA, a été reproduite chez le chien et le mouton \citep{li99, tanaka07}. Dans ces modèles, l'insuffisance cardiaque est induite par un pacing du ventricule droit pendant plusieurs semaines. La période réfractaire atriale est inchangée dans ces modèles, mais l'insuffisance cardiaque induit de la fibrose qui crée des zones de conduction lente et stabilise les circuits de réentrée arythmogènes.
 
-\subsubsection{Modèles muridés de fibrillation atriale}
+\subsection{Modèles muridés}
 
-Les arythmies impliquant des circuits de réentrée sont généralement considérées comme restreintes aux gros animaux, car ces circuits nécessitent une masse cardiaque minimale. En conséquence, il est généralement admis que la fibrillation atriale est impossible chez le rat et la souris. Cependant, des modèles de tachyarythmies atriales ont été développés dans ces deux espèces.
+Les arythmies impliquant des circuits de réentrée sont généralement considérées comme restreintes aux gros animaux, car ces circuits nécessitent une masse cardiaque minimale. En conséquence, il est généralement admis que la FA est impossible chez le rat et la souris. Cependant, des modèles de tachyarythmies atriales ont été développés dans ces deux espèces.
 
-Chez le rat, une plus grande susceptibilité aux arythmies atriales a été rapportée sur des c\{oe}urs isolés perfusés de rats agés spontanément hypertendus (SHR) par rapport aux jeunes SHRs et à leurs contrôles normotendus du même âge \citep{choisy07}. Les SHRs agés développent un substrat arythmogène avec une fibrose de l'oreillette gauche et une augmentation de la période réfractaire.
+\subsubsection{Chez le rat}
 
-Chez le rat anesthésié, l'asphyxie augmente l'incidence d'arythmies atriales par entrainement électrique \citep{haugan04}, ce qui peut être dû à une augmentation du tonus sympathique et/ou parasympathique (Figure \ref{ratfa}).
+Chez le rat anesthésié, le pacing trans{\oe}sophagien permet d'induire des épisodes de FA au cours d'une asphyxie aiguë \citep{haugan04}, peut-être en relation avec une augmentation de l'activité sympathique (Figure \ref{ratfa}).
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/ratfa.jpg}
-	\caption{Enregistrements d'ECG trans\{oe}sophagien, d'ECG de surface et de pression artérielle chez un rat anesthésié, après entrainement électrique atrial au cours d'une asphyxie. (A) Complexe atrial ; (V) complexe ventriculaire (D'après \citet{haugan04}.}
+	\caption{Enregistrements d'ECG recueilli par voie trans{\oe}sophagienne, de l'ECG de surface et de la pression artérielle chez un rat anesthésié, après stimulation électrique brève au cours d'une asphyxie. (A) Complexe atrial ; (V) complexe ventriculaire (D'après \citet{haugan04}).}
 	\label{ratfa}
 \end{figure}
 
-De même, Ono et coll. \citep{ono07} ont rapporté une augmentation de la susceptibilité à la FA du c\{oe}ur isolé de rat au cours d’un stress métabolique (inhibition de la glycolyse). Ce stress augmente le calcium libre intracellulaire, ce qui provoque des dépolarisations tardives autour des veines pulmonaires. De plus, les c\{oe}urs des rats âgés (rats Fisher normotendus de 27-29 mois), qui présentent une fibrose interstitielle au niveau de la jonction veino-atriale gauche, font spontanément de la FA au cours du stress.
+\citet{ono07} ont rapporté la survenue spontanée d'épisodes de FA du c{\oe}ur isolé de rat au cours d'un stress métabolique (inhibition de la glycolyse). Ce stress augmente le calcium libre intracellulaire, ce qui provoque des post-dépolarisations précoces au niveau des jonctions veino-atriales. Dans cette étude, seuls les c{\oe}urs des rats âgés (rats Fisher normotendus de 27-29 mois), qui présentent une fibrose interstitielle au niveau de la jonction veino-atriale gauche, font spontanément des épisodes de FA au cours du stress métabolique.
 
-Dans l'étude de \citet{xu10}, après entrainement atrial de 30 secondes, les rats Wistar adultes de 9 mois subissent des épisodes de fibrillation atriale trois fois plus long que les jeunes rats de 3 mois. Les rats adultes possèdent une plus grande fibrose interstitielle atriale que les jeunes rats.
 
-L'exercice a aussi un effet sur la susceptibilité à la fibrillation atriale. Après entrainement atrial, un plus grand nombre d'épisodes de FA ont été induits chez un groupe de rats Wistar ayant subi 16 semaines d'exercice par rapport à un groupe sédentaire \citep{guasch13}. De plus, chez ce groupe ayant subi un exercice, le tonus parasympathique étant plus haut, et l'injection intra-péritonéale d'atropine termine tous les épisodes de FA.
+Dans l'étude de \citet{xu10}, après pacing atrial de 30 secondes chez l'animal anesthésié, les rats Wistar adultes de 9 mois présentent des épisodes de FA trois fois plus long que les jeunes rats de 3 mois. De plus, les rats adultes présentent une plus grande fibrose interstitielle atriale que les jeunes rats.
 
-Quelques études ont porté sur des modeles transgéniques de souris. Chez la souris knock-out pour le gène de la connexine Cx40 (impliquée dans la dépolarisation coordonnée des cardiomyocytes), des arythmies atriales ont pu être provoquées chez 63 \% des animaux par entrainement trans\{oe}sophagien \citep{hagendorff99}. De même, des souris surexprimant l'enzyme de conversion de l'angiotensine uniquement au niveau cardiaque font des arythmies atriales, notamment de la FA, de manière spontanée \citep{xiao04} (Figure \ref{sourisfa}).
+Une plus grande susceptibilité aux arythmies atriales a aussi été rapportée sur des c{\oe}urs isolés perfusés de rats agés spontanément hypertendus (SHR) âgés par rapport aux c{\oe}urs de jeunes SHR et par rapport à leurs contrôles normotendus du même âge \citep{choisy07}. Les rats SHR âgés développent un substrat arythmogène avec une fibrose de l'oreillette gauche sans modification de la période réfractaire. Les mêmes auteurs rapportent des résultats similaires sur un modèle d'augmentation de la post-charge ventriculaire par sténose aortique sans hypertension systémique \citep{kim11}. Là encore, le développement progressif d'une fibrose interstitielle atriale et d'anomalies de conduction sont des facteurs de susceptibilité à la FA.
 
-\begin{figure}[h]
+Enfin, l'exercice a aussi un effet sur la susceptibilité à la FA. Après pacing atrial, un plus grand nombre d'épisodes de FA a été induit dans un groupe de rats Wistar ayant subi 16 semaines d'entraînement physique par rapport à un groupe de rats sédentaires \citep{guasch13}. De plus, dans le groupe entraîné, l'injection intra-péritonéale d'atropine permettait d'interrompre les épisodes de FA, suggérant une implication de l'hypertonie vagale secondaire à l'entraînement physique.
+
+En résumé, ces études indiquent que le vieillissement et l'hypertension artérielle augmentent la susceptibilité à la FA chez le rat. De plus, la dernière étude est en faveur d'une possible implication d'une hyperactivité parasympathique, au moins dans un modèle d'entraînement physique qui reproduit ce qui a pu être observé chez certains sportifs \citep{wilhelm13}.
+
+\subsubsection{Chez la souris}
+
+Quelques études ont été réalisées dans des modeles transgéniques de souris. Chez la souris invalidée pour le gène de la connexine Cx40 (impliquée dans la dépolarisation coordonnée des cardiomyocytes), des arythmies atriales ont pu être provoquées chez 63 \% des animaux par pacing trans{\oe}sophagien \citep{hagendorff99}. De même, des souris surexprimant l'enzyme de conversion de l'angiotensine sélectivement au niveau cardiaque font des arythmies atriales, notamment de la FA, de manière spontanée à l'état vigil \citep{xiao04} (Figure \ref{sourisfa}).
+
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/sourisfa.jpg}
-	\caption{Enregistrements ECG télémétriques chez (A) une souris contrôle et (B) une souris surexprimant l'enzyme de conversion de l'angiotensine dans le c\{oe}ur. Le deuxième enregistrement montre des complexes QRS de faible amplitude, aucune onde P visible et des intervalles RR irréguliers (D'après \citet{xiao04}.}
+	\caption{Enregistrements ECG télémétriques obtenus chez souris éveillées, soit contrôle (A), soit surexprimant l'enzyme de conversion de l'angiotensine dans le c{\oe}ur (B). Le deuxième enregistrement montre des complexes QRS de faible amplitude, aucune onde P visible et des intervalles RR irréguliers (D'après \citet{xiao04}.}
 	\label{sourisfa}
 \end{figure}
 
-Un autre modèle de FA spontanée a été mis en évidence par l'étude de \citet{zhang08} sur des souris KO hétérozygotes pour le gène NUP155. Ce gène code pour une protéine intervenant dans la constitution des pores nucléaires. Ces épisodes spontanés peuvent durer plus de 10 minutes.
+Un autre modèle de FA spontanée a été décrit dans l'étude de \citet{zhang08} chez des souris avec invalidation hétérozygote du gène NUP155. Ce gène code pour une protéine intervenant dans la constitution des pores nucléaires. Les auteurs rapportent que ces épisodes spontanés, observés chez des souris éveillées, peuvent durer plus de 10 minutes.
 
 
 
@@ -309,23 +318,23 @@ Un autre modèle de FA spontanée a été mis en évidence par l'étude de \citet{zhan
 
 
 
+\clearpage
 
 
+\chapter{Détection automatique de la FA}
 
-\section{Détection automatique de la FA}
+\section{Chez l'homme}
 
-\subsection{Chez l'homme}
+Chez l'homme, de nombreuses méthodes de détection automatique des arythmies atriales, et en particulier la FA, ont été développées. Ces méthodes ont surtout été appliquées à des enregistrements Holter, dont la durée ne permet pas une analyse visuelle exhaustive en routine.
 
-Chez l'homme, de nombreuses méthodes de détection automatique d'arythmies atriales, et en particulier la fibrillation atriale, ont été développées. Ces méthodes ont surtout été appliquées à la détection à partir d'enregistrements Holter, dont la durée ne permet pas une analyse visuelle exhaustive.
-
-Lors d'une fibrillation atriale, le signal ECG présente deux caractéristiques principales qui sont à la base de deux catégories de méthodes :
+Lors d'une FA, le signal ECG présente deux caractéristiques principales qui sont à la base de deux catégories de méthodes :
 
 \begin{itemize}
-\item le rythme ventriculaire est rapide et irrégulier, ce qui permet de développer des méthodes basées sur l'analyse de l'intervalle RR ;
-\item l'activité atriale est désordonnée, ce qui permet de développer des méthodes basées sur l'analyse de la forme des ondes.
+\item le rythme ventriculaire est rapide et irrégulier, ce qui permet de développer des méthodes fondées sur l'analyse de l'intervalle RR ;
+\item l'activité atriale est désordonnée, ce qui permet de développer des méthodes fondées sur l'analyse de la forme des ondes.
 \end{itemize}
 
-La grande majorité des méthodes sont fondées sur une même structure qui comprend quatre étapes :
+La grande majorité des méthodes comprend quatre étapes :
 \begin{enumerate}
 \item le prétraitement du signal ECG ;
 \item le calcul d'un ensemble de paramètres ;
@@ -333,15 +342,15 @@ La grande majorité des méthodes sont fondées sur une même structure qui comprend
 \item la classification à l'aide de l'ensemble des paramètres.
 \end{enumerate}
 
-\subsubsection{Structure}
+\subsection{Structure}
 
-\paragraph{Prétraitement}
+\subsubsection{Prétraitement}
 
-Avant la détection proprement dite des arythmies, le signal ECG subit une série de traitements qui vise à rendre possible ou à améliorer l'identification des arythmies.
+Avant la détection proprement dite des arythmies, le signal ECG subit une série de traitements qui visent à rendre possible ou à améliorer l'identification des arythmies.
 
 Une première catégorie de traitements, qui n'est pas propre à la détection d'arythmies, consiste à réduire les différentes sources de bruit. Un signal ECG peut présenter une fluctuation de la ligne de base, une interférence avec l'électromyogramme ou des artefacts de mouvement. La méthode la plus simple de réduction de ces bruits consiste en un filtrage dans une certaine bande de fréquences \citep{aytemir99, yaghouby10, asl08}. Toutefois, cette méthode n'élimine que partiellement les différentes sources de bruit, car certaines composantes fréquentielles du bruit sont communes avec le signal ECG (Figure \ref{AS_ECG}, \citep{tompkins93}). D'autres méthodes plus complexes comme des filtres qui s'adaptent au signal ou la transformée en ondelettes \citep{blanco08, afonso96, thakor91, kara07, kim09} permettent d'améliorer la réduction des bruits.
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/AS_ECG.png}
 	\caption{Densité spectrale de puissance du signal ECG, des complexes QRS, des ondes P et T et de plusieurs sources de bruit, après moyennage sur 150 battements (D'après \citet{tompkins93}).}
@@ -358,7 +367,7 @@ Pour les méthodes se fondant sur l'analyse de l'intervalle RR, il est nécessaire
 
 A partir du signal transformé, les maximums sont détectés, ce qui donne la localisation des complexes QRS. La dernière étape consiste à détecter les ondes R sur le signal original comme les maxima à l'intérieur des complexes QRS (Figure \ref{QRSDetection}.
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/tompkins.png}
 	\caption{Différentes étapes de l'algorithme de détection des QRS. (a) Signal après filtrage passe-bande. (b) Dérivée du signal. (c) Carré du signal dérivé. (d) Résultat de l'intégration fenêtrée. (e) Emplacement des complexes détectés. (D'après \citet{fazel11}).}
@@ -366,13 +375,13 @@ A partir du signal transformé, les maximums sont détectés, ce qui donne la local
 \end{figure}
 
 
-\paragraph{Extraction des paramètres}
+\subsubsection{Extraction des paramètres}
 
 Après traitement du signal, plusieurs paramètres sont calculés qui sont susceptibles de prendre des valeurs différentes en fonction de la présence ou de l'absence d'arythmies.
 
-Une première famille de paramètres sont dérivés de l'intervalle RR. Le signal temporel constitué des intervalles RR successifs est caractérisé lors d'un épisode de fibrillation atriale par une irrégularité, qui peut être estimée à l'aide de différents indices. On retrouve les indices communs de variabilité sinusale comme le SDNN (écart-type des intervalles RR entre battements sinusaux), le RMSSD (racine de la moyenne des carrés des écarts successifs d'intervalles RR) ou la puissance spectrale dans certaines bandes de fréquences \citep{asl08, yaghouby10}. D'autres indices, non linéaires, sont aussi utilisés comme l'entropie \citep{staniczenko09, lake11, langley12}, l'exposant de Lyapunov ou les indices dérivés du tracé de Poincaré \citep{asl08} (Figure \ref{HRV_AF}).
+Une première famille de paramètres sont dérivés de l'intervalle RR. La série temporelle constituée des intervalles RR successifs est caractérisé lors d'un épisode de FA par une grande irrégularité, qui peut être estimée à l'aide de différents indices. On retrouve les indices communs utilisés pour l'analyse de la variabilité sinusale tels que le SDNN (écart-type des intervalles RR entre battements sinusaux), le RMSSD (racine de la moyenne des carrés des écarts successifs d'intervalles RR) ou la puissance spectrale dans certaines bandes de fréquences \citep{asl08, yaghouby10}. D'autres indices, non linéaires, sont aussi utilisés comme l'entropie \citep{staniczenko09, lake11, langley12}, l'exposant de Lyapunov ou les indices dérivés du tracé de Poincaré \citep{asl08} (Figure \ref{HRV_AF}).
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/HRV_AF.png}
 	\caption{(a) Série temporelle d'intervalles RR et annotations provenant de la base de données MIT BIH Atrial Fibrillation (base publique contenant des enregistrements ECG Holter avec des épisodes de fibrillation atriale). AF/NAF : présence/absence de fibrillation atriale. En dessous, calcul de trois indices dérivés des séries d'intervalles RR : (b) le rapport RMSSD sur la moyenne des intervalles RR, (c) un indice donnant la proportion de séquences d'intervalles RR de type court-long-court ou long-court-long (Turning Point Ratio) et (d) une estimation de l'entropie (Sample Entropy) (D'après \citet{dash09}).}
@@ -381,7 +390,7 @@ Une première famille de paramètres sont dérivés de l'intervalle RR. Le signal te
 
 La deuxième famille de paramètres quantifie la forme du tracé ECG. Une des analyses de forme la plus utilisée est la transformée en ondelettes. Celle-ci permet d'exprimer la forme du tracé par un ensemble restreint d'indices, donnant les caractéristiques du signal à différentes échelles de temps (Figure \ref{Wavelets}) \citep{alfahoum99, ubeyli07}.
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/Wavelets.png}
 	\caption{Un tracé ECG de fibrillation atriale, avec sa décomposition en ondelettes discrètes utilisant l'ondelette Daubechies 4 \citep{mallat99}. Les cinq premières composantes de la décomposition (d1-d5) sont illustrées, ainsi que le reste du signal (a5) (D'après \citet{alfahoum99}).}
@@ -389,28 +398,28 @@ La deuxième famille de paramètres quantifie la forme du tracé ECG. Une des analy
 \end{figure}
 
 
-\paragraph{Réduction de l'ensemble des paramètres}
+\subsubsection{Réduction de l'ensemble des paramètres}
 
-Certaines méthodes calculent un grand nombre de paramètres. Parmi ces paramètres, tous n'ont pas une égale importance. En effet, certains paramètres peuvent être redondants, d'autres peuvent avoir une faible puissance discriminative. Le fait d'avoir un très grand nombre de paramètres est néfaste pour l'étape de classification, en augmentant la complexité du modèle et en diminuant son efficacité. C'est pourquoi il est important de diminuer le nombre des paramètres.
+Certaines méthodes fournissent un grand nombre de paramètres. Parmi ces paramètres, tous n'ont pas une égale importance. En effet, certains paramètres peuvent être redondants, d'autres peuvent avoir une faible puissance discriminative. Le fait d'avoir un très grand nombre de paramètres est néfaste pour l'étape de classification, car cela augmente la complexité du modèle et en diminue l'efficacité. C'est pourquoi il est important de diminuer le nombre des paramètres.
 
 Une méthode classique de réduction du nombre de paramètres est l'analyse en composantes principales \citep{pearson01}. Cette méthode géométrique permet de transformer un grand nombre de paramètres initiaux en un faible nombre de nouveaux paramètres appelés les composantes principales. Ces composantes principales ont deux caractéristiques : elles sont à la fois décorrélées les unes des autres, et elles conservent la plus grande partie de la variabilité des paramètres initiaux.
 
 La première composante principale est définie par la direction de dispersion maximale des valeurs, et chaque composante principale successive est définie par la direction de dispersion maximale restante (non expliquée par les composantes précédentes) (Figure \ref{PCA}).
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/PCA.jpg}
 	\caption{Analyse en composantes principales sur deux facteurs x et y. La première composante (v1) est définie par la direction de dispersion maximale des points, et la deuxième composante (v2), orthogonale à la première, explique le reste de la dispersion (D'après \citet{jehan05}).}
 	\label{PCA}
 \end{figure}
 
-\paragraph{Classification}
+\subsubsection{Classification}
 
-Les valeurs des paramètres sont ensuite utilisées pour classer le tracé ECG comme présentant une arythmie ou non. Les algorithmes de classification d'arythmies font généralement l'objet d'une phase d'apprentissage. L'algorithme est entrainé dans un premier temps sur des tracés dont la nature de l'arythmie est connue, pour en déterminer les caractéristiques. Ensuite, l'algorithme est appliqué sur des tracés ECG de nature inconnue pour les classer.
+Les valeurs des paramètres sont ensuite utilisées pour qualifier le tracé ECG comme présentant une arythmie ou non. Les algorithmes de classification d'arythmies font généralement l'objet d'une phase d'apprentissage. L'algorithme est entrainé dans un premier temps sur des tracés dont la nature de l'arythmie est connue, afin d'en déterminer les caractéristiques. Ensuite, l'algorithme est appliqué sur des tracés ECG de nature inconnue pour les classer.
 
 Un exemple d'algorithme de classification est la machine à vecteur de support \citep{jovic12, ubeyli07, asl08}. Cette méthode est fondée sur une représentation géométrique de l'ensemble des paramètres. Les valeurs des paramètres représentent les coordonnées d'un point dans un espace. Lors de la phase d'apprentissage, on obtient deux groupes de points, selon que le tracé ECG correspondant présente une arythmie ou non. Si le choix des paramètres est judicieux, les deux groupes de points sont séparés dans l'espace. Dans la version simple de l'algorithme, il est supposé que les groupes de points de chaque catégorie sont linéairement séparables (par une droite dans un espace à deux dimensions, par un plan dans un espace à trois dimensions, etc.). L'algorithme détermine alors la meilleure frontière entre les deux groupes de points, c'est-à-dire celle dont la marge est maximale (Figure \ref{SVM1}). La marge est définie comme la zone autour de la frontière qui ne contient aucun point. Lors de la phase de classification, cette frontière est utilisée pour classer les points dans l'une ou l'autre des catégories.
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/SVM1.jpg}
 	\caption{Graphe représentant deux groupes selon les valeurs de deux paramètres. La frontière déterminée par l'algorithme de machine à vecteurs de support est la frontière séparant les deux groupes, telle que la marge possède une largeur maximale. Les points situés au bord de la marge sont appelés les vecteurs de support (D'après \citet{winters07}).}
@@ -419,57 +428,57 @@ Un exemple d'algorithme de classification est la machine à vecteur de support \c
 
 En pratique, les groupes de points sont rarement linéairement séparables. Pour pouvoir séparer les groupes, les points sont projetés dans un nouvel espace de plus grande dimension, où les groupes de points sont plus susceptibles d'être linéairement séparables (Figure \ref{SVM2}).
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/SVM2.jpg}
 	\caption{Graphes représentant deux groupes selon (a) les valeurs de deux paramètres et (b) une combinaison des deux paramètres. Dans le premier graphe, les deux groupes ne sont pas linéairement séparables. Dans le deuxième graphe, après une recombinaison des paramètres, les deux groupes sont linéairement séparables. (D'après \citet{verplancke08}).}
 	\label{SVM2}
 \end{figure}
 
-Un exemple de l'utilisation de cette méthode est l'étude de \citet{park09}. Cette étude utilise deux indices dérivés du tracé de Poincaré : la distance moyenne entre deux points consécutifs du tracé, et la dispersion des points autour de la diagonale. La machine à vecteurs de support est ensuite utilisée sur ces deux indices pour détecter les tracés ECG contenant des épisodes de fibrillation atriale.
+Un exemple de l'utilisation de cette méthode est l'étude de \citet{park09}. Cette étude utilise deux indices dérivés du tracé de Poincaré : la distance moyenne entre deux points consécutifs du tracé, et la dispersion des points autour de la diagonale. La machine à vecteurs de support est ensuite utilisée sur ces deux indices pour détecter les tracés ECG contenant des épisodes de FA.
 
 
-\subsubsection{Performances}
+\subsection{Performances}
 
 Après avoir mis au point un algorithme de détection d'arythmies, il est nécessaire d'évaluer sa performance. Pour cela, les résultats de l'algorithme sont comparés avec le diagnostic d'un spécialiste. Cela requiert d'avoir des tracés ECG annotés, en nombre suffisant pour pouvoir estimer correctement la performance de l'algorithme.
 
-La solution majoritairement utilisée consiste à se servir de bases de données en libre accès, et en particulier la banque PhysioBank \citep{PhysioNet}. Cette banque contient des bases de données d'enregistrements de signaux physiologiques chez des patients sains ou atteints de diverses pathologies. La base de données MIT-BIH Atrial Fibrillation Database est utilisée particulièrement. Elle contient 23 enregistrements Holter de 10 heures présentant des épisodes de fibrillation atriale paroxystique, et incluant les annotations des différentes arythmies. L'avantage d'utiliser une base de données centrale est que les résultats de différents algorithmes peuvent être comparés entre eux \citep{yaghouby10, jovic12}. En revanche, plusieurs études sont en désaccord avec certaines annotations présentes dans ces bases de données \citep{tateno00, staniczenko09}.
+La solution majoritairement utilisée consiste à se servir de bases de données en libre accès, et en particulier la banque PhysioBank \citep{PhysioNet}. Cette banque contient des bases de données d'enregistrements de signaux physiologiques chez des patients sains ou atteints de diverses pathologies. La base de données MIT-BIH Atrial Fibrillation Database est utilisée particulièrement. Elle contient 23 enregistrements Holter de 10 heures présentant des épisodes de FA paroxystique, et incluant les annotations des différentes arythmies. L'avantage d'utiliser une base de données centrale est que les résultats de différents algorithmes peuvent être comparés entre eux \citep{yaghouby10, jovic12}. Cependant, plusieurs études sont en désaccord avec certaines annotations présentes dans ces bases de données \citep{tateno00, staniczenko09}.
 
 La quantification de la performance d'un algorithme se fait dans un premier temps par le décompte des bonnes et mauvaises détections. Sont décomptés le nombre de cas arythmiques détectés comme arythmiques (VP, vrais positifs), le nombre de cas arythmiques détectés comme non arythmiques (FN, faux négatifs), le nombre de cas non arythmiques détectés comme arythmiques (FP, faux positifs) et le nombre de cas non arythmiques détectés comme non arythmiques (VN, vrais négatifs). A partir de ces quatre valeurs, les indices de sensibilité (VP/(VP+FN)), de spécificité (VN/(VN+FP)) ou de valeur prédictive positive (VP/(VP+FP)) sont généralement calculés pour apprécier la performance de l'algorithme. La sensibilité peut être interprétée comme la probabilité de détecter une arythmie lorsqu'elle est présente, la spécificité comme la probabilité de détecter un rythme sinusal lorsqu'il est présent et la valeur prédictive positive comme la probabilité qu'une arythmie détectée soit correcte.
 
-Si l'on souhaite diagnostiquer la présence de FA sur un tracé ECG, les indices sensibilité et de spécificité sont principalement utilisés. En revanche, si l'on s'intéresse à détecter un épisode de FA sur chaque battement ou sur chaque intervalle de temps, la spécificité est souvent remplacée par la valeur prédictive positive. Cela permet de mieux caractériser la détection de l'arythmie. Toutefois, au contraire des deux premiers indices, la valeur prédictive positive dépend de la prévalence de l'arythmie \citep{koeppel12}. On ne peut donc pas comparer cette valeur lorsque différentes bases de données sont utilisées.
+Si l'on souhaite diagnostiquer la présence de FA sur un tracé ECG, les indices sensibilité et de spécificité sont principalement utilisés. En revanche, si l'on s'intéresse à détecter un épisode de FA sur chaque battement ou sur un intervalle de temps donné, la spécificité est souvent remplacée par la valeur prédictive positive. En effet, cette valeur permet de mieux caractériser la détection de l'arythmie. Toutefois, au contraire des deux premiers indices, la valeur prédictive positive dépend de la prévalence de l'arythmie \citep{koeppel12}. On ne peut donc pas comparer les valeurs prises par cet indice lorsque différentes bases de données sont utilisées.
 
-\subsection{Chez le rat}
+\section{Chez l'animal}
 
 
-Dans une première catégorie d'études, les arythmies sont détectées visuellement. C'est le cas dans les études où la période d'analyse est courte, comme après un entrainement atrial \citep{haugan04} ou la ligature d'une artère coronaire \citep{baltogiannis05}. D'autres études, lorsque la période d'analyse est plus longue, segmentent les enregistrements et analysent uniquement certains segments \citep{nadziejko04, koeppel12}. La détection des ondes R et le calcul des intervalles RR peuvent aider à la détection, notamment en fixant des seuils. Par exemple, dans l'étude de \citet{opitz95}, les arythmies sont recherchées visuellement lorsque l'intervalle RR (converti en fréquence cardiaque) sort de l'intervalle 300-500 bpm. L'analyse visuelle montre ses limites dans l'étude de \citet{carre92}, où le trop grand nombre d'arythmies supraventriculaires empêche un comptage exhaustif (Figure \ref{esarat}).
+Dans une première catégorie d'études, les arythmies sont détectées visuellement. C'est le cas dans les études où la période d'analyse est courte, comme après un entrainement atrial \citep{haugan04} ou la ligature d'une artère coronaire \citep{baltogiannis05}. D'autres études, lorsque la période d'analyse est plus longue, segmentent les enregistrements et analysent uniquement certains segments \citep{nadziejko04, koeppel12}. La détection des ondes R et le calcul des intervalles RR peuvent aider à la détection, notamment grâce à l'utilisation de seuils. Par exemple, dans l'étude de \citet{opitz95}, les arythmies sont recherchées visuellement lorsque l'intervalle RR (converti en fréquence cardiaque) sort de l'intervalle 300-500 bpm. L'analyse visuelle montre ses limites dans l'étude de \citet{carre92}, où le trop grand nombre d'arythmies supraventriculaires empêche un comptage exhaustif (Figure \ref{esarat}).
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/ecgratcarre.png}
-	\caption{Tracé ECG chez un rat contrôle sénescent (22 mois), montrant un grand nombre d'extrasystoles supraventriculaires (D'après \citet{carre92}).}
+	\caption{Tracé ECG chez un rat sénescent (22 mois), montrant un grand nombre d'extrasystoles supraventriculaires (D'après \citet{carre92}).}
 	\label{esarat}
 \end{figure}
 
 
-Dans le cas d'enregistrements télémétriques de longue durée, plusieurs études utilisent des logiciels commerciaux pour la détection d'arythmies \citep{boixel03, lyon11, milliez05, anselme07, farraj09}. Au moins trois logiciels proposent l'analyse de tracés ECG chez le rat : LabChart (ADInstruments) avec le module ECG Analysis \citep{labchart}, ecgAUTO (emka TECHNOLOGIES) \citep{ecgauto} et ARR30a (NOTOCORD) \citep{arr30a} (Figures \ref{ecgauto}-\ref{arr30a}. Le logiciel de NOTOCORD permis de réaliser une étude qui analyse des tracés ECG dans cinq espèces (primate, chien, cochon, cobaye et rat) \citep{koeppel12}. L'étude compare l'analyse visuelle avec la détection automatique fournie par le logiciel, qui permet de détecter cinq types d'arythmies. Cette étude rapporte une plus grande difficulté à traiter les tracés ECG de rat par rapport à ceux d'autres espèces, notamment du fait de la présence d'ondes P de faible amplitude. De même, la majorité des arythmies présentes sont des arythmies ventriculaires, seuls 40 battements ectopiques d'origine atriale sont présents. Pour ces trois logiciels du commerce, la méthode utilisée pour la détection des arythmies n'est pas décrite précisément. Il est juste indiqué que les logiciels utilisent à la fois la forme des ondes et la variation des intervalles RR pour classer les tracés. Une seule étude a comparé l'analyse ECG des logiciels de ces trois sociétés \citep{chui09}, chez le chien, mais cette étude n'inclut pas la détection d'arythmies.
+Dans le cas d'enregistrements télémétriques de longue durée, plusieurs études utilisent des logiciels commerciaux pour la détection d'arythmies \citep{boixel03, lyon11, milliez05, anselme07, farraj09}. Au moins trois logiciels proposent l'analyse de tracés ECG chez le rat : LabChart (ADInstruments) avec le module ECG Analysis \citep{labchart}, ecgAUTO (emka TECHNOLOGIES) \citep{ecgauto} et ARR30a (NOTOCORD) \citep{arr30a} (Figures \ref{ecgauto}-\ref{arr30a}. Le logiciel de NOTOCORD a permis de réaliser une étude qui analyse des tracés ECG dans cinq espèces (primate, chien, cochon, cobaye et rat) \citep{koeppel12}. L'étude compare l'analyse visuelle avec la détection automatique fournie par le logiciel, qui permet de détecter cinq types d'arythmies. Cette étude rapporte une plus grande difficulté à traiter les tracés ECG de rat par rapport à ceux des autres espèces, notamment du fait de la faible amplitude des ondes P. De même, la majorité des arythmies présentes sont des arythmies ventriculaires, seuls 40 battements ectopiques d'origine atriale sont prése dans les enregistrements analysés. Pour ces trois logiciels du commerce, la méthode utilisée pour la détection des arythmies n'est pas décrite précisément. Il est juste indiqué que les logiciels utilisent à la fois la reconnaissance de la forme des ondes et la variation des intervalles RR pour classer les tracés. Une seule étude a comparé l'analyse ECG des logiciels de ces trois sociétés \citep{chui09}, chez le chien, mais cette étude n'inclut pas la détection d'arythmies.
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/ecgAUTO.png}
-	\caption{Capture d'écran du logiciel ecgAUTO traitant un enregistrement ECG chez le chien.}
+	\caption{Capture d'écran du logiciel ecgAUTO (\citep{ecgauto}) traitant un enregistrement ECG chez le chien.}
 	\label{ecgauto}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/ARR30a.png}
-	\caption{Capture d'écran du logiciel ARR30a.}
+	\caption{Capture d'écran du logiciel ARR30a (\citep{arr30a}).}
 	\label{arr30a}
 \end{figure}
 
 
-Les études décrivant un algorithme personnalisé entièrement automatisé de détection des arythmies sont très rares. L'équipe de \citet{sgoifo94, sgoifo97} a développé une méthode fondée sur les variations de l'intervalle RR chez le rat, mais sans décrire cette méthode. De même, l'équipe de \citet{london03} a développé un algorithme de détection après avoir analysé des tracés ECG recueillis chez la souris, sans description de cette méthode.
+Les études décrivant un algorithme personnalisé entièrement automatisé de détection des arythmies sont très rares. L'équipe de \citet{sgoifo94, sgoifo97} a développé une méthode fondée sur les variations de l'intervalle RR chez le rat, mais sans décrire cette méthode. De même, l'équipe de \citet{london03} a développé un algorithme de détection après avoir analysé des tracés ECG recueillis chez la souris, toujours sans descrire la méthode.
 
 Chez le chien, une méthode de détection fondée sur la forme des ondes est décrite \cite{sugiura98}, mais elle concerne uniquement les arythmies ventriculaires.
 
@@ -477,7 +486,7 @@ Chez le rat, une étude rapporte une application de la dynamique symbolique à la 
 
 En considérant les séquences ayant une longueur de 5 symboles, il existe 243 combinaisons possibles. En comptant le nombre d'occurrences de chaque séquence, on obtient une répartition permettant de visualiser la présence d'arythmies (Figure \ref{symbolic}).
 
-\begin{figure}[h]
+\begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/symbolic.PNG}
 	\caption{Nombre d'occurrences (P_n) de chaque séquence de cinq symboles chez un rat contrôle et un rat atteint d'une insuffisance cardiaque. n est le numéro de la séquence de cinq symboles.}
@@ -485,6 +494,18 @@ En considérant les séquences ayant une longueur de 5 symboles, il existe 243 com
 \end{figure}
 
 Cette méthode permet de montrer le profil arythmique global d'un tracé ECG, mais ne permet pas de détecter individuellement chaque arythmie. De plus, le choix des bornes pour classer les intervalles RR n'est pas explicité.
+
+
+
+
+
+
+
+\part{Matériel et méthodes}
+
+
+
+
 
 
 \addcontentsline{toc}{section}{Références}
