@@ -1,6 +1,6 @@
 \documentclass[a4paper,12pt]{report}
 
-\usepackage[french]{babel}
+\usepackage[frenchb]{babel}
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{amsfonts}
@@ -91,7 +91,7 @@
 % Introduction
 % ==========================
 
-\part{Partie bibliographique}
+\part{Étude bibliographique}
 
 % \section{Introduction}
 
@@ -501,11 +501,67 @@ Cette méthode permet de montrer le profil arythmique global d'un tracé ECG, mais
 
 
 
-\part{Matériel et méthodes}
+\part{Travail personnel}
+
+\chapter{Matériel et méthodes}
+
+\section{Animaux}
+
+Des rats mâles spontanément hypertendus de souche SHR et normotendus de souche Wister-Kyoto (WKY) (Elevage Janvier, Le Genest-Saint-Isle, France) sont utilisés. Ils sont stabulés dans des conditions constantes de température (21-22 \degres C) et d'éclairage (7h à 19h). Ils reçoivent de l'eau de ville et une nourriture standard \textit{ad libitum}.
+
+\section{Enregistrements}
+
+\subsection{Enregistrement de l'électrocardiogramme}
+
+Des sondes télémétriques ECG (TA11 CA-F40 ; Data Sciences International, St. Paul, MN) sont implantés sous anésthésie à l'isoflurane. Le corps de la sonde est placée dans une poche sous-cutanée dans le dos, et deux électrodes sont fixées en position DII (Figure \ref{leads}). Les animaux ont une période de récupération d'une semaine.
+
+% \begin{figure}[tbp]
+	% \centering
+	% \includegraphics[width=\linewidth]{images/symbolic.PNG}
+	% \caption{Nombre d'occurrences (P_n) de chaque séquence de cinq symboles chez un rat contrôle et un rat atteint d'une insuffisance cardiaque. n est le numéro de la séquence de cinq symboles.}
+	% \label{symbolic}
+% \end{figure}
+
+L'enregistrement en continu de l'ECG est obtenu chez les rats vigils. La capture du signal est accomplie avec des receveurs (RPC-1 ; Data Sciences International) placés sous chaque cage. Les signaux télémétriques ECG sont convertis en signaux analogiques (Analog ECG Output Adapter R08 ; Data Sciences International) et dirigés vers un ordinateur équipé d'une carte d'acquisition (NI PCIe-6251 ; National Instruments, Austin, TX). Au moyen d'un logiciel développé au laboratoire, à partir du progiciel LabVIEW 2009 (National Instruments), les signaux sont enregistrés en continu à la fréquence d'échantillonnage de 2000 Hz.
+
+\subsection{Enregistrement de la pression artérielle}
+
+La cathétérisation est effectuée sous anesthésie à l'isoflurane, à l'aide d'un cathéter en polyéthylène (PE) 10 soudé à un cathéter en PE 50. Le cathéter est introduit dans l'aorte abdominale via l'artère fémorale gauche. Après implantation, le cathéter est guidé sous la peau du dos et extériorisé entre les deux omoplates. Les animaux ont au moins 24 h de récupération avant enregistrement.
+
+Le jour de l'étude, le cathéter artériel est relié à un capteur de pression (TNF-R ; Becton Dickinson, Sandy, UT) couplé à un amplificateur (modèle 13-4615-52 ; Gould, Cleveland, OH). Le signal amplifié de PA est simultanément enregistré graphiquement (modèle 8802 ; Gould) et numériquement grâce à un ordinateur équipé d'un convertisseur analogique-numérique (AT-MIO-16, National Instruments). Le signal est échantillonné à la fréquence de 500 Hz et enregistré à l'aide du logiciel LabVIEW 5.1 (National Instruments).
 
 
+\section{Protocoles}
+
+\subsection{Application d'un stress émotionnel}
+
+Le stress émotionnel chez le rat est réalisé en soufflant un jet d'air dans la cage. Ceci est réalisé grâce à un compresseur délivrant de l'air à une pression constante de 1 bar. La durée d'application du stress est de 20 minutes.
+
+\subsection{Injection sous-cutanée de carbamylcholine}
+
+Après une période de base, une dose de 0,4 mg/kg de carbamylcholine (agoniste cholinergique) est injectée en sous-cutanée. Cinq minutes après injection, une période de 10 minutes est analysée.
+
+\section{Analyses}
+
+\subsection{Détection des ondes R de l'ECG}
+
+La détection des ondes R est obtenue par un algorithme adapté de \citet{pan85}. Les signaux ECG sont filtrés par un filtre passe-bas Butterworth du deuxième ordre avec une fréquence de coupure de 125 Hz. Ce filtrage permet d'éliminer les bruits de haute fréquence. Ensuite, la dérivée numérique du signal est calculée (différence entre deux valeurs successives) pour mettre en valeur les complexes QRS. Le carré du signal est ensuite calculé pour obtenir un signal positif. Enfin, le signal est lissé par un filtre passe-bas du même type que précédemment, avec une fréquence de coupure de 25 Hz. Le signal obtenu est utilisé pour détecter les ondes R ainsi que dans la section suivante pour la détection des artefacts.
+
+Les maximums locaux du signal transformé sont notés et validés comme complexes QRS si leur amplitude est supérieur à 15 \% de l'amplitude médiane des 5 derniers complexes QRS validés. Si aucun complexe n'est détecté pendant une seconde, ce seuil de détection est redéfini comme la moyenne du signal entier pendant cette seconde. 
 
 
+\subsection{Analyse visuelle des arythmies}
+
+\subsection{Analyse automatique des arythmies}
+
+\subsection{Analyse de la variabilité sinusale}
+
+\subsection{Analyse de la pression artérielle}
+
+
+\subsection{}
+\subsection{}
+\subsection{}
 
 
 \addcontentsline{toc}{section}{Références}
