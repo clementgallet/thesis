@@ -543,11 +543,39 @@ Après une période de base, une dose de 0,4 mg/kg de carbamylcholine (agoniste ch
 
 \section{Analyses}
 
-\subsection{Détection des ondes R de l'ECG}
+\subsection{Détection automatique des ondes R}
+\label{autoR}
 
 La détection des ondes R est obtenue par un algorithme adapté de \citet{pan85}. Les signaux ECG sont filtrés par un filtre passe-bas Butterworth du deuxième ordre avec une fréquence de coupure de 125 Hz. Ce filtrage permet d'éliminer les bruits de haute fréquence. Ensuite, la dérivée numérique du signal est calculée (différence entre deux valeurs successives) pour mettre en valeur les complexes QRS. Le carré du signal est ensuite calculé pour obtenir un signal positif. Enfin, le signal est lissé par un filtre passe-bas du même type que précédemment, avec une fréquence de coupure de 25 Hz. Le signal obtenu est utilisé pour détecter les ondes R ainsi que dans la section suivante pour la détection des artefacts.
 
-Les maximums locaux du signal transformé sont notés et validés comme complexes QRS si leur amplitude est supérieur à 15 \% de l'amplitude médiane des 5 derniers complexes QRS validés. Si aucun complexe n'est détecté pendant une seconde, ce seuil de détection est redéfini comme la moyenne du signal entier pendant cette seconde. 
+Les maximums locaux du signal transformé sont notés et validés comme complexes QRS si leur amplitude est supérieur à 15 \% de l'amplitude médiane des 5 derniers complexes QRS validés. Si aucun complexe n'est détecté pendant une seconde, ce seuil de détection est redéfini comme la moyenne du signal entier pendant cette seconde.
+
+Enfin, les ondes R sont identifiées sur le signal ECG d'origine comme les maximums dans une fenetre de 20 ms avant chaque complexe QRS détecté (pour tenir compte du décalage introduit par les filtres). La série des intervalles RR est construite comme la différence entre deux ondes R consécutives.
+
+\subsection{Détection automatique des artefacts}
+
+Il est nécessaire d'obtenir une série d'intervalles RR fidèle pour la détection des arythmies. Ainsi, les artefacts détectés comme ondes R doivent être éliminés. Les artefacts qui génèrent beaucoup de fausses ondes R sont dus à des mouvements de l'animal. Ces artefacts sont caractérisés par des variations larges et rapides du signal ECG. Pour détecter ces fausses ondes R, deux indices sont calculés pour chaque maximum du signal ECG transformé (voir section \ref{autoR}) :
+
+\begin{itemize}
+\item Le \textit{rapport d'amplitude} (RA), défini comme le rapport entre l'amplitude du maximum et l'amplitude mediane des cinq précedents maximums. Comme on ne s'intéresse pas au sens de variation de l'amplitude, on prend l'inverse du rapport si celui-ci est inférieur à 1.
+\item Le \textit{niveau de bruit} (NB), défini comme le rapport entre le minimum le plus haut de part et d'autre du maximum et l'amplitude du maximum (Figure \ref{artefact}).
+\end{itemize}
+
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=\linewidth]{images/Artefact.pdf}
+	\caption{Exemple de détection d'ondes R artéfactuelles. Les signaux ECG brut et transformé d'une durée de 1,5 s sont illustrés, présentant 5 ondes R validées. Pour valider le maxium suivant sur le signal ECG transformé, le rapport d'amplitude est calculé comme le rapport entre l'amplitude du maxium et l'amplitude médiane des 5 derniers maximums ($A_m$). De même, le niveau de bruit est calculé comme le rapport entre le plus grand minimum de part et d'autre du maximum ($m_g$ et $m_d$) et l'amplitude du maximum.}
+	\label{artefact}
+\end{figure}
+
+La Figure \ref{compareondes} illustre les valeurs des deux indices pour chaque onde R détectée à partir d'un enregistrement ECG de 24 heures. Les ondes R réelles et artéfactuelles sont placées dans deux zones distinctes du plan, ce qui peut permettre d'écarter la plupart des ondes R artéfactuelles. La courbe de séparation proposée est définie par l'équation $RA = (\tau / NB) + 1$, avec un unique parametre $\tau$. L'ensemble des ondes R au dessus de cette courbe sont enlevées et les intervalles RR correspondant supprimés de la série des intervalles RR. La valeur de $\tau$ est choisie pour optimiser la performance de la classification, définie comme la proportion d'ondes R artéfactuelles supprimées parmi l'ensemble des ondes R artéfactuelles et des ondes R supprimées. Cet indice varie entre 0 (aucune onde R artéfactuelle n'est supprimée) et 1 (toutes et seules les ondes R artéfactuelles sont supprimées).
+
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=\linewidth]{images/compareOndes.pdf}
+	\caption{Graphe présentant les valeurs du rapport d'amplitude et du niveau de bruit pour toutes les ondes R détectés sur un enregistrement ECG de 24 heures. Un total de 443 209 ondes R ont été automatiquement détectées, parmi lesquelles 2050 sont artéfactuelles et illustrées par des croix noires. Les ondes R réelles sont représentées par des cercles gris. Le rapport d'amplitude (RA) et le niveau de bruit (NB) sont calculés pour chaque onde R. La courbe $RA = (\tau / NB) + 1$ est tracée pour trois valeurs de $\tau$ (0,01, 0.1 et 1).}
+	\label{compareondes}
+\end{figure}
 
 
 \subsection{Analyse visuelle des arythmies}
