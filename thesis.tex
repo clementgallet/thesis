@@ -1,8 +1,9 @@
-\documentclass[a4paper,12pt]{report}
+\documentclass[a4paper,12pt,twoside]{scrreprt}
 
 \usepackage[frenchb]{babel}
 \usepackage[latin1]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{lmodern}
 \usepackage{amsfonts}
 \usepackage{amsmath}
 % \usepackage{cite}
@@ -11,6 +12,7 @@
 \usepackage{mathrsfs}
 \usepackage[pdftex]{graphicx}
 \usepackage[strings]{underscore} % for underscores in urls in bibtex
+\usepackage{fancyhdr}
 % \usepackage{appendix}
 % \usepackage{todonotes}
 % \usepackage[top=1in, bottom=1.5in, left=1.46in, right=1.46in]{geometry}
@@ -20,35 +22,70 @@
 \setcounter{secnumdepth}{5}
 \setcounter{tocdepth}{5}
 
-% \makeatletter
-% \def\maketitle{%
-  % \thispagestyle{empty}%
-  % \begin{center}\leavevmode
-    % \normalfont
-    % {\LARGE UNIVERSITÉ CLAUDE BERNARD -- LYON 1\par}%
-    % \vfill
-    % {\Large \textbf{Master Recherche \og Physiologie et Neurosciences \fg}\par}%
-    % \vskip 0.4cm
-    % {\large Spécialité\par}%
-    % \vskip 0.3cm
-    % {\Large \textbf{Régulations Cardiovasculaires, Métaboliques et Nutritionnelles}\par}%
-    % \vfill
-    % {\Large \@date\par}%
-    % \vfill
-    % {\LARGE \@title\par}%
-    % \vfill
-    % {\Large Mémoire présenté par \@author\par}%
-    % \vfill
-    % {\large Travail réalisé dans le laboratoire\\
-% CNRS FRE 3075 : Interactions Neurovasculaires\\
-% ISPB -- Faculté de Pharmacie de Lyon\par}%
-    % \vfill
-    % {\Large Sous la direction du Pr. C. BARRÈS et du Dr. C. JULIEN}%
-  % \end{center}%
-  % \cleardoublepage
-  % }
-% \makeatother
-\title{}
+\makeatletter
+\def\maketitle{%
+  \thispagestyle{empty}%
+  \begin{center}\leavevmode
+    \normalfont
+	\begin{minipage}{0.45\textwidth}
+		\begin{flushleft} \large
+			\includegraphics[width=0.6\textwidth]{images/logolyon1.jpg}\\
+			No d'ordre : 
+		\end{flushleft}
+	\end{minipage}
+	\begin{minipage}{0.45\textwidth}
+		\begin{flushright} \large
+			\includegraphics[width=0.6\textwidth]{images/logolyon.jpg}\\
+			Année 2013 
+		\end{flushright}
+	\end{minipage}
+    {\Large THESE DE L'UNIVERSITÉ DE LYON\par}%
+    \vfill
+    {\large Délivrée par\par}%
+    \vfill
+    {\Large \textbf{L'UNIVERSITÉ CLAUDE BERNARD LYON 1}\par}%
+    \vfill
+    {\Large \textbf{École Doctorale Interdisciplinaire Sciences Santé}\par}%
+    \vskip 0.4cm
+    {\LARGE \textbf{DIPLÔME DE DOCTORAT}\par}%
+    \vfill
+    {\large (arrêté du 7 août 2006)\par}%
+    \vskip 0.3cm
+    {\large \textit{soutenue publiquement le 12 novembre 2013\\par}\par}%
+    \vskip 0.4cm
+    {\Large \textbf{Clément GALLET}\par}%
+    \vskip 0.4cm
+    {\LARGE \textbf{\@title}\par}%
+    \vskip 0.4cm
+    {\large Directeurs de thèse : M. le Docteur Claude JULIEN et M. le Professeur Philippe CHEVALIER\par}%
+    \vskip 0.4cm
+    {\Large \textbf{JURY}\par}%
+    \vskip 0.4cm
+	\begin{minipage}{0.45\textwidth}
+		\begin{flushleft} \large
+			M. le Professeur\\
+			M. le Professeur\\
+			M. le Professeur\\
+			M. le Docteur\\
+			M. le Professeur
+		\end{flushleft}
+	\end{minipage}
+	\begin{minipage}{0.45\textwidth}
+		\begin{flushleft} \large
+			Guy CARRAULT\\
+			Philippe CHEVALIER\\
+			Jean-Luc ELGHOZI\\
+			Claude JULIEN\\
+			Jean-Luc PASQUIÉ
+		\end{flushleft}
+	\end{minipage}
+    \vfill
+  \end{center}%
+  \cleardoublepage
+  }
+\makeatother
+
+\title{Analyse automatisée du signal électrocardiographique dans les arythmies atriales chez le rat vigil}
 \author{Clément Gallet}
 \date{}
 
@@ -56,15 +93,17 @@
 
 \begin{document}
 
-\pagenumbering{alph}
-
-\pagestyle{empty}
+\pagestyle{fancy}
+\fancyhead[LE,RO]{}
+% \pagestyle{plain}
+\pagenumbering{Roman}
 
 \maketitle
 \thispagestyle{empty}
 
 \newpage
 
+\setcounter{page}{1}
 
 % ==========================
 % Résumé
@@ -74,13 +113,22 @@
 
 \chapter*{Résumé}
 
+La fibrillation atriale est l'arythmie cardiaque la plus fréquente. Les études sur des modèles animaux ont fourni beaucoup de renseignements sur les mécanismes de cette arythmie, mais il n'existe pas de modèles dont l'arythmie survient de manière spontanée. Comme l'âge et l'hypertension sont deux facteurs de risque majeurs de la fibrillation atriale chez l'Homme, nous avons cherché à développer un modèle de fibrillation atriale spontané chez le vieux rat spontanément hypertendu.
+
+Des enregistrements télémétriques électrocardiographiques, chez le rat vigil, ont montré de nombreux épisodes de tachyarythmie atriale non soutenus. De plus, l'application d'un stress émotionnel supprime ces arythmies et l'injection d'un agoniste cholinergique les renforce. Cela suggère chez ces animaux un rôle du tonus parasympathique dans la survenue de ces arythmies.
+
+Cependant, la durée des enregistrements ainsi que le nombre d'épisodes arythmiques rend l'analyse visuelle exhaustive longue et laborieuse. C'est pourquoi il est nécessaire d'utiliser une procédure de détection automatique des arythmies atriales. Les méthodes existantes étant surtout spécifiques à l'Homme, une nouvelle méthode a été développée. Cette méthode utilise exclusivement les intervalles RR car les ondes P ne peuvent être identifiées avec fiabilité. Elle repère les motifs caractéristiques de tachyarythmies grâce à une structure d'automate, et a montré une bonne performance sur les enregistrements télémétriques effectués.
+
+Ce nouveau modèle animal permettra d'étudier les mécanismes physiopathologiques des arythmies atriales, notamment grâce à un outil facilitant la quantification des arythmies.
+
+
 \newpage
 
 \tableofcontents
 
 \newpage
 
-\pagestyle{plain}
+% \pagestyle{plain}
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
@@ -207,7 +255,7 @@ Lors d'un enregistrement, des artéfacts qui n'ont pas comme origine l'activité é
 	\centering
 	\includegraphics[width=\linewidth]{images/artefactchien.png}
 	\caption{Exemples de tracés ECG en DII chez le chien, classés visuellement en quatre niveaux de bruits, en fonction de la présence et de l'amplitude du bruit (D'apreès \citet{stern13}).}
-	\label{artefectchien}
+	\label{artefactchien}
 \end{figure}
 
 
@@ -243,13 +291,13 @@ Le diagnostique de FA se fait à partir de l'enregistrement ECG (Figure \ref{ecgf
 	\label{ecgfa}
 \end{figure}
 
-Plusieurs mécanismes ont été proposés pour expliquer la survenue et la perpétuation de la FA, par exemple des foyers ectopiques, des rotors ou des ondelettes multiples \citep{eckstein08}. Plusieurs mécanismes peuvent coexister chez un même patient.
+Plusieurs mécanismes ont été proposés pour expliquer la survenue et la perpétuation de la FA, par exemple des foyers ectopiques, des rotors ou des ondelettes multiples \citep{eckstein08} (Figure \ref{mecanismes}). Plusieurs mécanismes peuvent coexister chez un même patient.
 
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/mecanismesfa.jpg}
 	\caption{Schémas des oreillettes illustrant les différentes mécanismes électriques pouvant conduire à la fibrillation atriale (D'après \citet{eckstein08}.}
-	\label{ecgfa}
+	\label{mecanismes}
 \end{figure}
 
 La génèse d'une arythmie cardiaque dépend de trois facteurs qui composent le triangle de Coumel \citep{farre04} : un substrat arythmogène, un déclencheur et une modification du milieu. Ces trois facteurs sont associés au déclenchement et à la perpétuation de la FA : des anomalités structurales qui permettent les circuits de réentrée, des foyers ectopiques principalement autour des veines pulmonaires, et un déséquilibre du système nerveux autonome.
@@ -318,7 +366,7 @@ Un autre modèle de FA spontanée a été décrit dans l'étude de \citet{zhang08} che
 
 
 
-\clearpage
+% \clearpage
 
 
 \chapter{Détection automatique de la FA}
@@ -501,26 +549,27 @@ Cette méthode permet de montrer le profil arythmique global d'un tracé ECG, mais
 
 
 
+
 \part{Travail personnel}
 
 \chapter{Matériel et méthodes}
 
 \section{Animaux}
 
-Des rats mâles spontanément hypertendus de souche SHR et normotendus de souche Wister-Kyoto (WKY) (Elevage Janvier, Le Genest-Saint-Isle, France) sont utilisés. Ils sont stabulés dans des conditions constantes de température (21-22 \degres C) et d'éclairage (7h à 19h). Ils reçoivent de l'eau de ville et une nourriture standard \textit{ad libitum}.
+Des rats mâles spontanément hypertendus de souche SHR et normotendus de souche Wistar-Kyoto (WKY) (Elevage Janvier, Le Genest-Saint-Isle, France) sont utilisés. Ils sont stabulés dans des conditions constantes de température (21-22 \degres C) et d'éclairage (7h à 19h). Ils reçoivent de l'eau de ville et une nourriture standard \textit{ad libitum}.
 
 \section{Enregistrements}
 
 \subsection{Enregistrement de l'électrocardiogramme}
 
-Des sondes télémétriques ECG (TA11 CA-F40 ; Data Sciences International, St. Paul, MN) sont implantés sous anésthésie à l'isoflurane. Le corps de la sonde est placée dans une poche sous-cutanée dans le dos, et deux électrodes sont fixées en position DII (Figure \ref{leads}). Les animaux ont une période de récupération d'une semaine.
+Des sondes télémétriques ECG (TA11 CA-F40 ; Data Sciences International, St. Paul, MN) sont implantés sous anesthésie à l'isoflurane. Le corps de la sonde est placée dans une poche sous-cutanée dans le dos, et deux électrodes sont fixées en position DII (Figure \ref{leads}). Les animaux ont une période de récupération d'une semaine.
 
-% \begin{figure}[tbp]
-	% \centering
-	% \includegraphics[width=\linewidth]{images/symbolic.PNG}
-	% \caption{Nombre d'occurrences (P_n) de chaque séquence de cinq symboles chez un rat contrôle et un rat atteint d'une insuffisance cardiaque. n est le numéro de la séquence de cinq symboles.}
-	% \label{symbolic}
-% \end{figure}
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=\linewidth]{images/implantation.png}
+	\caption{Schéma d'implantation de la sonde télémétrique ECG chez le rat. La position des deux électrodes correspond à la dérivation DII.}
+	\label{leads}
+\end{figure}
 
 L'enregistrement en continu de l'ECG est obtenu chez les rats vigils. La capture du signal est accomplie avec des receveurs (RPC-1 ; Data Sciences International) placés sous chaque cage. Les signaux télémétriques ECG sont convertis en signaux analogiques (Analog ECG Output Adapter R08 ; Data Sciences International) et dirigés vers un ordinateur équipé d'une carte d'acquisition (NI PCIe-6251 ; National Instruments, Austin, TX). Au moyen d'un logiciel développé au laboratoire, à partir du progiciel LabVIEW 2009 (National Instruments), les signaux sont enregistrés en continu à la fréquence d'échantillonnage de 2000 Hz.
 
@@ -548,27 +597,27 @@ Après une période de base, une dose de 0,4 mg/kg de carbamylcholine (agoniste ch
 
 La détection des ondes R est obtenue par un algorithme adapté de \citet{pan85}. Les signaux ECG sont filtrés par un filtre passe-bas Butterworth du deuxième ordre avec une fréquence de coupure de 125 Hz. Ce filtrage permet d'éliminer les bruits de haute fréquence. Ensuite, la dérivée numérique du signal est calculée (différence entre deux valeurs successives) pour mettre en valeur les complexes QRS. Le carré du signal est ensuite calculé pour obtenir un signal positif. Enfin, le signal est lissé par un filtre passe-bas du même type que précédemment, avec une fréquence de coupure de 25 Hz. Le signal obtenu est utilisé pour détecter les ondes R ainsi que dans la section suivante pour la détection des artefacts.
 
-Les maximums locaux du signal transformé sont notés et validés comme complexes QRS si leur amplitude est supérieur à 15 \% de l'amplitude médiane des 5 derniers complexes QRS validés. Si aucun complexe n'est détecté pendant une seconde, ce seuil de détection est redéfini comme la moyenne du signal entier pendant cette seconde.
+Les maximums locaux du signal transformé sont notés et validés comme complexes QRS si leur amplitude est supérieure à 15 \% de l'amplitude médiane des 5 derniers complexes QRS validés. Si aucun complexe n'est détecté pendant une seconde, ce seuil de détection est redéfini comme la moyenne du signal entier pendant cette seconde.
 
-Enfin, les ondes R sont identifiées sur le signal ECG d'origine comme les maximums dans une fenetre de 20 ms avant chaque complexe QRS détecté (pour tenir compte du décalage introduit par les filtres). La série des intervalles RR est construite comme la différence entre deux ondes R consécutives.
+Enfin, les ondes R sont identifiées sur le signal ECG d'origine comme les maximums dans une fenêtre de 20 ms avant chaque complexe QRS détecté (pour tenir compte du décalage introduit par les filtres). La série des intervalles RR est construite comme la différence entre deux ondes R consécutives.
 
 \subsection{Détection automatique des artefacts}
 
 Il est nécessaire d'obtenir une série d'intervalles RR fidèle pour la détection des arythmies. Ainsi, les artefacts détectés comme ondes R doivent être éliminés. Les artefacts qui génèrent beaucoup de fausses ondes R sont dus à des mouvements de l'animal. Ces artefacts sont caractérisés par des variations larges et rapides du signal ECG. Pour détecter ces fausses ondes R, deux indices sont calculés pour chaque maximum du signal ECG transformé (voir section \ref{autoR}) :
 
 \begin{itemize}
-\item Le \textit{rapport d'amplitude} (RA), défini comme le rapport entre l'amplitude du maximum et l'amplitude mediane des cinq précedents maximums. Comme on ne s'intéresse pas au sens de variation de l'amplitude, on prend l'inverse du rapport si celui-ci est inférieur à 1.
+\item Le \textit{rapport d'amplitude} (RA), défini comme le rapport entre l'amplitude du maximum et l'amplitude médiane des cinq précédents maximums. Comme on ne s'intéresse pas au sens de variation de l'amplitude, on prend l'inverse du rapport si celui-ci est inférieur à 1.
 \item Le \textit{niveau de bruit} (NB), défini comme le rapport entre le minimum le plus haut de part et d'autre du maximum et l'amplitude du maximum (Figure \ref{artefact}).
 \end{itemize}
 
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/Artefact.pdf}
-	\caption{Exemple de détection d'ondes R artéfactuelles. Les signaux ECG brut et transformé d'une durée de 1,5 s sont illustrés, présentant 5 ondes R validées. Pour valider le maxium suivant sur le signal ECG transformé, le rapport d'amplitude est calculé comme le rapport entre l'amplitude du maxium et l'amplitude médiane des 5 derniers maximums ($A_m$). De même, le niveau de bruit est calculé comme le rapport entre le plus grand minimum de part et d'autre du maximum ($m_g$ et $m_d$) et l'amplitude du maximum.}
+	\caption{Exemple de détection d'ondes R artéfactuelles. Les signaux ECG brut et transformé d'une durée de 1,5 s sont illustrés, présentant 5 ondes R validées. Pour valider le maximum suivant sur le signal ECG transformé, le rapport d'amplitude est calculé comme le rapport entre l'amplitude du maximum et l'amplitude médiane des 5 derniers maximums ($A_m$). De même, le niveau de bruit est calculé comme le rapport entre le plus grand minimum de part et d'autre du maximum ($m_g$ et $m_d$) et l'amplitude du maximum.}
 	\label{artefact}
 \end{figure}
 
-La Figure \ref{compareondes} illustre les valeurs des deux indices pour chaque onde R détectée à partir d'un enregistrement ECG de 24 heures. Les ondes R réelles et artéfactuelles sont placées dans deux zones distinctes du plan, ce qui peut permettre d'écarter la plupart des ondes R artéfactuelles. La courbe de séparation proposée est définie par l'équation $RA = (\tau / NB) + 1$, avec un unique parametre $\tau$. L'ensemble des ondes R au dessus de cette courbe sont enlevées et les intervalles RR correspondant supprimés de la série des intervalles RR. La valeur de $\tau$ est choisie pour optimiser la performance de la classification, définie comme la proportion d'ondes R artéfactuelles supprimées parmi l'ensemble des ondes R artéfactuelles et des ondes R supprimées. Cet indice varie entre 0 (aucune onde R artéfactuelle n'est supprimée) et 1 (toutes et seules les ondes R artéfactuelles sont supprimées).
+La Figure \ref{compareondes} illustre les valeurs des deux indices pour chaque onde R détectée à partir d'un enregistrement ECG de 24 heures. Les ondes R réelles et artéfactuelles sont placées dans deux zones distinctes du plan, ce qui peut permettre d'écarter la plupart des ondes R artéfactuelles. La courbe de séparation proposée est définie par l'équation $RA = (\tau / NB) + 1$, avec un unique paramètre $\tau$. L'ensemble des ondes R au dessus de cette courbe sont enlevées et les intervalles RR correspondant supprimés de la série des intervalles RR. La valeur de $\tau$ est choisie pour optimiser la performance de la classification, définie comme la proportion d'ondes R artéfactuelles supprimées parmi l'ensemble des ondes R artéfactuelles et des ondes R supprimées. Cet indice varie entre 0 (aucune onde R artéfactuelle n'est supprimée) et 1 (toutes et seules les ondes R artéfactuelles sont supprimées).
 
 \begin{figure}[tbp]
 	\centering
@@ -580,16 +629,54 @@ La Figure \ref{compareondes} illustre les valeurs des deux indices pour chaque o
 
 \subsection{Analyse visuelle des arythmies}
 
-\subsection{Analyse automatique des arythmies}
+Les tracés ECG sont analysés visuellement, et différentes arythmies sont identifiées. Tout d'abord, l'extrasystole auriculaire (ESA) est caractérisée par une onde P prématurée et d'une morphologie différente de celle des ondes sinusales. Le complexe QRS qui suit est habituellement identique à celui du rythme sinusal. De plus, l'ESA est souvent suivie d'une pause compensatrice (Figure \ref{exESA}).
 
-\subsection{Analyse de la variabilité sinusale}
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=\linewidth]{images/exESA.pdf}
+	\caption{Illustration d'une extrasystole auriculaire (ESA), avec une onde P modifiée ainsi qu'un intervalle RR suivant allongé, appelé pause compensatrice.}
+	\label{exESA}
+\end{figure}
 
-\subsection{Analyse de la pression artérielle}
+Deux ESA consécutives forment un couplet d'ESA (Figure \ref{exCplESA}). De même, une ESA alternée avec une onde P sinusale est un bigéminisme auriculaire (Figure \ref{exBigESA}).
 
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=\linewidth]{images/exESA.pdf}
+	\caption{Illustration d'un couplet d'extrasystoles auriculaires (ESA), composé de deux ESA consécutives.}
+	\label{exCplESA}
+\end{figure}
 
-\subsection{}
-\subsection{}
-\subsection{}
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=\linewidth]{images/exESA.pdf}
+	\caption{Illustration d'un bigéminisme auriculaire, composé d'extrasystoles auriculaires alternées avec des battements sinusaux.}
+	\label{exBigESA}
+\end{figure}
+
+Lorsque trois ESA consécutives ou plus sont présentes, l'épisode arythmique est appellé tachyarythmie atriale (TA). Sur les tracés télémétriques ECG, il est difficile de distinguer la fibrillation atriale (absence d'ondes P) avec la tachycardie atriale multifocale (ondes P présentes), c'est pourquoi ces deux types d'arythmies sont regroupés sous le nom de TA (Figure \ref{exFA}).
+
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=\linewidth]{images/exFA.pdf}
+	\caption{Illustration d'un épisode de tachyarythmie atriale, composé de 4 extrasystoles auriculaires successives.}
+	\label{exBigESA}
+\end{figure}
+
+Les arythmies ventriculaires sont aussi identifiées. L'extrasystole ventriculaire est caractérisée par l'existence d'un complexe QRS prématuré et élargi, de morphologie différente des complexes QRS de base. De plus, il y a une absence d'onde P avant le complexe QRS. Après le complexe QRS élargi se trouve une pause compensatrice (Figure \ref{exESV}).
+
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=\linewidth]{images/exFA.pdf}
+	\caption{Illustration de 3 extrasystoles ventriculaires (ESV). Les complexes QRS peuvent être positifs ou négatifs. On peut observer une onde P à l'intérieur des complexes QRS des ESV.}
+	\label{exESV}
+\end{figure}
+
+% \subsection{Analyse automatique des arythmies}
+
+% \subsection{Analyse de la variabilité sinusale}
+
+% \subsection{Analyse de la pression artérielle}
 
 
 \addcontentsline{toc}{section}{Références}
