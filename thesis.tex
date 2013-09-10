@@ -13,6 +13,7 @@
 \usepackage[pdftex]{graphicx}
 \usepackage[strings]{underscore} % for underscores in urls in bibtex
 \usepackage{fancyhdr}
+\usepackage{pdfpages}
 % \usepackage{appendix}
 % \usepackage{todonotes}
 % \usepackage[top=1in, bottom=1.5in, left=1.46in, right=1.46in]{geometry}
@@ -672,14 +673,69 @@ Les arythmies ventriculaires sont aussi identifiées. L'extrasystole ventriculair
 	\label{exESV}
 \end{figure}
 
-% \subsection{Analyse automatique des arythmies}
+\subsection{Analyse automatique des arythmies}
+
+La détection automatique des arythmies était effectuée grâce à un algorithme fondé sur une structure d'automate. Cet algorithme utilise la série d'intervalles RR comme entré unique, et classe chaque battement dans une des trois catégories : normal ($N$), arythmique ($A$) ou comme pause compensatrice ($P$). Cet algorithme détecte les extrasystoles auriculaires et ventriculaires, caractérisées par une réduction de l'intervalle RR.
+
+Un premier modèle est introduit, qui sert de base au modèle complet. Dans ce premier modèle, la classe d'un battement $b$ est déterminé par la classe du battement précédent $b-1$, l'intervalle RR entre ces deux battements ($RR_b$) ainsi que l'intervalle RR de référence ($RR_n$) calculé comme la médiane des 5 derniers intervalles RR entre battements classés comme normaux. $RR_n$ reflète le rythme sinusal.
+
+Un battement arythmique est caractérisé par une réduction de l'intervalle RR comparé à l'intervalle RR sinusal. La première règle est donc que si le battement $b-1$ est normal, alors le battement $b$ est classé comme arythmique si $RR_b < k_A RR_n$ et normal dans le cas contraire, pour une certaine valeur de $k_A$. De même, un épisode tachyarythmique se termine par une pause compensatrice, dont l'intervalle RR est supérieur à l'intervalle RR sinusal. Ainsi, si le battement $b-1$ est arythmique, le battement $b$ est classé comme pause compensatrice si $RR_b > k_P RR_n$ et arythmique dans le cas contraire, pour une certaine valeur de $k_P$. Une dernière règle est nécessaire pour distinguer une tachyarythmie d'une tachycardique sinusale. Si les cinq derniers battements sont arythmiques et le coefficient de variation des cinq derniers intervalles RR est en dessous d'une certaine valeur $C$, alors la séquence arythmique complète est classée comme normale. Un schéma de ce modèle est illustré sur la Figure \ref{simplemodel}.
+
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=\linewidth]{images/Automaton.pdf}
+	\caption{Illustration du modèle simple de détection d'arythmies. Les trois classes de l'automate (N, normal ; A, arythmique ; P, pause) sont représentés par des cercles, et les transitions par des flèches. $RR_b$ est l'intervalle RR actuel, $RR_n$ est la médiane des cinq précédents intervalles RR normaux, et $k_A$ et $k_P$ sont des paramètres. La flèche discontinue représent le cas où une tachycardie sinusale est détectée.}
+	\label{simplemodel}
+\end{figure}
+
+Une limitation de ce modèle est l'utilisation de conditions binaires, ce qui réduit l'information utilisée. A partir de ce premier modèle, un modèle plus complexe est élaboré en utilisant des probabilités. A chaque battement est associé une probabilité d'appartenir à chacune des classes ($p_N^b$, $p_A^b$ et $p_P^b$ respectivement pour normal, arythmique et pause). Les règles du modèle simple sont adaptées à l'aide de la fonction logistique $H_s(x) = 1/(1 + \exp{-2sx})$. Cette fonction est caractérisée par $H_s(x) \approx 0$ pour $x \ll 0$ et $H_s(x) \approx 1$ pour $x \gg 0$.
+
+La première règle devient : $p_N^b |_N^{b-1} = H_s(RR_b - k_A RR_n)$, avec $p_N^b |_N^{b-1}$ la probabilité que le battement $b$ est normal sachant que le battement $b-1$ est normal, et $p_A^b |_N^{b-1} = 1 - p_N^b |_N^{b-1}$. La deuxième règle devient $p_P^b |_A^{b-1} = H_s(RR_b - k_P RR_n)$ et $p_A^b |_A^{b-1} = 1 - $p_P^b |_A^{b-1}$. On pose de plus $p_N^b |_P^{b-1} = 1$ et $p_P^b |_N^{b-1} = p_N^b |_A^{b-1} = p_A^b |_P^{b-1} = p_P^b |_P^{b-1} = 0$. 
+
+En utilisant les probabilités conditionnelles, on obtient l'expression de $p_N^b$ :
+
+\begin{align}
+p_N^b &= p_N^{b-1} p_N^b |_N^{b-1} + p_A^{b-1} p_N^b |_A^{b-1} + p_P^{b-1} p_N^b |_P^{b-1}
+      &= p_N^{b-1} H_s(RR_b - k_A RR_n) + p_P^{b-1}
+\end{align}
+
+Les autres expressions sont obtenues de la même manière :
+
+\begin{align}
+p_A^b &= p_N^{b-1} (1 - H_s(RR_b - k_A RR_n)) + p_A^{b-1} (1 - H_s(RR_b - k_P RR_n))
+p_P^b &= p_A^{b-1} H_s(RR_b - k_P RR_n)
+\end{align}
+
+Après avoir calculé les probabilités pour le battement $b$, le battement est classé dans une des trois catégories selon les règles suivantes :
+\begin{itemize}
+\item si $p_N^b > 0,5$, le battement $b$ est classé comme normal. On définit alors $p_N^b = 1$, $p_A^b = p_P^b = 0$
+\item si $p_P^b > 0,5$, le battement $b$ est classé comme pause. On définit alors $p_N^b = 1$, $p_A^b = p_P^b = 0$
+\item sinon, le battement $b$ est classé comme arythmique
+\end{itemize}
+
+L'algorithme est initialisé par $p_N^0 = 1$, $p_A^0 = p_P^0 = 0$. De plus, les cinq premiers battements ne sont pas classés, et sont considérés normaux pour pouvoir calculer $RR_n$.
+
+L'algorithme dépend de la valeur de quatre paramètres $k_A$, $k_P$, $s$ et $C$. Ces paramètres sont choisis pour maximiser la performance de l'algorithme, définie par $VP/(VP + FP + FN)$. VP (vrais positifs) est le nombre de battements arythmiques correctement classés, FP (faux positifs) est le nombre de battements normaux classés comme arythmiques et FN (faux négatifs) est le nombre de battements arythmiques classés comme normaux.
+
 
 % \subsection{Analyse de la variabilité sinusale}
 
 % \subsection{Analyse de la pression artérielle}
 
 
-\addcontentsline{toc}{section}{Références}
+\chapter{Tachyarythmies atriales spontanées chez le vieux rat hypertendu : rôle du système nerveux autonome}
+
+\includepdf[pages={2-8}]{articles/Scridon12.pdf}
+
+\chapter{Détection automatique des arythmies atriales basée sur l'analyse des intervalles RR chez le rat vigil}
+
+\includepdf[pages={4-12}]{articles/Gallet13.pdf}
+
+\chapter{Discussion}
+
+\chapter{Références}
+
+% \addcontentsline{toc}{section}{Références}
 % \bibliographystyle{these}
 \bibliographystyle{plainnat}
 \bibliography{thesis}
