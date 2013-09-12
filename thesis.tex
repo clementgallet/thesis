@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt,twoside]{scrreprt}
+\documentclass[a4paper,12pt,oneside]{scrreprt}
 
 \usepackage[frenchb]{babel}
 \usepackage[latin1]{inputenc}
@@ -40,7 +40,7 @@
 			Année 2013 
 		\end{flushright}
 	\end{minipage}
-    {\Large THESE DE L'UNIVERSITÉ DE LYON\par}%
+    {\Large THÈSE DE L'UNIVERSITÉ DE LYON\par}%
     \vfill
     {\large Délivrée par\par}%
     \vfill
@@ -51,6 +51,8 @@
     {\LARGE \textbf{DIPLÔME DE DOCTORAT}\par}%
     \vfill
     {\large (arrêté du 7 août 2006)\par}%
+    \vfill
+    {\large Spécialité : Traitement du signal et de l'image\par}%
     \vskip 0.3cm
     {\large \textit{soutenue publiquement le 12 novembre 2013\\par}\par}%
     \vskip 0.4cm
@@ -114,14 +116,24 @@
 
 \chapter*{Résumé}
 
-La fibrillation atriale est l'arythmie cardiaque la plus fréquente. Les études sur des modèles animaux ont fourni beaucoup de renseignements sur les mécanismes de cette arythmie, mais il n'existe pas de modèles dont l'arythmie survient de manière spontanée. Comme l'âge et l'hypertension sont deux facteurs de risque majeurs de la fibrillation atriale chez l'Homme, nous avons cherché à développer un modèle de fibrillation atriale spontané chez le vieux rat spontanément hypertendu.
+La fibrillation atriale est la plus fréquente des arythmies cardiaques et sa physiopathologie reste mal comprise. Il n'existe pas actuellement de modèle animal dans lequel cette arythmie survienne de manière spontanée. Comme l'âge et l'hypertension artérielle sont deux facteurs de risque majeurs de la fibrillation atriale chez l'Homme, nous avons recherché si le rat spontanément hypertendu (SHR) vieillissant (11-13 mois d'âge) développe cette pathologie.
 
-Des enregistrements télémétriques électrocardiographiques, chez le rat vigil, ont montré de nombreux épisodes de tachyarythmie atriale non soutenus. De plus, l'application d'un stress émotionnel supprime ces arythmies et l'injection d'un agoniste cholinergique les renforce. Cela suggère chez ces animaux un rôle du tonus parasympathique dans la survenue de ces arythmies.
+Des enregistrements télémétriques de 24 h de l'électrocardiogramme (ECG) ont été réalisés dans 4 groupes de rats vigils. Ils ont révélé chez le rat SHR vieillissant la présence de nombreux épisodes de tachyarythmie atriale non soutenus, épisodes qui ne sont pas observés chez le rat SHR jeune ni chez le rat normotendu Wistar Kyoto jeune ou vieillissant.
 
-Cependant, la durée des enregistrements ainsi que le nombre d'épisodes arythmiques rend l'analyse visuelle exhaustive longue et laborieuse. C'est pourquoi il est nécessaire d'utiliser une procédure de détection automatique des arythmies atriales. Les méthodes existantes étant surtout spécifiques à l'Homme, une nouvelle méthode a été développée. Cette méthode utilise exclusivement les intervalles RR car les ondes P ne peuvent être identifiées avec fiabilité. Elle repère les motifs caractéristiques de tachyarythmies grâce à une structure d'automate, et a montré une bonne performance sur les enregistrements télémétriques effectués.
+Les résultats rapportés ci-dessus ont été obtenus grâce à l'analyse visuelle de l'intégralité de chaque enregistrement ECG, ce qui représente une durée d'analyse incompatible avec des expérimentations de routine. Nous avons donc choisi de développer une méthode automatique de reconnaissance des arythmies atriales chez le rat vigil. Cette méthode utilise exclusivement les intervalles RR car les ondes P ne peuvent pas toujours être identifiées avec fiabilité dans les enregistrements télémétriques de l'ECG. Elle repère les motifs caractéristiques de tachyarythmie grâce à une structure d'automate, et présente une bonne performance sur les enregistrements télémétriques déjà réalisés.
 
-Ce nouveau modèle animal permettra d'étudier les mécanismes physiopathologiques des arythmies atriales, notamment grâce à un outil facilitant la quantification des arythmies.
+Le nouveau modèle animal, conjointement à la nouvelle méthode automatique d'analyse de l'ECG, devrait permettre de réaliser les analyses phénotypiques de qualité indispensables aux hypothèses physiopathologiques moléculaires actuellement avancées dans la fibrillation atriale.
 
+
+\chapter*{Summary}
+
+Atrial fibrillation is the most common cardiac arrhythmia and its pathophysiology is still not well understood. To date, there are no animal models where the arrhythmia occurs spontaneously. As age and hypertension are major risk factors of atrial fibrillation in humans, we investigated the possible occurrence of this pathology in the aging (11-13 months) spontaneously hypertensive rat (SHR).
+
+Telemetric recordings of electrocardiogram were recorded in four groups of conscious rats. They showed in the aging SHR many non-sustained atrial tachyarrhythmia episodes, that were neither observed in the young SHR nor in the young or aging normotensive Wistar Kyoto rat.
+
+These results were obtained by visual screening of the whole ECG recordings, but the time taken was incompatible with routine experiments. We chose to develop an automated method to detect atrial arrhythmias in the couscious rat. This method only uses RR intervals because P waves cannot be accurately identified in telemetric recordings. It recognises characteristic patterns of tachyarrhythias using an automaton structure, and showed a good performance on obtained telemetric recordings.
+
+This new animal model, together with a new method of automated ECG analysis, should allow producing quality phenotypic analyses necessary to test molecular hypotheses currently investigated in atrial fibrillation
 
 \newpage
 
@@ -675,34 +687,34 @@ Les arythmies ventriculaires sont aussi identifiées. L'extrasystole ventriculair
 
 \subsection{Analyse automatique des arythmies}
 
-La détection automatique des arythmies était effectuée grâce à un algorithme fondé sur une structure d'automate. Cet algorithme utilise la série d'intervalles RR comme entré unique, et classe chaque battement dans une des trois catégories : normal ($N$), arythmique ($A$) ou comme pause compensatrice ($P$). Cet algorithme détecte les extrasystoles auriculaires et ventriculaires, caractérisées par une réduction de l'intervalle RR.
+La détection automatique des arythmies est effectuée grâce à un algorithme fondé sur une structure d'automate. Cet algorithme utilise la série d'intervalles RR comme entré unique, et classe chaque battement dans une des trois catégories : normal ($N$), arythmique ($A$) ou comme pause compensatrice ($P$). Cet algorithme détecte les extrasystoles auriculaires et ventriculaires, caractérisées par une réduction de l'intervalle RR.
 
-Un premier modèle est introduit, qui sert de base au modèle complet. Dans ce premier modèle, la classe d'un battement $b$ est déterminé par la classe du battement précédent $b-1$, l'intervalle RR entre ces deux battements ($RR_b$) ainsi que l'intervalle RR de référence ($RR_n$) calculé comme la médiane des 5 derniers intervalles RR entre battements classés comme normaux. $RR_n$ reflète le rythme sinusal.
+Un premier modèle est introduit, qui sert de base au modèle complet. Dans ce premier modèle, la classe d'un battement $b$ est déterminée par la classe du battement précédent $b-1$, l'intervalle RR entre ces deux battements ($RR_b$) ainsi que l'intervalle RR de référence ($RR_n$) calculé comme la médiane des 5 derniers intervalles RR entre battements classés comme normaux. $RR_n$ reflète le rythme sinusal.
 
-Un battement arythmique est caractérisé par une réduction de l'intervalle RR comparé à l'intervalle RR sinusal. La première règle est donc que si le battement $b-1$ est normal, alors le battement $b$ est classé comme arythmique si $RR_b < k_A RR_n$ et normal dans le cas contraire, pour une certaine valeur de $k_A$. De même, un épisode tachyarythmique se termine par une pause compensatrice, dont l'intervalle RR est supérieur à l'intervalle RR sinusal. Ainsi, si le battement $b-1$ est arythmique, le battement $b$ est classé comme pause compensatrice si $RR_b > k_P RR_n$ et arythmique dans le cas contraire, pour une certaine valeur de $k_P$. Une dernière règle est nécessaire pour distinguer une tachyarythmie d'une tachycardique sinusale. Si les cinq derniers battements sont arythmiques et le coefficient de variation des cinq derniers intervalles RR est en dessous d'une certaine valeur $C$, alors la séquence arythmique complète est classée comme normale. Un schéma de ce modèle est illustré sur la Figure \ref{simplemodel}.
+Un battement arythmique est caractérisé par une réduction de l'intervalle RR comparé à l'intervalle RR sinusal. La première règle est donc que si le battement $b-1$ est normal, alors le battement $b$ est classé comme arythmique si $RR_b < k_A RR_n$ et normal dans le cas contraire, pour une certaine valeur de $k_A$. De même, un épisode tachyarythmique se termine par une pause compensatrice, dont l'intervalle RR est supérieur à l'intervalle RR sinusal. Ainsi, si le battement $b-1$ est arythmique, le battement $b$ est classé comme pause compensatrice si $RR_b > k_P RR_n$ et arythmique dans le cas contraire, pour une certaine valeur de $k_P$. Une dernière règle est nécessaire pour distinguer une tachyarythmie d'une tachycardie sinusale. Si les cinq derniers battements sont arythmiques et le coefficient de variation des cinq derniers intervalles RR est en dessous d'une certaine valeur $C$, alors la séquence arythmique complète est classée comme normale. Un schéma de ce modèle est illustré sur la Figure \ref{simplemodel}.
 
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/Automaton.pdf}
-	\caption{Illustration du modèle simple de détection d'arythmies. Les trois classes de l'automate (N, normal ; A, arythmique ; P, pause) sont représentés par des cercles, et les transitions par des flèches. $RR_b$ est l'intervalle RR actuel, $RR_n$ est la médiane des cinq précédents intervalles RR normaux, et $k_A$ et $k_P$ sont des paramètres. La flèche discontinue représent le cas où une tachycardie sinusale est détectée.}
+	\caption{Illustration du modèle simple de détection d'arythmies. Les trois classes de l'automate (N, normal ; A, arythmique ; P, pause) sont représentées par des cercles, et les transitions par des flèches. $RR_b$ est l'intervalle RR actuel, $RR_n$ est la médiane des cinq précédents intervalles RR normaux, et $k_A$ et $k_P$ sont des paramètres. La flèche discontinue représente le cas où une tachycardie sinusale est détectée.}
 	\label{simplemodel}
 \end{figure}
 
-Une limitation de ce modèle est l'utilisation de conditions binaires, ce qui réduit l'information utilisée. A partir de ce premier modèle, un modèle plus complexe est élaboré en utilisant des probabilités. A chaque battement est associé une probabilité d'appartenir à chacune des classes ($p_N^b$, $p_A^b$ et $p_P^b$ respectivement pour normal, arythmique et pause). Les règles du modèle simple sont adaptées à l'aide de la fonction logistique $H_s(x) = 1/(1 + \exp{-2sx})$. Cette fonction est caractérisée par $H_s(x) \approx 0$ pour $x \ll 0$ et $H_s(x) \approx 1$ pour $x \gg 0$.
+Une limitation de ce modèle est l'utilisation de conditions binaires, ce qui réduit l'information utilisée. À partir de ce premier modèle, un modèle plus complexe est élaboré en utilisant des probabilités. À chaque battement est associé une probabilité d'appartenir à chacune des classes ($p_N^b$, $p_A^b$ et $p_P^b$ respectivement pour normal, arythmique et pause). Les règles du modèle simple sont adaptées à l'aide de la fonction logistique $H_s(x) = 1/(1 + \exp{-2sx})$. Cette fonction est caractérisée par $H_s(x) \approx 0$ pour $x \ll 0$ et $H_s(x) \approx 1$ pour $x \gg 0$, avec $s$ la pente de la transition à $x=0$.
 
-La première règle devient : $p_N^b |_N^{b-1} = H_s(RR_b - k_A RR_n)$, avec $p_N^b |_N^{b-1}$ la probabilité que le battement $b$ est normal sachant que le battement $b-1$ est normal, et $p_A^b |_N^{b-1} = 1 - p_N^b |_N^{b-1}$. La deuxième règle devient $p_P^b |_A^{b-1} = H_s(RR_b - k_P RR_n)$ et $p_A^b |_A^{b-1} = 1 - $p_P^b |_A^{b-1}$. On pose de plus $p_N^b |_P^{b-1} = 1$ et $p_P^b |_N^{b-1} = p_N^b |_A^{b-1} = p_A^b |_P^{b-1} = p_P^b |_P^{b-1} = 0$. 
+La première règle devient : $p_N^b |_N^{b-1} = H_s(RR_b - k_A RR_n)$, avec $p_N^b |_N^{b-1}$ la probabilité que le battement $b$ est normal sachant que le battement $b-1$ est normal, et $p_A^b |_N^{b-1} = 1 - p_N^b |_N^{b-1}$. La deuxième règle devient $p_P^b |_A^{b-1} = H_s(RR_b - k_P RR_n)$ et $p_A^b |_A^{b-1} = 1 - p_P^b |_A^{b-1}$. On pose de plus $p_N^b |_P^{b-1} = 1$ et $p_P^b |_N^{b-1} = p_N^b |_A^{b-1} = p_A^b |_P^{b-1} = p_P^b |_P^{b-1} = 0$.
 
 En utilisant les probabilités conditionnelles, on obtient l'expression de $p_N^b$ :
 
 \begin{align}
-p_N^b &= p_N^{b-1} p_N^b |_N^{b-1} + p_A^{b-1} p_N^b |_A^{b-1} + p_P^{b-1} p_N^b |_P^{b-1}
+p_N^b &= p_N^{b-1} p_N^b |_N^{b-1} + p_A^{b-1} p_N^b |_A^{b-1} + p_P^{b-1} p_N^b |_P^{b-1}\\
       &= p_N^{b-1} H_s(RR_b - k_A RR_n) + p_P^{b-1}
 \end{align}
 
 Les autres expressions sont obtenues de la même manière :
 
 \begin{align}
-p_A^b &= p_N^{b-1} (1 - H_s(RR_b - k_A RR_n)) + p_A^{b-1} (1 - H_s(RR_b - k_P RR_n))
+p_A^b &= p_N^{b-1} (1 - H_s(RR_b - k_A RR_n)) + p_A^{b-1} (1 - H_s(RR_b - k_P RR_n))\\
 p_P^b &= p_A^{b-1} H_s(RR_b - k_P RR_n)
 \end{align}
 
@@ -717,8 +729,9 @@ L'algorithme est initialisé par $p_N^0 = 1$, $p_A^0 = p_P^0 = 0$. De plus, les c
 
 L'algorithme dépend de la valeur de quatre paramètres $k_A$, $k_P$, $s$ et $C$. Ces paramètres sont choisis pour maximiser la performance de l'algorithme, définie par $VP/(VP + FP + FN)$. VP (vrais positifs) est le nombre de battements arythmiques correctement classés, FP (faux positifs) est le nombre de battements normaux classés comme arythmiques et FN (faux négatifs) est le nombre de battements arythmiques classés comme normaux.
 
+\subsection{Analyse de la variabilité sinusale}
 
-% \subsection{Analyse de la variabilité sinusale}
+Tous les épisodes arythmiques ainsi que les pauses compensatrices ont été exclus avant analyse. La fréquence cardiaque ainsi que des indices de variabilité sinusale sont calculés sur des enregistrements de 24 heures. La variabilité sinusale est analysée dans le domaine temporel par le calcul de l'écart-type des intervalles RR (SDNN), de la racine de la moyenne des carrés des écarts successifs d'intervalles RR (RMSSD) ainsi que du pourcentage d'intervalles RR adjacents qui diffèrent de plus de 5 ms (pNN5). Dans le domaine fréquentiel, les séries d'intervalles RR sont rééchantillonnées à 20 Hz par spline cubique. Ensuite, les puissances spectrales dans les bandes de basse fréquence (LF, $0,3 - 0,6$ Hz), de haute fréquence (HF, $0,6 - 2,5$ Hz), ainsi que le rapport LF/HF sont estimés sur des segments de 2048 valeurs (102,4 s) en utilisant la transformée de Fourier rapide, avec recouvrement de 50\% et application de la fenêtre de Hanning.
 
 % \subsection{Analyse de la pression artérielle}
 
@@ -731,13 +744,87 @@ L'algorithme dépend de la valeur de quatre paramètres $k_A$, $k_P$, $s$ et $C$. 
 
 \includepdf[pages={4-12}]{articles/Gallet13.pdf}
 
-\chapter{Discussion}
+% \chapter{Discussion}
 
-\chapter{Références}
+% \chapter{Références}
 
 % \addcontentsline{toc}{section}{Références}
 % \bibliographystyle{these}
 \bibliographystyle{plainnat}
 \bibliography{thesis}
 
+\newpage
+\thispagestyle{empty}
+
+\footnotesize{
+
+\hrule
+\vspace{3mm}
+RÉSUMÉ
+\vspace{3mm}
+
+La fibrillation atriale est la plus fréquente des arythmies cardiaques et sa physiopathologie reste mal comprise. Il n'existe pas actuellement de modèle animal dans lequel cette arythmie survienne de manière spontanée. Comme l'âge et l'hypertension artérielle sont deux facteurs de risque majeurs de la fibrillation atriale chez l'Homme, nous avons recherché si le rat spontanément hypertendu (SHR) vieillissant (11-13 mois d'âge) développe cette pathologie.
+
+Des enregistrements télémétriques de 24 h de l'électrocardiogramme (ECG) ont été réalisés dans 4 groupes de rats vigils. Ils ont révélé chez le rat SHR vieillissant la présence de nombreux épisodes de tachyarythmie atriale non soutenus, épisodes qui ne sont pas observés chez le rat SHR jeune ni chez le rat normotendu Wistar Kyoto jeune ou vieillissant.
+
+Les résultats rapportés ci-dessus ont été obtenus grâce à l'analyse visuelle de l'intégralité de chaque enregistrement ECG, ce qui représente une durée d'analyse incompatible avec des expérimentations de routine. Nous avons donc choisi de développer une méthode automatique de reconnaissance des arythmies atriales chez le rat vigil. Cette méthode utilise exclusivement les intervalles RR car les ondes P ne peuvent pas toujours être identifiées avec fiabilité dans les enregistrements télémétriques de l'ECG. Elle repère les motifs caractéristiques de tachyarythmie grâce à une structure d'automate, et présente une bonne performance sur les enregistrements télémétriques déjà réalisés.
+
+Le nouveau modèle animal, conjointement à la nouvelle méthode automatique d'analyse de l'ECG, devrait permettre de réaliser les analyses phénotypiques de qualité indispensables aux hypothèses physiopathologiques moléculaires actuellement avancées dans la fibrillation atriale.
+
+
+\vspace{3mm}
+
+\hrule
+
+\vspace{3mm}
+
+AUTOMATED ANALYSIS OF THE ELECTROCARDIOGRAPHIC SIGNAL ON ATRIAL ARRHYTHMIAS IN CONSCIOUS RATS
+
+\vspace{3mm}
+
+\hrule
+
+\vspace{3mm}
+
+SUMMARY
+
+\vspace{3mm}
+
+Atrial fibrillation is the most common cardiac arrhythmia and its pathophysiology is still not well understood. To date, there are no animal models where the arrhythmia occurs spontaneously. As age and hypertension are major risk factors of atrial fibrillation in humans, we investigated the possible occurrence of this pathology in the aging (11-13 months) spontaneously hypertensive rat (SHR).
+
+Telemetric recordings of electrocardiogram were recorded in four groups of conscious rats. They showed in the aging SHR many non-sustained atrial tachyarrhythmia episodes, that were neither observed in the young SHR nor in the young or aging normotensive Wistar Kyoto rat.
+
+These results were obtained by visual screening of the whole ECG recordings, but the time taken was incompatible with routine experiments. We chose to develop an automated method to detect atrial arrhythmias in the couscious rat. This method only uses RR intervals because P waves cannot be accurately identified in telemetric recordings. It recognises characteristic patterns of tachyarrhythias using an automaton structure, and showed a good performance on obtained telemetric recordings.
+
+This new animal model, together with a new method of automated ECG analysis, should allow producing quality phenotypic analyses necessary to test molecular hypotheses currently investigated in atrial fibrillation
+
+
+\vspace{3mm}
+
+\hrule
+
+\vspace{3mm}
+
+DISCIPLINE : Biologie, Médecine, Santé
+
+\vspace{3mm}
+
+\hrule
+
+\vspace{3mm}
+
+MOTS-CLÉS : fibrillation atriale, electrocardiogramme, analyse automatique
+KEYWORDS : atrial fibrillation, electrocardiogram, automatic analysis
+
+\vspace{3mm}
+
+\hrule
+
+\vspace{3mm}
+
+INTITULÉ ET ADRESSE DE L'U.F.R. OU DU LABORATOIRE :
+
+EA 4612 : Unité de Neurocardiologie
+Université Claude Bernard LYON 1, Faculté de Pharmacie, 8 avenue Rockefeller, 69008 LYON
+}
 \end{document}
