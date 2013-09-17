@@ -6,7 +6,6 @@
 \usepackage{lmodern}
 \usepackage{amsfonts}
 \usepackage{amsmath}
-% \usepackage{cite}
 \usepackage{natbib}
 \bibpunct{(}{)}{ ;}{a}{}{,}
 
@@ -411,7 +410,7 @@ La grande majorité des méthodes comprend quatre étapes :
 
 Avant la détection proprement dite des arythmies, le signal ECG subit une série de traitements qui visent à rendre possible ou à améliorer l'identification des arythmies.
 
-Une première catégorie de traitements, qui n'est pas propre à la détection d'arythmies, consiste à réduire les différentes sources de bruit. Un signal ECG peut présenter une fluctuation de la ligne de base, une interférence avec l'électromyogramme ou des artefacts de mouvement. La méthode la plus simple de réduction de ces bruits consiste en un filtrage dans une certaine bande de fréquences \citep{aytemir99, yaghouby10, asl08}. Toutefois, cette méthode n'élimine que partiellement les différentes sources de bruit, car certaines composantes fréquentielles du bruit sont communes avec le signal ECG (Figure \ref{AS_ECG}, \citep{tompkins93}). D'autres méthodes plus complexes comme des filtres qui s'adaptent au signal ou la transformée en ondelettes \citep{blanco08, afonso96, thakor91, kara07, kim09} permettent d'améliorer la réduction des bruits.
+Une première catégorie de traitements, qui n'est pas propre à la détection d'arythmies, consiste à réduire les différentes sources de bruit. Un signal ECG peut présenter une fluctuation de la ligne de base, une interférence avec l'électromyogramme ou des artefacts de mouvement. La méthode la plus simple de réduction de ces bruits consiste en un filtrage dans une certaine bande de fréquences \citep{aytemir99, asl08, yaghouby10}. Toutefois, cette méthode n'élimine que partiellement les différentes sources de bruit, car certaines composantes fréquentielles du bruit sont communes avec le signal ECG (Figure \ref{AS_ECG}, \citealt{tompkins93}). D'autres méthodes plus complexes comme des filtres qui s'adaptent au signal ou la transformée en ondelettes \citep{thakor91, afonso96, kara07, blanco08, kim09} permettent d'améliorer la réduction des bruits.
 
 \begin{figure}[tbp]
 	\centering
@@ -480,7 +479,7 @@ La première composante principale est définie par la direction de dispersion max
 
 Les valeurs des paramètres sont ensuite utilisées pour qualifier le tracé ECG comme présentant une arythmie ou non. Les algorithmes de classification d'arythmies font généralement l'objet d'une phase d'apprentissage. L'algorithme est entrainé dans un premier temps sur des tracés dont la nature de l'arythmie est connue, afin d'en déterminer les caractéristiques. Ensuite, l'algorithme est appliqué sur des tracés ECG de nature inconnue pour les classer.
 
-Un exemple d'algorithme de classification est la machine à vecteur de support \citep{jovic12, ubeyli07, asl08}. Cette méthode est fondée sur une représentation géométrique de l'ensemble des paramètres. Les valeurs des paramètres représentent les coordonnées d'un point dans un espace. Lors de la phase d'apprentissage, on obtient deux groupes de points, selon que le tracé ECG correspondant présente une arythmie ou non. Si le choix des paramètres est judicieux, les deux groupes de points sont séparés dans l'espace. Dans la version simple de l'algorithme, il est supposé que les groupes de points de chaque catégorie sont linéairement séparables (par une droite dans un espace à deux dimensions, par un plan dans un espace à trois dimensions, etc.). L'algorithme détermine alors la meilleure frontière entre les deux groupes de points, c'est-à-dire celle dont la marge est maximale (Figure \ref{SVM1}). La marge est définie comme la zone autour de la frontière qui ne contient aucun point. Lors de la phase de classification, cette frontière est utilisée pour classer les points dans l'une ou l'autre des catégories.
+Un exemple d'algorithme de classification est la machine à vecteur de support \citep{ubeyli07, asl08, jovic12}. Cette méthode est fondée sur une représentation géométrique de l'ensemble des paramètres. Les valeurs des paramètres représentent les coordonnées d'un point dans un espace. Lors de la phase d'apprentissage, on obtient deux groupes de points, selon que le tracé ECG correspondant présente une arythmie ou non. Si le choix des paramètres est judicieux, les deux groupes de points sont séparés dans l'espace. Dans la version simple de l'algorithme, il est supposé que les groupes de points de chaque catégorie sont linéairement séparables (par une droite dans un espace à deux dimensions, par un plan dans un espace à trois dimensions, etc.). L'algorithme détermine alors la meilleure frontière entre les deux groupes de points, c'est-à-dire celle dont la marge est maximale (Figure \ref{SVM1}). La marge est définie comme la zone autour de la frontière qui ne contient aucun point. Lors de la phase de classification, cette frontière est utilisée pour classer les points dans l'une ou l'autre des catégories.
 
 \begin{figure}[tbp]
 	\centering

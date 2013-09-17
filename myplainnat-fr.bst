@@ -83,7 +83,7 @@ ENTRY
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 FUNCTION{fr.and}{               %% le "et" entre les deux derniers auteurs
-" & "
+" \& "
 }
 
 FUNCTION{fr.editeur}{           %% ", {\'e}diteur" au singulier, ou " ({\'e}diteur)"...
