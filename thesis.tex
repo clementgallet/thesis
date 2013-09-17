@@ -8,6 +8,8 @@
 \usepackage{amsmath}
 % \usepackage{cite}
 \usepackage{natbib}
+\bibpunct{(}{)}{ ;}{a}{}{,}
+
 \usepackage{enumerate}
 \usepackage{mathrsfs}
 \usepackage[pdftex]{graphicx}
@@ -127,13 +129,13 @@ Le nouveau modèle animal, conjointement à la nouvelle méthode automatique d'anal
 
 \chapter*{Summary}
 
-Atrial fibrillation is the most common cardiac arrhythmia and its pathophysiology is still not well understood. To date, there are no animal models where the arrhythmia occurs spontaneously. As age and hypertension are major risk factors of atrial fibrillation in humans, we investigated the possible occurrence of this pathology in the aging (11-13 months) spontaneously hypertensive rat (SHR).
+Atrial fibrillation is the most common cardiac arrhythmia and its pathophysiology is still poorly understood. To date, there is no animal model in which the arrhythmia occurs spontaneously. As age and hypertension are major risk factors of atrial fibrillation in humans, we examined whether the aging (11-13 months of age) spontaneously hypertensive rat (SHR) develops this pathology.
 
-Telemetric recordings of electrocardiogram were obtained in four groups of conscious rats. They showed in the aging SHR many non-sustained atrial tachyarrhythmic episodes, that were neither observed in the young SHR nor in the young or aging normotensive Wistar Kyoto rat.
+Telemetric recordings of electrocardiogram (ECG) were obtained in four groups of conscious rats. They revealed the presence in the aging SHR of many non-sustained atrial tachyarrhythmic episodes that were observed neither in the young SHR nor in the young or aging normotensive Wistar Kyoto rat.
 
-These results were obtained by a visual screening of the whole ECG recordings, but the time spent was incompatible with routine experiments. We chose to develop an automated method to detect atrial arrhythmias in the couscious rat. This method only uses RR intervals because P waves cannot be accurately identified in telemetric recordings. It recognises characteristic patterns of tachyarrhythias using an automaton structure, and showed a good performance on obtained telemetric recordings.
+These results were obtained by visual examination of the whole ECG recordings, which is extremely time consuming and thus, not compatible with routine experiments. Therefore, we chose to develop an automated method to detect atrial arrhythmias in the conscious rat. This method only uses RR intervals because P waves cannot always be accurately identified in telemetric recordings. It recognizes characteristic patterns of tachyarrhythmia by using an automaton structure, and shows a good performance when applied to previously collected telemetric data.
 
-This new animal model, together with a new method of automated ECG analysis, should allow producing quality phenotypic analyses necessary to test molecular hypotheses currently investigated in atrial fibrillation.
+The new animal model, together with the new, automated method of ECG analysis, are expected to be extremely useful for producing high quality phenotypic data, which are necessary to test present molecular hypotheses of atrial fibrillation pathophysiology.
 
 \newpage
 
@@ -164,7 +166,7 @@ Le c{\oe}ur est un organe dont la contraction assure la circulation du sang dans
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/coeur.png}
+	\includegraphics[width=0.5\linewidth]{images/coeur.png}
 	\caption{Schéma anatomique du c{\oe}ur humain. (1) oreillette droite ; (2) oreillette gauche ; (3) veine cave supérieure ; (4) aorte ; (5) artère pulmonaire ; (6) veine pulmonaire ; (7) valve mitrale ; (8) valve aortique ; (9) ventricule gauche ; (10) ventricule droit ; (11) veine cave inférieure ; (12) valve tricuspide ; (13) valve sigmoïde.}
 	\label{anatomie}
 \end{figure}
@@ -179,12 +181,12 @@ Les parois du c{\oe}ur sont constituées principalement de cellules musculaires s
 \item [La diastole :] le c{\oe}ur entier est relaxé pour permettre le remplissage sanguin.
 \end{description}
 
-La contraction cardiaque est déclenchée par une dépolarisation des cardiomyocytes, qui se propage de proche en proche. Cette dépolarisation est initiée par le n{\oe}ud sinusal, situé dans la paroi de l'oreillette droite (TODO image PA NS). Elle parcourt ensuite les voies de conduction intra-auriculaires (provoquant la contraction des oreillettes) jusqu'au n{\oe}ud auriculo-ventriculaire. Ce n{\oe}ud bloque l'impulsion pendant un court instant, puis la transmet, via le faisceau de His, aux fibres de Purkinje et enfin aux cardiomyocytes ventriculaires (Figure \ref{conduction}).
+La contraction cardiaque est déclenchée par une dépolarisation des cardiomyocytes, qui se propage de proche en proche. Cette dépolarisation est initiée par le n{\oe}ud sinusal, situé dans la paroi de l'oreillette droite. Elle parcourt ensuite les voies de conduction intra-auriculaires (provoquant la contraction des oreillettes) jusqu'au n{\oe}ud auriculo-ventriculaire. Ce n{\oe}ud bloque l'impulsion pendant un court instant, puis la transmet, via le faisceau de His, aux fibres de Purkinje et enfin aux cardiomyocytes ventriculaires (Figure \ref{conduction}).
 
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/conduction.png}
+	\includegraphics[width=0.8\linewidth]{images/conduction.png}
 	\caption{Schema des voies de conduction cardiaque.}
 	\label{conduction}
 \end{figure}
@@ -195,7 +197,7 @@ Le n{\oe}ud sinusal possède la propriété d'automatisme, c'est-à-dire qu'il se dé
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/nodalpa.png}
+	\includegraphics[width=0.5\linewidth]{images/nodalpa.png}
 	\caption{Potentiel d'action d'une cellule nodale. Noter la dépolarisation diastolique lente dont la pente est augmentée au cours d'une activation sympathique (tracé en vert) et diminuée au cours d'une activation parasympathique (tracé en bleu).}
 	\label{pacemaker}
 \end{figure}
@@ -218,7 +220,7 @@ Chez l'homme, il existe deux principales méthodes d'enregistrement de l'ECG : l'
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/ecg12.jpg}
+	\includegraphics[width=0.5\linewidth]{images/ecg12.jpg}
 	\caption{Schéma présentant les 12 dérivations classiques d'un ECG humain.}
 	\label{ecg12}
 \end{figure}
@@ -227,7 +229,7 @@ Au contraire de l'ECG à douze dérivations qui réclame l'immobilité du patient, l
 
 \section{Interprétation de l'ECG}
 
-Lors d'un cycle cardiaque, la dépolarisation et la repolarisation du c{\oe}ur se traduisent sur un enregistrement ECG par une serie d'ondes (Figure \ref{ecgondes} : 
+Lors d'un cycle cardiaque, la dépolarisation et la repolarisation du c{\oe}ur se traduisent sur un enregistrement ECG par une serie d'ondes (Figure \ref{ecgondes}) : 
 
 \begin{enumerate}
 \item L'onde P est une onde positive de faible amplitude et arrondie. Elle correspond à la dépolarisation des oreillettes. Il existe un léger retard entre l'OD, qui se contracte en premier, et l'OG. Ce retard n'est normalement pas visible dans l'onde P.
@@ -239,7 +241,7 @@ En dehors de ces ondes, le signal ECG est normalement plat, et constitue la lign
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/ecgondes.png}
+	\includegraphics[width=0.5\linewidth]{images/ecgondes.png}
 	\caption{Schéma d'un tracé ECG lors d'un cycle cardiaque en DII.}
 	\label{ecgondes}
 \end{figure}
@@ -256,7 +258,7 @@ Ces intervalles varient selon l'espèce animale dans laquelle l'ECG est enregistr
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/ecganimaux.png}
+	\includegraphics[width=0.8\linewidth]{images/ecganimaux.png}
 	\caption{Enregistrement ECG en DI, DII et DIII chez un chien, un porc et un singe. Le chien a une arythmie respiratoire sinusale prononcée (allongement de l'intervalle RR pendant l'expiration), le porc a un intervalle QT long et le singe un intervalle RR court, c'est-à-dire une fréquence cardiaque rapide (D'après \citet{hamlin05}).}
 	\label{ecganimaux}
 \end{figure}
@@ -266,7 +268,7 @@ Lors d'un enregistrement, des artéfacts qui n'ont pas comme origine l'activité é
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/artefactchien.png}
+	\includegraphics[width=0.5\linewidth]{images/artefactchien.png}
 	\caption{Exemples de tracés ECG en DII chez le chien, classés visuellement en quatre niveaux de bruits, en fonction de la présence et de l'amplitude du bruit (D'apreès \citet{stern13}).}
 	\label{artefactchien}
 \end{figure}
@@ -299,7 +301,7 @@ Le diagnostique de FA se fait à partir de l'enregistrement ECG (Figure \ref{ecgf
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/ecgfa.jpg}
+	\includegraphics[width=0.8\linewidth]{images/ecgfa.jpg}
 	\caption{Enregistrement ECG 12 dérivations chez un patient présentant une fibrillation atriale.}
 	\label{ecgfa}
 \end{figure}
@@ -308,7 +310,7 @@ Plusieurs mécanismes ont été proposés pour expliquer la survenue et la perpétuat
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/mecanismesfa.jpg}
+	\includegraphics[width=0.8\linewidth]{images/mecanismesfa.jpg}
 	\caption{Schémas des oreillettes illustrant les différentes mécanismes électriques pouvant conduire à la fibrillation atriale (D'après \citet{eckstein08}.}
 	\label{mecanismes}
 \end{figure}
@@ -358,8 +360,8 @@ Quelques études ont été réalisées dans des modeles transgéniques de souris. Chez
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/sourisfa.jpg}
-	\caption{Enregistrements ECG télémétriques obtenus chez souris éveillées, soit contrôle (A), soit surexprimant l'enzyme de conversion de l'angiotensine dans le c{\oe}ur (B). Le deuxième enregistrement montre des complexes QRS de faible amplitude, aucune onde P visible et des intervalles RR irréguliers (D'après \citet{xiao04}.}
+	\includegraphics[width=0.8\linewidth]{images/sourisfa.jpg}
+	\caption{Enregistrements ECG télémétriques obtenus chez souris éveillées, soit contrôle (A), soit surexprimant l'enzyme de conversion de l'angiotensine dans le c{\oe}ur (B). Le deuxième enregistrement montre des complexes QRS de faible amplitude, aucune onde P visible et des intervalles RR irréguliers (D'après \citet{xiao04}).}
 	\label{sourisfa}
 \end{figure}
 
@@ -413,7 +415,7 @@ Une première catégorie de traitements, qui n'est pas propre à la détection d'ary
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/AS_ECG.png}
+	\includegraphics[width=0.8\linewidth]{images/AS_ECG.png}
 	\caption{Densité spectrale de puissance du signal ECG, des complexes QRS, des ondes P et T et de plusieurs sources de bruit, après moyennage sur 150 battements (D'après \citet{tompkins93}).}
 	\label{AS_ECG}
 \end{figure}
@@ -426,11 +428,11 @@ Pour les méthodes se fondant sur l'analyse de l'intervalle RR, il est nécessaire
 \item intégration par fenêtre mobile (150 ms), pour lisser le signal et obtenir un pic unique par complexe QRS.
 \end{enumerate}
 
-A partir du signal transformé, les maximums sont détectés, ce qui donne la localisation des complexes QRS. La dernière étape consiste à détecter les ondes R sur le signal original comme les maxima à l'intérieur des complexes QRS (Figure \ref{QRSDetection}.
+A partir du signal transformé, les maximums sont détectés, ce qui donne la localisation des complexes QRS. La dernière étape consiste à détecter les ondes R sur le signal original comme les maxima à l'intérieur des complexes QRS (Figure \ref{QRSDetection}).
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/tompkins.png}
+	\includegraphics[width=0.8\linewidth]{images/tompkins.png}
 	\caption{Différentes étapes de l'algorithme de détection des QRS. (a) Signal après filtrage passe-bande. (b) Dérivée du signal. (c) Carré du signal dérivé. (d) Résultat de l'intégration fenêtrée. (e) Emplacement des complexes détectés. (D'après \citet{fazel11}).}
 	\label{QRSDetection}
 \end{figure}
@@ -444,7 +446,7 @@ Une première famille de paramètres sont dérivés de l'intervalle RR. La série tem
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/HRV_AF.png}
+	\includegraphics[width=0.8\linewidth]{images/HRV_AF.png}
 	\caption{(a) Série temporelle d'intervalles RR et annotations provenant de la base de données MIT BIH Atrial Fibrillation (base publique contenant des enregistrements ECG Holter avec des épisodes de fibrillation atriale). AF/NAF : présence/absence de fibrillation atriale. En dessous, calcul de trois indices dérivés des séries d'intervalles RR : (b) le rapport RMSSD sur la moyenne des intervalles RR, (c) un indice donnant la proportion de séquences d'intervalles RR de type court-long-court ou long-court-long (Turning Point Ratio) et (d) une estimation de l'entropie (Sample Entropy) (D'après \citet{dash09}).}
 	\label{HRV_AF}
 \end{figure}
@@ -453,7 +455,7 @@ La deuxième famille de paramètres quantifie la forme du tracé ECG. Une des analy
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/Wavelets.png}
+	\includegraphics[width=0.8\linewidth]{images/Wavelets.png}
 	\caption{Un tracé ECG de fibrillation atriale, avec sa décomposition en ondelettes discrètes utilisant l'ondelette Daubechies 4 \citep{mallat99}. Les cinq premières composantes de la décomposition (d1-d5) sont illustrées, ainsi que le reste du signal (a5) (D'après \citet{alfahoum99}).}
 	\label{Wavelets}
 \end{figure}
@@ -469,7 +471,7 @@ La première composante principale est définie par la direction de dispersion max
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/PCA.jpg}
+	\includegraphics[width=0.5\linewidth]{images/PCA.jpg}
 	\caption{Analyse en composantes principales sur deux facteurs x et y. La première composante (v1) est définie par la direction de dispersion maximale des points, et la deuxième composante (v2), orthogonale à la première, explique le reste de la dispersion (D'après \citet{jehan05}).}
 	\label{PCA}
 \end{figure}
@@ -482,7 +484,7 @@ Un exemple d'algorithme de classification est la machine à vecteur de support \c
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/SVM1.jpg}
+	\includegraphics[width=0.4\linewidth]{images/SVM1.jpg}
 	\caption{Graphe représentant deux groupes selon les valeurs de deux paramètres. La frontière déterminée par l'algorithme de machine à vecteurs de support est la frontière séparant les deux groupes, telle que la marge possède une largeur maximale. Les points situés au bord de la marge sont appelés les vecteurs de support (D'après \citet{winters07}).}
 	\label{SVM1}
 \end{figure}
@@ -491,7 +493,7 @@ En pratique, les groupes de points sont rarement linéairement séparables. Pour p
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/SVM2.jpg}
+	\includegraphics[width=0.8\linewidth]{images/SVM2.jpg}
 	\caption{Graphes représentant deux groupes selon (a) les valeurs de deux paramètres et (b) une combinaison des deux paramètres. Dans le premier graphe, les deux groupes ne sont pas linéairement séparables. Dans le deuxième graphe, après une recombinaison des paramètres, les deux groupes sont linéairement séparables. (D'après \citet{verplancke08}).}
 	\label{SVM2}
 \end{figure}
@@ -526,14 +528,14 @@ Dans le cas d'enregistrements télémétriques de longue durée, plusieurs études ut
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/ecgAUTO.png}
+	\includegraphics[width=0.8\linewidth]{images/ecgAUTO.png}
 	\caption{Capture d'écran du logiciel ecgAUTO (\citep{ecgauto}) traitant un enregistrement ECG chez le chien.}
 	\label{ecgauto}
 \end{figure}
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/ARR30a.png}
+	\includegraphics[width=0.8\linewidth]{images/ARR30a.png}
 	\caption{Capture d'écran du logiciel ARR30a (\citep{arr30a}).}
 	\label{arr30a}
 \end{figure}
@@ -549,7 +551,7 @@ En considérant les séquences ayant une longueur de 5 symboles, il existe 243 com
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/symbolic.PNG}
+	\includegraphics[width=0.8\linewidth]{images/symbolic.PNG}
 	\caption{Nombre d'occurrences (P_n) de chaque séquence de cinq symboles chez un rat contrôle et un rat atteint d'une insuffisance cardiaque. n est le numéro de la séquence de cinq symboles.}
 	\label{symbolic}
 \end{figure}
@@ -579,7 +581,7 @@ Des sondes télémétriques pour la mesure de l'ECG (modèle TA11 CA-F40 ; Data Scie
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/implantation.png}
+	\includegraphics[width=0.3\linewidth]{images/implantation.png}
 	\caption{Schéma d'implantation de la sonde télémétrique ECG chez le rat. La position des deux électrodes correspond à la dérivation DII. Dans notre étude, l'émetteur était laissé sous la peau en position dorsale.}
 	\label{leads}
 \end{figure}
@@ -625,7 +627,7 @@ Il est nécessaire d'obtenir une série d'intervalles RR fidèle pour la détection 
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/Artefact.pdf}
+	\includegraphics[width=0.8\linewidth]{images/Artefact.pdf}
 	\caption{Exemple de détection d'ondes R artéfactuelles. Les signaux ECG brut et transformé d'une durée de 1,5 s sont présentés. Cinq ondes R sont validées. Pour valider le maximum suivant sur le signal ECG transformé, le rapport d'amplitude est calculé comme le rapport entre l'amplitude du maximum et l'amplitude médiane des 5 derniers maximums ($A_m$). De même, le niveau de bruit est calculé comme le rapport entre le plus grand minimum de part et d'autre du maximum ($m_g$ et $m_d$) et l'amplitude du maximum.}
 	\label{artefact}
 \end{figure}
@@ -634,7 +636,7 @@ La Figure \ref{compareondes} illustre les valeurs des deux indices pour chaque o
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/compareOndes.pdf}
+	\includegraphics[width=0.5\linewidth]{images/compareOndes.pdf}
 	\caption{Graphe présentant les valeurs du rapport d'amplitude et du niveau de bruit pour toutes les ondes R détectés sur un enregistrement ECG de 24 heures. Au total, 443 209 ondes R ont été détectées automatiquement, parmi lesquelles 2050 sont artéfactuelles (comme l'indique l'analyse visuelle) et sont figurées par des croix noires. Les ondes R réelles sont représentées par des cercles gris. Le rapport d'amplitude (RA) et le niveau de bruit (NB) sont calculés pour chaque onde R. La courbe $RA = (\tau / NB) + 1$ est tracée pour trois valeurs de $\tau$ (0,01, 0.1 et 1).}
 	\label{compareondes}
 \end{figure}
@@ -646,7 +648,7 @@ Les tracés ECG sont analysés visuellement, et différentes arythmies sont identif
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/exESA.pdf}
+	\includegraphics[width=0.8\linewidth]{images/exESA.pdf}
 	\caption{Extrasystole auriculaire (ESA), avec une onde P modifiée suivie d'un intervalle RR allongé, appelé pause compensatrice.}
 	\label{exESA}
 \end{figure}
@@ -655,14 +657,14 @@ Deux ESA consécutives forment un couplet d'ESA (Figure \ref{exCplESA}). Par aill
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/exESA.pdf}
+	\includegraphics[width=0.8\linewidth]{images/exESA.pdf}
 	\caption{Couplet d'extrasystoles auriculaires (ESA), composé de deux ESA consécutives.}
 	\label{exCplESA}
 \end{figure}
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/exESA.pdf}
+	\includegraphics[width=0.8\linewidth]{images/exESA.pdf}
 	\caption{Bigéminisme auriculaire, composé d'extrasystoles auriculaires alternées avec un battement sinusal.}
 	\label{exBigESA}
 \end{figure}
@@ -671,7 +673,7 @@ Lorsque trois ESA consécutives ou plus sont présentes, l'épisode arythmique est 
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/exFA.pdf}
+	\includegraphics[width=0.8\linewidth]{images/exFA.pdf}
 	\caption{Épisode de tachyarythmie atriale, composé de 4 extrasystoles auriculaires successives.}
 	\label{exBigESA}
 \end{figure}
@@ -680,29 +682,36 @@ Les arythmies ventriculaires sont aussi identifiées. L'extrasystole ventriculair
 
 \begin{figure}[tbp]
 	\centering
-	\includegraphics[width=\linewidth]{images/exFA.pdf}
+	\includegraphics[width=0.8\linewidth]{images/exFA.pdf}
 	\caption{Illustration de 3 extrasystoles ventriculaires (ESV). Les complexes QRS peuvent être positifs ou négatifs. On peut observer une onde P à l'intérieur des complexes QRS des ESV.}
 	\label{exESV}
 \end{figure}
 
 \subsection{Analyse automatique des arythmies}
 
-La détection automatique des arythmies est effectuée grâce à un algorithme fondé sur une structure d'automate. Cet algorithme utilise la série d'intervalles RR comme entré unique, et classe chaque battement dans une des trois catégories : normal ($N$), arythmique ($A$) ou comme pause compensatrice ($P$). Cet algorithme détecte les extrasystoles auriculaires et ventriculaires, caractérisées par une réduction de l'intervalle RR.
+La détection automatique des arythmies est effectuée grâce à un algorithme fondé sur une structure d'automate. Cet algorithme utilise la série temporelle d'intervalles RR comme unique signal d'entrée, et classe chaque battement dans une des trois catégories : normal ($N$), arythmique ($A$) ou comme pause compensatrice ($P$). Cet algorithme détecte les extrasystoles auriculaires et ventriculaires, caractérisées par une réduction de l'intervalle RR.
 
 Un premier modèle est introduit, qui sert de base au modèle complet. Dans ce premier modèle, la classe d'un battement $b$ est déterminée par la classe du battement précédent $b-1$, l'intervalle RR entre ces deux battements ($RR_b$) ainsi que l'intervalle RR de référence ($RR_n$) calculé comme la médiane des 5 derniers intervalles RR entre battements classés comme normaux. $RR_n$ reflète le rythme sinusal.
 
-Un battement arythmique est caractérisé par une réduction de l'intervalle RR comparé à l'intervalle RR sinusal. La première règle est donc que si le battement $b-1$ est normal, alors le battement $b$ est classé comme arythmique si $RR_b < k_A RR_n$ et normal dans le cas contraire, pour une certaine valeur de $k_A$. De même, un épisode tachyarythmique se termine par une pause compensatrice, dont l'intervalle RR est supérieur à l'intervalle RR sinusal. Ainsi, si le battement $b-1$ est arythmique, le battement $b$ est classé comme pause compensatrice si $RR_b > k_P RR_n$ et arythmique dans le cas contraire, pour une certaine valeur de $k_P$. Une dernière règle est nécessaire pour distinguer une tachyarythmie d'une tachycardie sinusale. Si les cinq derniers battements sont arythmiques et le coefficient de variation des cinq derniers intervalles RR est en dessous d'une certaine valeur $C$, alors la séquence arythmique complète est classée comme normale. Un schéma de ce modèle est illustré sur la Figure \ref{simplemodel}.
+Un battement arythmique est caractérisé par une réduction de l'intervalle RR comparé à l'intervalle RR sinusal. La première règle est donc que si le battement $b-1$ est normal, alors le battement $b$ est classé comme arythmique si $RR_b < k_A RR_n$ et normal dans le cas contraire, pour une certaine valeur de $k_A$. De même, un battement arythmique se termine par une pause compensatrice, dont l'intervalle RR est supérieur à l'intervalle RR sinusal. Ainsi, si le battement $b-1$ est arythmique, le battement $b$ est classé comme pause compensatrice si $RR_b > k_P RR_n$ et arythmique dans le cas contraire, pour une certaine valeur de $k_P$. Une dernière règle est nécessaire pour distinguer un épisode tachyarythmique d'une tachycardie sinusale. Si les cinq derniers battements sont arythmiques et le coefficient de variation des cinq derniers intervalles RR est en dessous d'une certaine valeur $C$, alors la séquence arythmique complète est classée comme normale. Un schéma de ce modèle est illustré sur la Figure \ref{simplemodel}.
 
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=\linewidth]{images/Automaton.pdf}
-	\caption{Illustration du modèle simple de détection d'arythmies. Les trois classes de l'automate (N, normal ; A, arythmique ; P, pause) sont représentées par des cercles, et les transitions par des flèches. $RR_b$ est l'intervalle RR actuel, $RR_n$ est la médiane des cinq précédents intervalles RR normaux, et $k_A$ et $k_P$ sont des paramètres. La flèche discontinue représente le cas où une tachycardie sinusale est détectée.}
+	\caption{Illustration du modèle simple de détection d'arythmies. Les trois classes de l'automate (N, normal ; A, arythmique ; P, pause) sont représentées par des cercles, et les transitions par des flèches. $RR_b$ est l'intervalle RR actuel, $RR_n$ est la médiane des cinq précédents intervalles RR normaux, et $k_A$ et $k_P$ sont des paramètres (voir ci-dessous). La flèche discontinue représente le cas où une tachycardie sinusale est détectée.}
 	\label{simplemodel}
 \end{figure}
 
-Une limitation de ce modèle est l'utilisation de conditions binaires, ce qui réduit l'information utilisée. À partir de ce premier modèle, un modèle plus complexe est élaboré en utilisant des probabilités. À chaque battement est associé une probabilité d'appartenir à chacune des classes ($p_N^b$, $p_A^b$ et $p_P^b$ respectivement pour normal, arythmique et pause). Les règles du modèle simple sont adaptées à l'aide de la fonction logistique $H_s(x) = 1/(1 + \exp{-2sx})$. Cette fonction est caractérisée par $H_s(x) \approx 0$ pour $x \ll 0$ et $H_s(x) \approx 1$ pour $x \gg 0$, avec $s$ la pente de la transition à $x=0$.
+Une limitation de ce modèle est l'utilisation de conditions binaires, ce qui réduit l'information utilisée. À partir de ce premier modèle, un modèle plus complexe est élaboré en utilisant des probabilités. À chaque battement est associé une probabilité d'appartenir à chacune des classes $p_N^b$, $p_A^b$ et $p_P^b$ respectivement pour normal, arythmique et pause. Les règles du modèle simple sont adaptées à l'aide de la fonction logistique $H_s(x) = 1/(1 + \exp{-2sx})$. Cette fonction est caractérisée par $H_s(x) \approx 0$ pour $x \ll 0$ et $H_s(x) \approx 1$ pour $x \gg 0$, avec $s$ la pente de la transition à $x=0$ (Figure \ref{hfunc}).
 
-La première règle devient : $p_N^b |_N^{b-1} = H_s(RR_b - k_A RR_n)$, avec $p_N^b |_N^{b-1}$ la probabilité que le battement $b$ est normal sachant que le battement $b-1$ est normal, et $p_A^b |_N^{b-1} = 1 - p_N^b |_N^{b-1}$. La deuxième règle devient $p_P^b |_A^{b-1} = H_s(RR_b - k_P RR_n)$ et $p_A^b |_A^{b-1} = 1 - p_P^b |_A^{b-1}$. On pose de plus $p_N^b |_P^{b-1} = 1$ et $p_P^b |_N^{b-1} = p_N^b |_A^{b-1} = p_A^b |_P^{b-1} = p_P^b |_P^{b-1} = 0$.
+\begin{figure}[tbp]
+	\centering
+	\includegraphics[width=0.5\linewidth]{images/hfunc.pdf}
+	\caption{Graphe de la fonction logistique $H_s(x) = 1/(1 + \exp{-2sx})$ pour trois valeurs de la pente $s$ (2, 4 et 8).}
+	\label{hfunc}
+\end{figure}
+
+La première règle devient : $p_N^b |_N^{b-1} = H_s(RR_b - k_A RR_n)$, avec $p_N^b |_N^{b-1}$ la probabilité que le battement $b$ soit normal sachant que le battement $b-1$ est normal, et $p_A^b |_N^{b-1} = 1 - p_N^b |_N^{b-1}$. La deuxième règle devient $p_P^b |_A^{b-1} = H_s(RR_b - k_P RR_n)$ et $p_A^b |_A^{b-1} = 1 - p_P^b |_A^{b-1}$. On pose de plus $p_N^b |_P^{b-1} = 1$ et $p_P^b |_N^{b-1} = p_N^b |_A^{b-1} = p_A^b |_P^{b-1} = p_P^b |_P^{b-1} = 0$.
 
 En utilisant les probabilités conditionnelles, on obtient l'expression de $p_N^b$ :
 
@@ -731,7 +740,7 @@ L'algorithme dépend de la valeur de quatre paramètres $k_A$, $k_P$, $s$ et $C$. 
 
 \subsection{Analyse de la variabilité sinusale}
 
-Tous les épisodes arythmiques ainsi que les pauses compensatrices ont été exclus avant analyse. La fréquence cardiaque ainsi que des indices de variabilité sinusale sont calculés sur des enregistrements de 24 heures. La variabilité sinusale est analysée dans le domaine temporel par le calcul de l'écart-type des intervalles RR (SDNN), de la racine de la moyenne des carrés des écarts successifs d'intervalles RR (RMSSD) ainsi que du pourcentage d'intervalles RR adjacents qui diffèrent de plus de 5 ms (pNN5). Dans le domaine fréquentiel, les séries d'intervalles RR sont rééchantillonnées à 20 Hz par spline cubique. Ensuite, les puissances spectrales dans les bandes de basse fréquence (LF, $0,3 - 0,6$ Hz), de haute fréquence (HF, $0,6 - 2,5$ Hz), ainsi que le rapport LF/HF sont estimés sur des segments de 2048 valeurs (102,4 s) en utilisant la transformée de Fourier rapide, avec recouvrement de 50\% et application de la fenêtre de Hanning.
+Tous les épisodes arythmiques ainsi que les pauses compensatrices ont été exclus avant analyse. La fréquence cardiaque ainsi que des indices de variabilité sinusale sont calculés sur des enregistrements de 24 heures. La variabilité sinusale est analysée dans le domaine temporel par le calcul de l'écart-type des intervalles RR (SDNN), de la racine de la moyenne des carrés des écarts successifs d'intervalles RR (RMSSD) ainsi que du pourcentage d'intervalles RR adjacents qui diffèrent de plus de 5 ms (pNN5). Dans le domaine fréquentiel, les séries d'intervalles RR sont rééchantillonnées à 20 Hz par une spline cubique. Ensuite, les puissances spectrales dans les bandes de basse fréquence (LF : $0,3 - 0,6$ Hz), de haute fréquence (HF : $0,6 - 2,5$ Hz), ainsi que le rapport LF/HF sont estimés sur des segments de 2048 valeurs (102,4 s) en utilisant la transformée de Fourier rapide, avec application de la fenêtre de Hanning et recouvrement de 50\%.
 
 % \subsection{Analyse de la pression artérielle}
 
@@ -750,7 +759,7 @@ Tous les épisodes arythmiques ainsi que les pauses compensatrices ont été exclus
 
 % \addcontentsline{toc}{section}{Références}
 % \bibliographystyle{these}
-\bibliographystyle{plainnat}
+\bibliographystyle{myplainnat-fr}
 \bibliography{thesis}
 
 \newpage
@@ -790,14 +799,13 @@ SUMMARY
 
 \vspace{3mm}
 
-Atrial fibrillation is the most common cardiac arrhythmia and its pathophysiology is still not well understood. To date, there are no animal models where the arrhythmia occurs spontaneously. As age and hypertension are major risk factors of atrial fibrillation in humans, we investigated the possible occurrence of this pathology in the aging (11-13 months) spontaneously hypertensive rat (SHR).
+Atrial fibrillation is the most common cardiac arrhythmia and its pathophysiology is still poorly understood. To date, there is no animal model in which the arrhythmia occurs spontaneously. As age and hypertension are major risk factors of atrial fibrillation in humans, we examined whether the aging (11-13 months of age) spontaneously hypertensive rat (SHR) develops this pathology.
 
-Telemetric recordings of electrocardiogram were recorded in four groups of conscious rats. They showed in the aging SHR many non-sustained atrial tachyarrhythmia episodes, that were neither observed in the young SHR nor in the young or aging normotensive Wistar Kyoto rat.
+Telemetric recordings of electrocardiogram (ECG) were obtained in four groups of conscious rats. They revealed the presence in the aging SHR of many non-sustained atrial tachyarrhythmic episodes that were observed neither in the young SHR nor in the young or aging normotensive Wistar Kyoto rat.
 
-These results were obtained by visual screening of the whole ECG recordings, but the time taken was incompatible with routine experiments. We chose to develop an automated method to detect atrial arrhythmias in the couscious rat. This method only uses RR intervals because P waves cannot be accurately identified in telemetric recordings. It recognises characteristic patterns of tachyarrhythias using an automaton structure, and showed a good performance on obtained telemetric recordings.
+These results were obtained by visual examination of the whole ECG recordings, which is extremely time consuming and thus, not compatible with routine experiments. Therefore, we chose to develop an automated method to detect atrial arrhythmias in the conscious rat. This method only uses RR intervals because P waves cannot always be accurately identified in telemetric recordings. It recognizes characteristic patterns of tachyarrhythmia by using an automaton structure, and shows a good performance when applied to previously collected telemetric data.
 
-This new animal model, together with a new method of automated ECG analysis, should allow producing quality phenotypic analyses necessary to test molecular hypotheses currently investigated in atrial fibrillation
-
+The new animal model, together with the new, automated method of ECG analysis, are expected to be extremely useful for producing high quality phenotypic data, which are necessary to test present molecular hypotheses of atrial fibrillation pathophysiology.
 
 \vspace{3mm}
 
