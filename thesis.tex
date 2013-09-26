@@ -32,41 +32,41 @@
 	\begin{minipage}{0.45\textwidth}
 		\begin{flushleft} \large
 			\includegraphics[width=0.6\textwidth]{images/logolyon1.jpg}\\
-			No d'ordre : 
+			{\small No d'ordre : }
 		\end{flushleft}
 	\end{minipage}
 	\begin{minipage}{0.45\textwidth}
 		\begin{flushright} \large
 			\includegraphics[width=0.6\textwidth]{images/logolyon.jpg}\\
-			Année 2013 
+			{\small Année 2013}
 		\end{flushright}
 	\end{minipage}
-    {\Large THÈSE DE L'UNIVERSITÉ DE LYON\par}%
+    {THÈSE DE L'UNIVERSITÉ DE LYON\par}%
     \vfill
-    {\large Délivrée par\par}%
+    {Délivrée par\par}%
     \vfill
-    {\Large \textbf{L'UNIVERSITÉ CLAUDE BERNARD LYON 1}\par}%
+    {\large \textbf{L'UNIVERSITÉ CLAUDE BERNARD LYON 1}\par}%
     \vfill
-    {\Large \textbf{École Doctorale Interdisciplinaire Sciences Santé}\par}%
+    {\large \textbf{École Doctorale Interdisciplinaire Sciences Santé}\par}%
     \vskip 0.4cm
-    {\LARGE \textbf{DIPLÔME DE DOCTORAT}\par}%
+    {\Large \textbf{DIPLÔME DE DOCTORAT}\par}%
     \vfill
-    {\large (arrêté du 7 août 2006)\par}%
+    { (arrêté du 7 août 2006)\par}%
     \vfill
-    {\large Spécialité : Traitement du signal et de l'image\par}%
+    { Spécialité : Traitement du signal et de l'image\par}%
     \vskip 0.3cm
-    {\large \textit{soutenue publiquement le 12 novembre 2013\\par}\par}%
+    { \textit{soutenue publiquement le 12 novembre 2013\\par}\par}%
     \vskip 0.4cm
-    {\Large \textbf{Clément GALLET}\par}%
+    {\large \textbf{Clément GALLET}\par}%
     \vskip 0.4cm
-    {\LARGE \textbf{\@title}\par}%
+    {\Large \textbf{\@title}\par}%
     \vskip 0.4cm
-    {\large Directeurs de thèse : M. le Docteur Claude JULIEN et M. le Professeur Philippe CHEVALIER\par}%
+    { Directeurs de thèse : M. le Docteur Claude JULIEN et M. le Professeur Philippe CHEVALIER\par}%
     \vskip 0.4cm
-    {\Large \textbf{JURY}\par}%
+    {\large \textbf{JURY}\par}%
     \vskip 0.4cm
-	\begin{minipage}{0.45\textwidth}
-		\begin{flushleft} \large
+	\begin{minipage}{0.30\textwidth}
+		\begin{flushleft}
 			M. le Professeur\\
 			M. le Professeur\\
 			M. le Professeur\\
@@ -74,8 +74,8 @@
 			M. le Professeur
 		\end{flushleft}
 	\end{minipage}
-	\begin{minipage}{0.45\textwidth}
-		\begin{flushleft} \large
+	\begin{minipage}{0.30\textwidth}
+		\begin{flushleft}
 			Guy CARRAULT\\
 			Philippe CHEVALIER\\
 			Jean-Luc ELGHOZI\\
@@ -83,7 +83,6 @@
 			Jean-Luc PASQUIÉ
 		\end{flushleft}
 	\end{minipage}
-    \vfill
   \end{center}%
   \cleardoublepage
   }
@@ -817,23 +816,25 @@ En conclusion, nous proposons une méthode performante pour détecter les épisodes
 
 \chapter{Discussion}
 
-Le résultat principal de ce travail est le développement d'un modèle animal de tachyarythmies atriales spontanées, conjointement à une nouvelle méthode automatique d'analyse de l'ECG. 
+Le résultat principal de ce travail est le développement d'un modèle animal de tachyarythmies atriales spontanées, conjointement à une nouvelle méthode automatique d'analyse de l'ECG.
 
-Les arythmies atriales dans ce modèle sont caractérisés par des épisodes courts entrecoupés de battements sinusaux. Les arythmies réentrantes sont généralement considérées comme nécéssitant une masse critique de tissue ($> 100-200 \mbox{mm}^3$) \citep{garrey14}. Cela peut expliquer pourquoi la plupart des épisodes de TA chez le rat se terminent après quelques battements. Les arythmies atriales sont disposées de façon très hétérogène sur un enregistrement de 24 h. Elles sont généralement regroupées par clusters d'une durée de quelques minutes, et plusieures heures peuvent se passer sans une seule extrasystole auriculaire. Cependant, les arythmies sont présentes en plus grand nombre le jour que la nuit, même si la différence n'est pas très grande. Cela renforce l'hypothèse d'une arythmie d'origine vagale. Il y a aussi une variabilité inter-individuelle du nombre d'arythmie. En effet, un rat SHR du groupe utilisé pour la détection automatique des arythmies ne présentait pas plus de 20 épisodes de TA sur 24 h, quel que soit son âge. A l'opposé, certains enregistrements comptaient plusieurs milliers d'épisodes de TA.
+De nombreux modèles animaux ont été développés pour étudier les mécanismes responsables du déclenchement et de l'entretien de la FA, et plus généralement, des tachyarythmies atriales, et évaluer différentes stratégies thérapeutiques \citep{nishida10}. Cependant, aucun de ces modèles ne réussit à reproduire fidèlement les arythmies rencontrées en clinique humaine. En particulier, dans tous les modèles animaux, les arythmies sont soit induites par des stimulations électriques du c{\oe}ur, soit provoquées par des interventions pharmacologiques. Les remodelages structuraux, électriques, ou nerveux associés aux épisodes de TA dans ces travaux apparaissent assez largement différents des observations faites chez l'Homme. Un modèle expérimental de TA spontanées chez l'animal restait donc à décrire.
 
-Cette variabilité est à prendre en compte dans la mise en place de protocoles. En effet, des injections d'autres substances ont été réalisées pour l'étude du système nerveux autonome, notamment des bolus d'atropine et d'aténolol en intra-péritonéale. La durée d'action de ces molécules étant d'environ 30 minutes, il n'a pas été possible d'apprécier les différences de nombre d'arythmies avant l'injection et pendant la durée d'action de la molécule. Selon notre hypothèse d'arythmie d'origine vagale, l'atropine devrait diminuer le nombre d'arythmies. Cependant, si aucune arythmie atriale n'a été observée durant l'intervalle d'action de l'atropine, les périodes précédent l'injection étaient pour certaines vierges d'arythmies.
+La description phénotypique de ce modèle a été réalisée par l'implantation de sondes télémétriques pour l'enregistrement de l'ECG. L'analyse d'enregistrements de 24 h a révélé des épisodes de TA chez le rat SHR vieillissant, qui ne sont pas présents chez les rats contrôles WKY ni chez les jeunes rats SHR ou WKY \citep{scridon12}. De plus, l'étude du système nerveux autonome suggère un déséquilibre de la balance sympatho-vagale avec prédominance vagale impliqué dans l'instabilité électrique atriale observée dans ce modèle. Enfin, une méthode de détection des épisodes de TA a été développée chez ce modèle, fondée sur l'analyse des intervalles RR \citep{gallet13}.
 
-Pour étudier l'effet de l'atropine sur les arythmies atriales, il est nécessaire de prolonger la durée d'action de la molécule, par exemple en utilisant une pompe osmotique pour infuser de manière continue la substance pendant plusieurs jours \citep{dinsdale88, watson89}. Comme nous avons montré que le nombre d'arythmies était reproductible sur deux périodes consécutives de 24 h , ...
+Les arythmies atriales dans ce modèle sont caractérisées par des épisodes courts entrecoupés de battements sinusaux. Les arythmies réentrantes sont généralement considérées comme nécessitant une masse critique de tissue ($> 100-200 \mbox{ mm}^3$) \citep{garrey14}. Cela peut expliquer pourquoi la plupart des épisodes de TA chez le rat se terminent après quelques battements. Les arythmies atriales sont disposées de façon très hétérogène sur un enregistrement de 24 h. Elles sont généralement regroupées par clusters d'une durée de quelques minutes, et plusieurs heures peuvent se passer sans une seule extrasystole auriculaire. Cependant, les arythmies sont présentes en plus grand nombre le jour que la nuit, même si la différence n'est pas très grande. Cela renforce l'hypothèse d'une arythmie d'origine vagale. Il y a aussi une variabilité interindividuelle du nombre d'arythmie. En effet, un rat SHR du groupe utilisé pour la détection automatique des arythmies ne présentait pas plus de 20 épisodes de TA sur 24 h, quel que soit son âge. A l'opposé, certains enregistrements comptaient plusieurs milliers d'épisodes de TA.
 
-A l'opposé, nous avons réalisé une stimulation cholinergique par injection de charbamylcholine. Cependant, la
+Cette variabilité est à prendre en compte dans la mise en place de protocoles. En effet, des injections d'autres substances ont été réalisées pour l'étude du système nerveux autonome, notamment des bolus d'atropine et d'aténolol en intra-péritonéale. La durée d'action de ces molécules étant d'environ 30 minutes, il n'a pas été possible d'apprécier les différences de nombre d'arythmies avant l'injection et pendant la durée d'action de la molécule. Selon notre hypothèse d'arythmie d'origine vagale, l'atropine devrait diminuer le nombre d'arythmies. Cependant, si aucune arythmie atriale n'a été observée durant l'intervalle d'action de l'atropine, les périodes précédant l'injection étaient pour certaines vierges d'arythmies. Ainsi, il n'a pas été possible de conclure quant à l'effet de l'atropine sur les arythmies atriales. Il est donc nécessaire de prolonger la durée d'action de la molécule, par exemple en utilisant une pompe osmotique pour infuser de manière continue la substance pendant plusieurs jours \citep{dinsdale88, watson89}. Comme nous avons montré que le nombre d'arythmies était reproductible sur deux périodes consécutives de 24 h, nous pourrions correctement décrire l'effet de l'atropine sur ces arythmies.
 
+A l'opposé, nous avons réalisé une stimulation cholinergique par injection de charbamylcholine. Cependant, l'effet était tellement puissant que la fréquence cardiaque passait en dessous de 150 bpm, avec apparition de blocs AV. Une autre piste pour mimer une stimulation parasympathique est l'utilisation d'un inhibiteur des cholinestérases, ce qui a l'avantage d'être une stimulation endogène. La pyridostigmine, qui a été utilisée récemment pour améliorer la fonction cardiaque dans un modèle d'infarctus chez le rat \citep{delafuente13, lataro13}, est un bon candidat.
 
-pyridostigmine \citep{delafuente13, lataro13}
+L'existence d'un algorithme de détection des arythmies est indispensable à l'utilisation de ce modèle. En effet, un enregistrement de 24 heures avec plusieurs dizaines de milliers d'extrasystoles auriculaires peut nécessiter plus de 50 heures d'analyse. L'algorithme proposé permet de détecter correctement une grande majorité des arythmies, mais celui-ci possède cependant quelques limitations.
 
+La principale caractéristique de cet algorithme est l'utilisation exclusive de la série d'intervalles RR. Il est donc important que les ondes R soient correctement détectées. La principale source de fausse détection d'ondes R est la présence d'artéfacts liés au mouvement de l'animal. Ces fausses ondes R doivent être supprimées, car elles peuvent être la cause d'un grand nombre de fausses arythmies après détection automatique des arythmies. Une première approche pour une meilleure détection des ondes R est d'améliorer la qualité du signal. Une étude de \citet{sgoifo96} a proposé un positionnement des électrodes, notamment à l'aide de boucles, pour améliorer le rapport signal sur bruit de l'ECG télémétrique. Une deuxième solution pour améliorer la détection des ondes R est l'enregistrement de plusieurs dérivations. Il existe une sonde télémétrique pour l'enregistrement de trois biopotentiels simultanément chez le rat \citep{bastlund04, williams06}, composé de trois paires d'électrodes pour les trois dérivations et d'une électrode supplémentaire de référence. Grâce à l'acquisition de deux dérivations supplémentaires, les ondes R peuvent être détectées sur les trois dérivations séparément, et validées par exemple si elles apparaissent sur au moins deux dérivations. Il existe aussi des méthodes plus complexes pour éliminer le bruit et les artéfacts lorsque plusieurs dérivations sont enregistrées, comme l'analyse en composantes indépendantes \citep{he06, milanesi08}. Cette méthode permet de séparer différentes sources indépendantes (activité atriale, activité ventriculaire, bruit), grâce à des enregistrements à des positions distinctes. Cependant, l'utilisation de trois dérivations se fait au détriment de l'enregistrement potentiel d'autres signaux physiologiques, en particulier la pression artérielle. L'enregistrement simultané de l'ECG et de la pression artérielle permettrait d'obtenir plus d'informations sur le rôle du système nerveux autonome, notamment par le calcul d'un index de sensibilité du baroréflexe cardiaque spontané \citep{oosting97, kanbar07}.
 
+Ce modèle d'arythmies atriales spontanées peut permettre d'étudier certaines hypothèses moléculaires de la FA. Des études récentes suggèrent que \textit{Pitx2}, un facteur de transcription (paired-like homeodomain transcription factor 2), pourrait jouer un rôle important dans la pathogénie de la FA. Des études d'association pangénomique ont identifié des variants de séquences nucléotidiques sur le chromosome 4 à proximité de \textit{Pitx2}, qui sont fortement associés à la FA \citep{parvez13} et aux accidents vasculaires cérébraux d'origine cardio-embolique \citep{traylor12}, qui sont la complication majeure de la FA. Dans le tissu atrial gauche de patients souffrant de FA, une diminution de l'expression de \textit{Pitx2} a été rapportée \citep{chinchilla11}. Enfin, chez des souris hétérozygotes invalidées pour \textit{Pitx2}, la sensibilité à l'induction de la FA est fortement augmentée et ceci s'accompagne d'une diminution significative de la durée des potentiels d'action atriaux \citep{kirchhof11}.
 
-
-
+Chez le rat SHR vieillissant, comme chez le patient avec FA, il existe une sous-expression du gène \textit{Pitx2} dans l'oreillette gauche (résultats non publiés). Un des mécanismes pouvant conduire à une diminution de la transcription d'un gène est la méthylation de son promoteur. Le projet a donc pour objectif de mesurer le degré de méthylation de \textit{Pitx2} chez des rats SHR âgés (12 mois) et chez leurs contrôles normotendus du même âge. Si la méthylation exagérée de \textit{Pitx2} chez le rat SHR est établie, les perspectives immédiates seront de réaliser une étude interventionnelle au moyen d'agents hypométhylants.
 
 
 
@@ -848,12 +849,12 @@ pyridostigmine \citep{delafuente13, lataro13}
 \newpage
 \thispagestyle{empty}
 
-\footnotesize{
+{\footnotesize
 
 \hrule
-\vspace{3mm}
+\vspace{2mm}
 RÉSUMÉ
-\vspace{3mm}
+\vspace{2mm}
 
 La fibrillation atriale est la plus fréquente des arythmies cardiaques et sa physiopathologie reste mal comprise. Il n'existe pas actuellement de modèle animal dans lequel cette arythmie survienne de manière spontanée. Comme l'âge et l'hypertension artérielle sont deux facteurs de risque majeurs de la fibrillation atriale chez l'Homme, nous avons recherché si le rat spontanément hypertendu (SHR) vieillissant (11-13 mois d'âge) développe cette pathologie.
 
@@ -864,23 +865,23 @@ Les résultats rapportés ci-dessus ont été obtenus grâce à l'analyse visuelle de 
 Le nouveau modèle animal, conjointement à la nouvelle méthode automatique d'analyse de l'ECG, devrait permettre de réaliser les analyses phénotypiques de qualité indispensables aux hypothèses physiopathologiques moléculaires actuellement avancées dans la fibrillation atriale.
 
 
-\vspace{3mm}
+\vspace{2mm}
 
 \hrule
 
-\vspace{3mm}
+\vspace{2mm}
 
 AUTOMATED ANALYSIS OF THE ELECTROCARDIOGRAPHIC SIGNAL ON ATRIAL ARRHYTHMIAS IN CONSCIOUS RATS
 
-\vspace{3mm}
+\vspace{2mm}
 
 \hrule
 
-\vspace{3mm}
+\vspace{2mm}
 
 SUMMARY
 
-\vspace{3mm}
+\vspace{2mm}
 
 Atrial fibrillation is the most common cardiac arrhythmia and its pathophysiology is still poorly understood. To date, there is no animal model in which the arrhythmia occurs spontaneously. As age and hypertension are major risk factors of atrial fibrillation in humans, we examined whether the aging (11-13 months of age) spontaneously hypertensive rat (SHR) develops this pathology.
 
@@ -890,28 +891,28 @@ These results were obtained by visual examination of the whole ECG recordings, w
 
 The new animal model, together with the new, automated method of ECG analysis, are expected to be extremely useful for producing high quality phenotypic data, which are necessary to test present molecular hypotheses of atrial fibrillation pathophysiology.
 
-\vspace{3mm}
+\vspace{2mm}
 
 \hrule
 
-\vspace{3mm}
+\vspace{2mm}
 
 DISCIPLINE : Biologie, Médecine, Santé
 
-\vspace{3mm}
+\vspace{2mm}
 
 \hrule
 
-\vspace{3mm}
+\vspace{2mm}
 
 MOTS-CLÉS : fibrillation atriale, electrocardiogramme, analyse automatique
 KEYWORDS : atrial fibrillation, electrocardiogram, automatic analysis
 
-\vspace{3mm}
+\vspace{2mm}
 
 \hrule
 
-\vspace{3mm}
+\vspace{2mm}
 
 INTITULÉ ET ADRESSE DE L'U.F.R. OU DU LABORATOIRE :
 
