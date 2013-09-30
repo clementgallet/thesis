@@ -17,7 +17,7 @@ par(mar=c(2.5, 4.5, 1.5, 0.5), las=1)
 ECGi = scan("ExFA.txt", what=list(0, 0))
 times = unlist(ECGi[1])
 ECG = unlist(ECGi[2])
-
+ECG = ECG + 0.1
 ECG=ECG[times<1.8]
 times=times[times<1.8]
 
