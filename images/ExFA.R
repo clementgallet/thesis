@@ -21,7 +21,7 @@ ECG = ECG + 0.1
 ECG=ECG[times<1.8]
 times=times[times<1.8]
 
-plot(times, ECG, type="l", xlab="", ylab="ECG (mV)", axes=FALSE, xaxs="i")
+plot(times, ECG, type="l", xlab="", ylab="ECG (mV)", axes=FALSE)
 
 pks = which(diff(sign(diff(ECG, na.pad = FALSE)), na.pad = FALSE) < 0) + 2
 pks = pks[ECG[pks]>1]
