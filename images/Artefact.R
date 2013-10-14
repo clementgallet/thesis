@@ -2,6 +2,8 @@ pdf("Artefact.pdf", height = 5, width = 7)
 # setEPS()
 # postscript("Artefact.eps", height = 5, width = 7)
 
+options(OutDec= ",")
+
 Data = scan("Artefact.txt", what=list(0, 0), skip=1)
 
 ecg = unlist(Data[1])
@@ -72,7 +74,7 @@ par(mar=c(2, 4, 0.5, 4), las=1)
 plot(temps, f_ecg, axes=FALSE, type="l", xlab="", ylab="ECG transformé (mV²)")
 axis(2, at=c(0, peak3_y, 0.015), labels=c("0", expression(A[m]), "0.015"), cex.axis=0.8)
 axis(4, at=c(0, valleyleft_y, valleyright_y, 0.015), labels=c("", expression(m[g]), expression(m[d]), ""))
-axis(1, line=+0.5, padj=-1, at=c(0, 0.25, 0.5), labels=c("", "0.5 s", ""), lwd=3, lwd.ticks=0, cex.axis=1.2)
+axis(1, line=+0.5, padj=-1, at=c(0, 0.25, 0.5), labels=c("", "0,5 s", ""), lwd=3, lwd.ticks=0, cex.axis=1.2)
 
 textv_x = 0.4
 textv_y = 0.015

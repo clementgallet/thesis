@@ -23,6 +23,7 @@ axis(1, line=-1.5, padj=-1, at=c(0, 0.25, 0.5), labels=c("", "0,5 s", ""), lwd=3
 lines(c(1825/2000, 1900/2000), c(0.13, 0.6), lty=2)
 text( 1900/2000, 0.63, labels="ESA", cex=0.8)
 arrows(1980/2000, 0.35, 2500/2000, 0.35, code=3, length=0.1)
-text(2250/2000, 0.38, labels="Pause compensatrice", cex=0.5)
+text(2250/2000, 0.43, labels="Pause", cex=0.7)
+text(2250/2000, 0.39, labels="compensatrice", cex=0.7)
 
 dev.off()
