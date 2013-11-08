@@ -37,7 +37,7 @@
 	\begin{minipage}{0.45\textwidth}
 		\begin{flushleft} \large
 			\includegraphics[width=0.6\textwidth]{images/logolyon1.jpg}\\
-			{\small No d'ordre : }
+			{\small No d'ordre : 219-2013}
 		\end{flushleft}
 	\end{minipage}
 	\begin{minipage}{0.45\textwidth}
@@ -283,22 +283,35 @@ The new animal model, together with the new, automated method of ECG analysis, a
 \pagenumbering{arabic}
 \setcounter{page}{1}
 
-
-
-
 % ==========================
 % Introduction
 % ==========================
 
+
+\chapter*{Introduction}
+\addcontentsline{toc}{chapter}{Introduction}
+
+
+Depuis l'avènement de l'informatique en recherche biomédicale, l'automatisation des procédures de traitement du signal a permis de faire des progrès significatifs dans le diagnostic et la compréhension des mécanismes de certaines pathologies cardio-vasculaires. Dans le domaine des troubles du rythme cardiaque, une difficulté majeure est le repérage et l'identification des événements arythmiques. La fibrillation atriale (FA) est exemplaire à ce titre. Cette maladie, fréquente chez les patients âgés et hypertendus, et dangereuse par ses complications thromboemboliques, peut poser des problèmes diagnostiques \citep{mant07}.
+
+Par ailleurs, la FA est une maladie complexe, résultat probable de l'interaction entre plusieurs traits génétiques et facteurs environnementaux. Sa physiopathologie reste mal comprise, et donc son traitement assez largement empirique. L'une des raisons à cela est qu'il n'existe pas de modèle animal présentant spontanément des épisodes de FA. Les modèles existants sont soit des modèles de susceptibilité accrue à la FA expérimentalement induite, soit des modèles de FA survenant sur un c{\oe}ur préconditionné par entraînement atrial chronique.
+
+Ce travail de thèse a donc eu un double objectif : d'une part, caractériser le phénotype arythmique du rat spontanément hypertendu vieillissant, pressenti comme un bon candidat du fait de la combinaison qu'il réalise de deux facteurs de risque majeurs de la FA, et, d'autre part, développer une méthode automatisée d'analyse des tracés électrocardiographiques recueillis au moyen d'une seule dérivation par radio-télémétrie sur de longues périodes de temps chez des rats vigils et non restreints.
+
+Depuis les premiers enregistrements que nous avons effectués chez des rats spontanément hypertendus vieillissants, une étude publiée par un autre groupe a confirmé que ces animaux pouvaient constituer un bon modèle d'étude de la FA \citep{lau13}. Il convient de noter que l'absolue nécessité de développer une méthode automatisée de détection des arythmies s'est imposée au terme de cette première étude pour laquelle nous ne disposions pas de méthode automatique d'analyse des tracés électrocardiographiques.
+
+Au total, nous espérons que ce travail de thèse illustre bien l'intérêt d'une approche transdisciplinaire des pathologies complexes telles que la FA pour lesquelles un phénotypage soigneux est indispensable à l'interprétation des données recueillies par ailleurs (données histologiques, électrophysiologiques et moléculaires). Ce type d'approche requiert des compétences dans les domaines de la physiologie et de l'ingénierie. De ce fait, le lecteur est averti que la partie bibliographique contient certains développements qui pourront apparaître naïfs ou même triviaux aux physiologistes dans le domaine qui les concerne directement, et réciproquement, aux ingénieurs, dans le leur.
+
+
+
 \part{Étude bibliographique}
 
-% \section{Introduction}
 
 \chapter{Physiopathologie de la fibrillation atriale}
 
 \section{Anatomie fonctionnelle cardiaque}
 
-Le c{\oe}ur est un organe dont la contraction assure la circulation du sang dans le système vasculaire. Il est constitué de deux parties séparées par une cloison musculaire appelée septum, et chaque partie est composée de deux cavités : une oreillette et un ventricule. Un valve présente entre les deux cavités assure un passage unidirectionnel du sang de l'oreillette vers le ventricule. Le c{\oe}ur est relié au reste de la cirulation par un ensemble d'artères et de veines (Figure~\ref{anatomie}). D'autres valves sont présentes entre le ventricule droit et l'artère pulmonaire, ainsi qu'entre le ventricule gauche et l'artère aorte, pour éviter un reflux sanguin vers le c{\oe}ur. La c{\oe}ur droit amène le sang pauvre en oxygène vers les poumons. La c{\oe}ur gauche fournit le sang oxygéné à l'ensemble des circulations régionales de l'organisme. 
+Le c{\oe}ur est un organe dont la contraction assure la circulation du sang dans le système vasculaire. Il est constitué de deux parties séparées par une cloison musculaire appelée septum, et chaque partie est composée de deux cavités : une oreillette et un ventricule. Un valve présente entre les deux cavités assure un passage unidirectionnel du sang de l'oreillette vers le ventricule. Le c{\oe}ur est relié au reste de la cirulation par un ensemble d'artères et de veines (Figure~\ref{anatomie}). D'autres valves sont présentes entre le ventricule droit et l'artère pulmonaire, ainsi qu'entre le ventricule gauche et l'artère aorte, pour éviter un reflux sanguin vers le c{\oe}ur. La c{\oe}ur droit amène le sang pauvre en oxygène vers les poumons. Le c{\oe}ur gauche fournit le sang oxygéné à l'ensemble des circulations régionales de l'organisme. 
 
 % \begin{figure}[tbhp]
 \begin{figure}[h!]
@@ -335,11 +348,11 @@ Le n{\oe}ud sinusal possède la propriété d'automatisme, c'est-à-dire qu'il se dé
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.5\linewidth]{images/nodalpa.png}
-	\caption{Potentiel d'action d'une cellule nodale. Noter la dépolarisation diastolique lente dont la pente est augmentée au cours d'une activation sympathique (tracé en vert) et diminuée au cours d'une activation parasympathique (tracé en bleu).}
+	\caption{Variations de potentiel d'une cellule nodale. Noter la dépolarisation diastolique lente dont la pente est augmentée au cours d'une activation sympathique (tracé en vert) et diminuée au cours d'une activation parasympathique (tracé en bleu).}
 	\label{pacemaker}
 \end{figure}
 
-Les oreillettes sont richement innervées par des fibres sympathiques et vagales, alors que les ventricules sont innervés surtout par des fibres sympathiques. Outre cette disparité anatomique, il existe également des différences importantes de la réponse physiologique, qui est beaucoup plus rapide pour les fibres cholinergiques (vagales) que pour les terminaisons adrénergiques (sympathiques). L'effet dynamique résultant est donc caractérisé par une hétérogénéité dans le temps et l'espace expliquant la complexité des interactions du système nerveux autonome sur le c{\oe}ur. Sur le plan électrophysiologique, la stimulation vagale raccourcit la période réfractaire (période pendant laquelle un nouveau potentiel d'action ne peut pas être provoqué) des oreillettes et la durée du potentiel d'action, augmente la dispersion des périodes réfractaires et provoque une hyperpolarisation cellulaire \citep{olshansky05} ; de son côté, la stimulation sympathique, tout en raccourcissant la période réfractaire atriale et le potentiel d'action, n'a pas d'effet sur l'hétérogénéité des périodes réfractaires. Lors d'une activation simultanée des deux systèmes, leurs effets sont synergiques. Or, dans la fibrillation atriale (FA), en particulier sur c{\oe}ur sain, il a été démontré que les principales anomalies du substrat arythmogène sont : des périodes réfractaires courtes ; une non-adaptation des périodes réfractaires à la fréquence cardiaque ; une dispersion géographique des périodes réfractaires, trois éléments fortement influencés par l'état du système nerveux autonome. Une notion fréquemment utilisée est la balance sympatho-vagale qui définit l'importance fonctionnelle relative des deux branches du SNA à un temps donné. Elle peut être mesurée grâce à l'administration séquentielle d'antagonistes sélectifs des récepteurs cholinergiques et $\beta$-adrénergiques \citep{medigue01} ou à l'aide d'index tirés de l'analyse de la variabilité sinusale.
+Les oreillettes sont richement innervées par des fibres sympathiques et vagales, alors que les ventricules sont innervés surtout par des fibres sympathiques. Outre cette disparité anatomique, il existe également des différences importantes de la réponse physiologique, qui est beaucoup plus rapide pour les fibres cholinergiques (vagales) que pour les terminaisons adrénergiques (sympathiques). L'effet dynamique résultant est donc caractérisé par une hétérogénéité dans le temps et l'espace expliquant la complexité des interactions des deux branches du SNA sur le c{\oe}ur. Sur le plan électrophysiologique, la stimulation vagale raccourcit la période réfractaire (période pendant laquelle un nouveau potentiel d'action ne peut pas être provoqué) des oreillettes et la durée du potentiel d'action, augmente la dispersion des périodes réfractaires et provoque une hyperpolarisation cellulaire \citep{olshansky05} ; de son côté, la stimulation sympathique, tout en raccourcissant la période réfractaire atriale et le potentiel d'action, n'a pas d'effet sur l'hétérogénéité des périodes réfractaires. Lors d'une activation simultanée des deux systèmes, leurs effets sont synergiques. Or, dans la fibrillation atriale (FA), en particulier sur c{\oe}ur sain, il a été démontré que les principales anomalies du substrat arythmogène sont : des périodes réfractaires courtes ; une non-adaptation des périodes réfractaires à la fréquence cardiaque ; une dispersion géographique des périodes réfractaires, trois éléments fortement influencés par l'état du système nerveux autonome. Une notion fréquemment utilisée est la balance sympatho-vagale qui définit l'importance fonctionnelle relative des deux branches du SNA à un temps donné. Elle peut être mesurée grâce à l'administration séquentielle d'antagonistes sélectifs des récepteurs cholinergiques et $\beta$-adrénergiques \citep{medigue01} ou à l'aide d'index tirés de l'analyse de la variabilité sinusale \citep{camm96}.
 
 
 
@@ -379,7 +392,7 @@ En dehors de ces ondes, le signal ECG est normalement plat, et constitue la lign
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.5\linewidth]{images/ecgondes.png}
-	\caption{Schéma d'un tracé ECG lors d'un cycle cardiaque en DII.}
+	\caption{Schéma d'un tracé ECG recueilli en DII lors d'un cycle cardiaque.}
 	\label{ecgondes}
 \end{figure}
 
@@ -454,7 +467,7 @@ Plusieurs mécanismes ont été proposés pour expliquer la survenue et la perpétuat
 
 La genèse d'une arythmie cardiaque dépend de trois facteurs qui composent le triangle de Coumel \citep{farre04} : un substrat arythmogène, un déclencheur et une modification du milieu. Ces trois facteurs sont associés au déclenchement et à la perpétuation de la FA : des anomalités structurales qui permettent les circuits de réentrée ; des foyers ectopiques principalement autour des veines pulmonaires ; un déséquilibre du système nerveux autonome.
 
-Le principal objectif dans le traitement actuel de la FA est de prévenir les complications sévères, principalement les accidents thromboemboliques. Le score CHA$_2$DS$_2$-VASc a été proposé pour aider à estimer le risque embolique d'un patient et orienter la décision thérapeutique \citep{camm10}. Ce score associe un ou deux points à la présence d'un facteur de risque : insuffisance cardiaque, hypertension artérielle, âge, diabète, pathologie vasculaire. Si le score est supérieur à 2, il est recommendé de mettre en place un traitement chronique par un anticoagulant oral. Ensuite, le traitement de la FA fait l'objet de deux stratégies : un contrôle de la fréquence cardiaque ou un contrôle du rythme cardiaque. Il n'a pas été montré qu'une stratégie était supérieure à l'autre en termes d'espérence de vie \citep{kong10}. Le contrôle de la fréquence cardiaque est obtenu principalement par l'utilisation de beta-bloquants, d'antagonistes calciaques ou de digoxine. Le contrôle du rythme cardiaque peut être obtenu par plusieurs approches. Certains médicaments bloquant les canaux sodiques, potassiques ou calciques ont un effet antiarythmique. Cependant, l'efficacité de ces produits reste modeste, et ils peuvent paradoxalement avoir des effets pro-arythmiques. Le contrôle du rythme peut enfin être obtenu par l'ablation par radio-fréquence des foyers de dépolarisation ectopiques des veines pulmonaires, mais cette méthode souffre d'un taux élevé de réapparition (25 \% sur 5 ans dans l'étude de \citet{shah08}).
+Le principal objectif dans le traitement actuel de la FA est de prévenir les complications sévères, principalement les accidents thromboemboliques. Le score CHA$_2$DS$_2$-VASc a été proposé pour aider à estimer le risque embolique d'un patient et orienter la décision thérapeutique \citep{camm10}. Ce score associe un ou deux points à la présence d'un facteur de risque : insuffisance cardiaque, hypertension artérielle, âge, diabète, pathologie vasculaire. Si le score est supérieur à 2, il est recommendé de mettre en place un traitement chronique par un anticoagulant oral. Ensuite, le traitement de la FA fait l'objet de deux stratégies : un contrôle de la fréquence cardiaque ou un contrôle du rythme cardiaque. Il n'a pas été montré qu'une stratégie était supérieure à l'autre en termes d'espérance de vie \citep{kong10}. Le contrôle de la fréquence cardiaque est obtenu principalement par l'utilisation de beta-bloquants, d'antagonistes calciques ou de digoxine. Le contrôle du rythme cardiaque peut être obtenu par plusieurs approches. Certains médicaments bloquant les canaux sodiques, potassiques ou calciques ont un effet antiarythmique. Cependant, l'efficacité de ces produits reste modeste, et ils peuvent paradoxalement avoir des effets pro-arythmiques. Le contrôle du rythme peut enfin être obtenu par l'ablation par radio-fréquence des foyers de dépolarisation ectopiques des veines pulmonaires, mais cette méthode souffre d'un taux élevé de réapparition (25 \% sur 5 ans dans l'étude de \citet{shah08}).
 
 
 \section{Modèles animaux de fibrillation atriale}
@@ -487,7 +500,7 @@ Dans l'étude de \citet{xu10}, après pacing atrial de 30 secondes chez l'animal a
 
 Une plus grande susceptibilité aux arythmies atriales a aussi été rapportée sur des c{\oe}urs isolés perfusés de rats spontanément hypertendus (SHR) âgés par rapport aux c{\oe}urs de jeunes rats SHR et par rapport à leurs contrôles normotendus du même âge \citep{choisy07}. Les rats SHR âgés développent un substrat arythmogène avec une fibrose de l'oreillette gauche sans modification de la période réfractaire. Les mêmes auteurs rapportent des résultats similaires sur un modèle d'augmentation de la post-charge ventriculaire par sténose aortique sans hypertension systémique \citep{kim11}. Là encore, le développement progressif d'une fibrose interstitielle atriale et d'anomalies de conduction sont des facteurs de susceptibilité à la FA.
 
-Une étude récente sur du tissue atrial prélevé chez des vieux rats SHR (15 mois d'âge) a confirmé une augmentation de la susceptibilité aux arythmies par rapport à leurs contrôles normotendus du même âge \citep{lau13}. Ces préparations présentent de plus de la fibrose interstitielle ainsi que des infiltrations macrophagiques, ce remodelage participant à créer un substrat arythmogène. Ce remodelage a été retrouvé dans l'oreillette gauche de vieux rats SHR de 11 mois d'âge \citep{scridon13}.
+Une étude récente sur du tissu atrial prélevé chez des vieux rats SHR (15 mois d'âge) a confirmé une augmentation de la susceptibilité aux arythmies par rapport à leurs contrôles normotendus du même âge \citep{lau13}. Ces préparations présentent de plus de la fibrose interstitielle ainsi que des infiltrations macrophagiques, ce remodelage participant à créer un substrat arythmogène. Ce remodelage a été retrouvé dans l'oreillette gauche de vieux rats SHR de 11 mois d'âge \citep{scridon13}.
 
 Enfin, l'exercice a aussi un effet sur la susceptibilité à la FA. Après pacing atrial, un plus grand nombre d'épisodes de FA a été induit dans un groupe de rats Wistar ayant subi 16 semaines d'entraînement physique par rapport à un groupe de rats sédentaires \citep{guasch13}. De plus, dans le groupe entraîné, l'injection intra-péritonéale d'atropine permet d'interrompre les épisodes de FA, suggérant une implication de l'hypertonie vagale secondaire à l'entraînement physique.
 
@@ -495,12 +508,12 @@ En résumé, ces études indiquent que le vieillissement et l'hypertension artériel
 
 \subsubsection{Chez la souris}
 
-Quelques études ont été réalisées dans des modeles transgéniques de souris. Chez la souris invalidée pour le gène de la connexine Cx40 (impliquée dans la dépolarisation coordonnée des cardiomyocytes), des arythmies atriales ont pu être provoquées chez 63~\% des animaux par pacing trans{\oe}sophagien \citep{hagendorff99}. De même, des souris surexprimant l'enzyme de conversion de l'angiotensine sélectivement au niveau cardiaque font des arythmies atriales, notamment de la FA, de manière spontanée à l'état vigil \citep[Figure~\ref{sourisfa}]{xiao04}.
+Quelques études ont été réalisées dans des modèles transgéniques de souris. Chez la souris invalidée pour le gène de la connexine Cx40 (impliquée dans la dépolarisation coordonnée des cardiomyocytes), des arythmies atriales ont pu être provoquées chez 63~\% des animaux par pacing trans{\oe}sophagien \citep{hagendorff99}. De même, des souris surexprimant l'enzyme de conversion de l'angiotensine sélectivement au niveau cardiaque font des arythmies atriales, notamment de la FA, de manière spontanée à l'état vigil \citep[Figure~\ref{sourisfa}]{xiao04}.
 
 \begin{figure}[tbp]
 	\centering
 	\includegraphics[width=0.8\linewidth]{images/sourisfa.jpg}
-	\caption{Enregistrements ECG télémétriques obtenus chez souris éveillées, soit contrôle (A), soit surexprimant l'enzyme de conversion de l'angiotensine dans le c{\oe}ur (B). Le deuxième enregistrement montre des complexes QRS de faible amplitude, aucune onde P visible et des intervalles RR irréguliers \citep[D'après][]{xiao04}.}
+	\caption{Enregistrements ECG télémétriques obtenus chez deux souris éveillées, soit contrôle (A), soit surexprimant l'enzyme de conversion de l'angiotensine dans le c{\oe}ur (B). Le deuxième enregistrement montre des complexes QRS de faible amplitude, aucune onde P visible et des intervalles RR irréguliers \citep[D'après][]{xiao04}.}
 	\label{sourisfa}
 \end{figure}
 
@@ -636,14 +649,14 @@ En pratique, les groupes de points sont rarement linéairement séparables. Pour p
 	\label{SVM2}
 \end{figure}
 
-Un exemple de l'utilisation de cette méthode est l'étude de \citet{park09}. Cette étude utilise deux indices dérivés du tracé de Poincaré : la distance moyenne entre deux points consécutifs du tracé, et la dispersion des points autour de la diagonale. La machine à vecteurs de support est ensuite utilisée sur ces deux indices pour détecter les tracés ECG contenant des épisodes de FA.
+Un exemple de l'utilisation de cette méthode est fourni par l'étude de \citet{park09}. Cette étude utilise deux indices dérivés du tracé de Poincaré : la distance moyenne entre deux points consécutifs du tracé, et la dispersion des points autour de la diagonale. La machine à vecteurs de support est ensuite utilisée sur ces deux indices pour détecter les tracés ECG contenant des épisodes de FA.
 
 
 \subsection{Performances}
 
 Après avoir mis au point un algorithme de détection d'arythmies, il est nécessaire d'évaluer sa performance. Pour cela, les résultats de l'algorithme sont comparés avec le diagnostic d'un spécialiste. Cela requiert d'avoir des tracés ECG annotés, en nombre suffisant pour pouvoir estimer correctement la performance de l'algorithme.
 
-La solution majoritairement utilisée consiste à se servir de bases de données en libre accès, et en particulier la banque PhysioBank \citep{PhysioNet}. Cette banque contient des bases de données d'enregistrements de signaux physiologiques chez des patients sains ou atteints de diverses pathologies. La base de données MIT-BIH Atrial Fibrillation Database est utilisée particulièrement. Elle contient 23 enregistrements Holter de 10 heures présentant des épisodes de FA paroxystique, et incluant les annotations des différentes arythmies. L'avantage d'utiliser une base de données centrale est que les résultats de différents algorithmes peuvent être comparés entre eux \citep{yaghouby10, jovic12}. Cependant, plusieurs études sont en désaccord avec certaines annotations présentes dans ces bases de données \citep{tateno00, staniczenko09}.
+La solution majoritairement utilisée consiste à se servir de bases de données en libre accès, et en particulier la banque PhysioBank \citep{PhysioNet}. Cette banque contient des bases de données d'enregistrements de signaux physiologiques chez des patients sains ou atteints de diverses pathologies. La base de données MIT-BIH Atrial Fibrillation Database est particulièrement utilisée. Elle contient 23 enregistrements Holter de 10 heures présentant des épisodes de FA paroxystique, et incluant les annotations des différentes arythmies. L'avantage d'utiliser une base de données centrale est que les résultats de différents algorithmes peuvent être comparés entre eux \citep{yaghouby10, jovic12}. Cependant, plusieurs études sont en désaccord avec certaines annotations présentes dans ces bases de données \citep{tateno00, staniczenko09}.
 
 La quantification de la performance d'un algorithme se fait dans un premier temps par le décompte des bonnes et mauvaises détections. Sont décomptés le nombre de cas arythmiques détectés comme arythmiques (VP, vrais positifs), le nombre de cas arythmiques détectés comme non arythmiques (FN, faux négatifs), le nombre de cas non arythmiques détectés comme arythmiques (FP, faux positifs) et le nombre de cas non arythmiques détectés comme non arythmiques (VN, vrais négatifs). À partir de ces quatre valeurs, les indices de sensibilité (VP/(VP+FN)), de spécificité (VN/(VN+FP)) ou de valeur prédictive positive (VP/(VP+FP)) sont généralement calculés pour apprécier la performance de l'algorithme. La sensibilité peut être interprétée comme la probabilité de détecter une arythmie lorsqu'elle est présente, la spécificité comme la probabilité de détecter un rythme sinusal lorsqu'il est présent et la valeur prédictive positive comme la probabilité qu'une arythmie détectée soit correcte.
 
@@ -831,7 +844,7 @@ La détection automatique des arythmies est effectuée grâce à un algorithme fondé
 
 Un premier modèle est introduit, qui sert de base au modèle complet. Dans ce premier modèle, la classe d'un battement $b$ est déterminée par la classe du battement précédent $b-1$, l'intervalle RR entre ces deux battements ($RR_b$) ainsi que l'intervalle RR de référence ($RR_n$) calculé comme la médiane des 5 derniers intervalles RR entre battements classés comme normaux. $RR_n$ reflète le rythme sinusal.
 
-Un battement arythmique est caractérisé par une réduction de l'intervalle RR comparé à l'intervalle RR sinusal. La première règle est donc que si le battement $b-1$ est normal, alors le battement $b$ est classé comme arythmique si $RR_b < k_A RR_n$ et normal dans le cas contraire, pour une certaine valeur de $k_A$. De même, un battement arythmique se termine par une pause compensatrice, dont l'intervalle RR est supérieur à l'intervalle RR sinusal. Ainsi, si le battement $b-1$ est arythmique, le battement $b$ est classé comme pause compensatrice si $RR_b > k_P RR_n$ et arythmique dans le cas contraire, pour une certaine valeur de $k_P$. Une dernière règle est nécessaire pour distinguer un épisode tachyarythmique d'une tachycardie sinusale. Si les cinq derniers battements sont arythmiques et le coefficient de variation des cinq derniers intervalles RR est en dessous d'une certaine valeur $C$, alors la séquence arythmique complète est classée comme normale. Un schéma de ce modèle est illustré sur la Figure~\ref{simplemodel}.
+Un battement arythmique est caractérisé par une réduction de l'intervalle RR comparé à l'intervalle RR sinusal. La première règle est donc que si le battement $b-1$ est normal, alors le battement $b$ est classé comme arythmique si $RR_b < k_A RR_n$ et normal dans le cas contraire, pour une certaine valeur de $k_A$. De même, un battement arythmique se termine par une pause compensatrice, dont l'intervalle RR est supérieur à l'intervalle RR sinusal. Ainsi, si le battement $b-1$ est arythmique, le battement $b$ est classé comme pause compensatrice si $RR_b > k_P RR_n$ et arythmique dans le cas contraire, pour une certaine valeur de $k_P$. Une dernière règle est nécessaire pour distinguer un épisode tachyarythmique d'une tachycardie sinusale. Si les cinq derniers battements sont arythmiques et le coefficient de variation des cinq derniers intervalles RR est en dessous d'une certaine valeur $C$, alors la séquence arythmique complète est classée comme normale. Un schéma de ce modèle est illustré par la Figure~\ref{simplemodel}.
 
 \begin{figure}[tbp]
 	\centering
@@ -895,7 +908,7 @@ Tous les épisodes arythmiques ainsi que les pauses compensatrices ont été exclus
 
 
 
-\chapter{Tachyarythmies atriales spontanées chez le rat hypertendu vieillissant : rôle du système nerveux autonome}
+\chapter{Tachyarythmies atriales spontanées chez le rat spontanément hypertendu vieillissant : rôle du système nerveux autonome}
 
 \begin{description}
 \item [Article :] Unprovoked atrial tachyarrhythmias in aging spontaneously hypertensive rats: the role of the autonomic nervous system
@@ -931,7 +944,7 @@ Cette étude démontre la survenue spontanée d'épisodes de TA chez le rat SHR viei
 
 Gallet C, Chapuis B, Oréa V, Scridon A, Barrès C, Chevalier P, Julien C.
 
-\textit{Cardiovasc Eng Technol, 2013.}
+\textit{Cardiovasc Eng Technol 4: 535--543, 2013.}
 \end{description}
 
 \vspace{1.5cm}
@@ -942,7 +955,7 @@ De nombreuses méthodes de détection existent chez l'Homme, mais ces méthodes ne 
 
 En conclusion, nous proposons une méthode performante pour détecter les épisodes de TA sur des enregistrements ECG de longue durée chez le rat. Cet algorithme est fondé sur l'analyse de la série temporelle des intervalles RR, ce qui permet une détection sur des signaux bruités.
 
-\includepdf[pages={4-12}]{articles/Gallet13.pdf}
+\includepdf[pages={3-11}]{articles/Gallet13.pdf}
 
 
 
@@ -963,7 +976,7 @@ De nombreux modèles animaux ont été développés pour étudier les mécanismes respo
 
 Le modèle animal choisi combine deux facteurs de risque majeurs de la FA, le vieillissement et l'hypertension artérielle. Il existe une lignée de rats spontanément hypertendus (SHR) reconnue comme un bon modèle pour étudier les mécanismes et les complications de l'hypertension artérielle \citep{dornas11}. La description phénotypique de ce modèle a été réalisée par l'implantation de sondes télémétriques pour l'enregistrement de l'ECG. Deux groupes d'âge ont été étudiés : jeunes adultes (14 semaines d'âge) et adultes vieillissants (55 semaines d'âge). Le même type d'enregistrements a été effectué chez les contrôles normotendus des rats SHR, les rats Wistar Kyoto (WKY) qui sont issus du même stock de rats Wistar utilisé pour sélectionner la souche SHR \citep{okamoto63}. La méthode télémétrique a permis de réaliser des enregistrements continus de l'ECG pendant 24 h chez les rats vigils, non contraints, non reliés à un système d'enregistrement et maintenus dans leur environnement habituel. L'analyse des enregistrements de 24 h a révélé la survenue d'épisodes de TA chez le rat SHR vieillissant, épisodes qui ne sont jamais observés chez les rats WKY du même âge, ni chez les jeunes rats SHR ou WKY \citep{scridon12}. De plus, l'étude du système nerveux autonome a suggéré un déséquilibre de la balance sympatho-vagale avec prédominance vagale qui pourrait être impliqué dans l'instabilité électrique atriale observée chez le rat SHR âgé. Enfin, une méthode de détection automatique des épisodes de TA, fondée sur l'analyse des intervalles RR, a été développée à l'aide de ce modèle \citep{gallet13}.
 
-Les TA chez le rat SHR vieillissant sont caractérisées par des épisodes courts entrecoupés de battements sinusaux. Les arythmies réentrantes sont généralement considérées comme nécessitant une masse critique de tissue ($> 100-200 \mbox{ mm}^3$) \citep{garrey14}. Cela pourrait expliquer pourquoi la plupart des épisodes de TA chez le rat se terminent après quelques battements. Cependant, il convient de noter que des épisodes de FA soutenue ont été observés, d'une part chez des souris mutées vigiles (> 10 min) \citep{zhang08} et d'autre part, chez des rats Wistar anesthésiés ayant subi un entraînement physique intense (> 15 min) \citep{guasch13}. Les arythmies atriales sont disposées de façon très hétérogène sur un enregistrement de 24 h. Elles sont généralement regroupées par clusters d'une durée de quelques minutes, et plusieurs heures peuvent se passer sans une seule extrasystole auriculaire. Cependant, les arythmies sont légèrement mais significativement plus fréquentes le jour que la nuit (résultats non publiés). Cela renforce l'hypothèse d'une implication du système nerveux parasympathique dans ces arythmies. En effet, le rat étant moins actif le jour que la nuit, son tonus vagal est probablement plus élevé pendant cette période. Il y a aussi une variabilité interindividuelle du nombre d'arythmies, malgré l'homogénéité génétique présumée de la souche SHR. En effet, un rat SHR du groupe utilisé pour la détection automatique des arythmies ne présentait pas plus de 20 épisodes de TA sur 24 h, et ce, quel que soit son âge. À l'opposé, certains enregistrements effectués sur d'autres rats comptaient plusieurs milliers d'épisodes de TA.
+Les TA chez le rat SHR vieillissant sont caractérisées par des épisodes courts entrecoupés de battements sinusaux. Les arythmies réentrantes sont généralement considérées comme nécessitant une masse critique de tissue ($> 100-200 \mbox{ mm}^3$) \citep{garrey14}. Cela pourrait expliquer pourquoi la plupart des épisodes de TA chez le rat se terminent après quelques battements. Cependant, il convient de noter que des épisodes de FA soutenue ont été observés, d'une part chez des souris mutées vigiles (> 10 min) \citep{zhang08} et d'autre part, chez des rats Wistar anesthésiés ayant subi un entraînement physique intense (> 15 min) \citep{guasch13}. Les arythmies atriales sont disposées de façon très hétérogène sur un enregistrement de 24 h. Elles sont généralement regroupées par clusters d'une durée de quelques minutes, et plusieurs heures peuvent se passer sans une seule extrasystole auriculaire. Cependant, les arythmies sont légèrement, mais significativement, plus fréquentes le jour que la nuit (résultats non publiés). Cela renforce l'hypothèse d'une implication du système nerveux parasympathique dans ces arythmies \citep{ashton13}. En effet, le rat étant moins actif le jour que la nuit, son tonus vagal est probablement plus élevé pendant cette période. Il y a aussi une variabilité interindividuelle du nombre d'arythmies, malgré l'homogénéité génétique présumée de la souche SHR. En effet, un rat SHR du groupe utilisé pour la détection automatique des arythmies ne présentait pas plus de 20 épisodes de TA sur 24 h, et ce, quel que soit son âge. À l'opposé, certains enregistrements effectués sur d'autres rats comptaient plusieurs milliers d'épisodes de TA.
 
 Cette variabilité est à prendre en compte dans la mise en place des protocoles utilisant ce modèle. En effet, diverses substances ont été utilisées pour l'étude du système nerveux autonome, notamment l'atropine et l'aténolol qui ont été administrés en une injection par voie sous-cutanée. Même administrées à des doses élevées, l'effet de ces molécules s'atténue sensiblement au-delà de 30 minutes. Il n'a donc pas été possible de comparer de manière fiable le nombre d'arythmies avant et après blocage. Selon notre hypothèse de la participation vagale aux arythmies atriales, l'atropine aurait dû diminuer le nombre d'arythmies. Cependant, si aucune arythmie atriale n'a été observée durant l'intervalle d'action de l'atropine, les périodes précédant l'injection étaient pour certaines vierges d'arythmies. Ainsi, il n'a pas été possible de conclure quant à l'effet de l'atropine sur les arythmies atriales. Il est donc nécessaire de prolonger la durée du blocage, par exemple en utilisant une mini-pompe osmotique qui permet d'administrer de manière continue la substance pendant plusieurs jours \citep{dinsdale88, watson89}. Comme nous avons montré que le nombre d'arythmies était reproductible sur deux périodes consécutives de 24 h, nous pourrions ainsi décrire correctement l'effet de l'atropine sur ces arythmies.
 
@@ -1048,7 +1061,8 @@ DISCIPLINE : Biologie, Médecine, Santé
 
 \vspace{2mm}
 
-MOTS-CLÉS : fibrillation atriale, electrocardiogramme, analyse automatique
+MOTS-CLÉS : fibrillation atriale, électrocardiogramme, analyse automatique
+
 KEYWORDS : atrial fibrillation, electrocardiogram, automatic analysis
 
 \vspace{2mm}
